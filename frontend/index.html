@@ -1,1027 +1,982 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESTRUCTIV | Clash Royale Boosting</title>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg: #0a0a12; --card: #151525; --primary: #ff003c; --accent: #7000ff; --text: #fff; --gold: #ffd700; --success: #00e676; --cr-elixir: #ff4081; --cr-gem: #00e5ff; }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
-        h1, h2, h3, h4 { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        button { cursor: pointer; font-family: inherit; border: none; outline: none; }
-        input, select, textarea { font-family: inherit; }
-        body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 20% 80%, rgba(112,0,255,0.12), transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,0,60,0.1), transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(0,229,255,0.06), transparent 60%); z-index: -1; }
-        .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; overflow: hidden; }
-        .particle { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: float 15s infinite linear; opacity: 0.6; }
-        .particle:nth-child(odd) { background: var(--primary); }
-        .particle:nth-child(even) { background: var(--accent); }
-        .particle:nth-child(3n) { background: var(--cr-gem); }
-        .particle:nth-child(5n) { width: 6px; height: 6px; background: var(--gold); animation-duration: 20s; }
-        @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100px) rotate(720deg); opacity: 0; } }
-        .confetti { position: fixed; width: 10px; height: 10px; animation: confettiFall 3s linear forwards; z-index: 9999; pointer-events: none; border-radius: 2px; }
-        @keyframes confettiFall { 0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg) scale(0); opacity: 0; } }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(10,10,18,0.98); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary); backdrop-filter: blur(12px); box-shadow: 0 5px 30px rgba(0,0,0,0.6); }
-        .logo { font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: 2px; text-shadow: 2px 2px 0 var(--primary); }
-        .logo span { color: var(--primary); }
-        .nav-links { display: flex; gap: 22px; align-items: center; }
-        .nav-links a, .nav-links button { background: none; color: var(--text); font-weight: 600; font-size: 0.95rem; padding: 8px 12px; border-radius: 6px; transition: 0.3s; }
-        .nav-links a:hover, .nav-links button:hover { color: var(--primary); background: rgba(255,0,60,0.15); text-shadow: 0 0 10px var(--primary); }
-        .nav-top { display: flex; gap: 15px; align-items: center; margin-left: auto; }
-        .currency-select { background: #0f0f1f; border: 1px solid #333; color: var(--gold); padding: 6px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
-        .auth-btns { display: flex; gap: 8px; }
-        .btn { padding: 9px 18px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); transition: 0.3s; border-radius: 4px; }
-        .btn-login { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
-        .btn-login:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px var(--primary); }
-        .btn-reg { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; }
-        .btn-reg:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(10,10,18,0.85), rgba(20,10,30,0.92)), url('https://wallpapers.com/images/hd/clash-royale-legendary-arena-background.jpg') center/cover; padding-top: 80px; position: relative; }
-        .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, var(--bg), transparent); }
-        .hero-content { z-index: 2; max-width: 950px; padding: 20px; }
-        .hero h1 { font-size: 4.8rem; line-height: 1; margin-bottom: 18px; text-shadow: 4px 4px 0 var(--accent); animation: glow 3s infinite alternate; }
-        @keyframes glow { from { text-shadow: 4px 4px 0 var(--accent), 0 0 25px rgba(112,0,255,0.5); } to { text-shadow: 4px 4px 0 var(--primary), 0 0 45px rgba(255,0,60,0.8); } }
-        .hero h1 span { color: var(--primary); display: block; font-size: 5.8rem; filter: drop-shadow(0 0 18px var(--primary)); }
-        .hero p { font-size: 1.25rem; color: #e0e0e0; margin-bottom: 35px; max-width: 650px; margin-left: auto; margin-right: auto; background: rgba(20,20,40,0.75); padding: 14px 20px; border-left: 4px solid var(--primary); border-radius: 0 10px 10px 0; backdrop-filter: blur(5px); }
-        .cta { display: inline-block; padding: 16px 45px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; font-weight: 800; font-size: 1.25rem; text-transform: uppercase; clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%); box-shadow: 0 0 35px rgba(112,0,255,0.5); transition: 0.3s; }
-        .cta:hover { transform: scale(1.06); box-shadow: 0 0 60px var(--primary); }
-        .trustpilot-bar { background: rgba(20,20,35,0.95); padding: 12px 25px; display: flex; align-items: center; justify-content: center; gap: 15px; border-bottom: 1px solid #222; }
-        .trustpilot-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
-        .trustpilot-text { color: #aaa; font-size: 0.9rem; }
-        .trustpilot-count { color: var(--success); font-weight: 700; }
-        .service-tabs { display: flex; justify-content: center; gap: 8px; padding: 20px 5%; background: rgba(15,15,28,0.9); border-bottom: 1px solid #222; flex-wrap: wrap; }
-        .tab-btn { padding: 10px 20px; background: transparent; border: 2px solid #333; color: #aaa; font-weight: 600; border-radius: 8px; transition: 0.3s; font-size: 0.9rem; }
-        .tab-btn.active, .tab-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(112,0,255,0.15); box-shadow: 0 0 15px rgba(112,0,255,0.3); }
-        .calculator-section { padding: 60px 5%; background: linear-gradient(180deg, transparent, rgba(20,15,35,0.7), transparent); }
-        .calc-container { max-width: 900px; margin: 0 auto; background: var(--card); border-radius: 20px; padding: 35px; border: 1px solid #333; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-        .calc-header { text-align: center; margin-bottom: 30px; }
-        .calc-header h3 { font-size: 1.8rem; color: var(--gold); margin-bottom: 8px; }
-        .calc-header p { color: #aaa; font-size: 0.95rem; }
-        .slider-group { margin: 25px 0; }
-        .slider-label { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: 600; }
-        .slider-value { color: var(--primary); font-weight: 800; }
-        .custom-slider { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 4px; background: #222; outline: none; }
-        .custom-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); cursor: pointer; border: 3px solid #fff; box-shadow: 0 0 15px var(--primary); transition: 0.2s; }
-        .custom-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
-        .price-display { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 12px; margin: 25px 0; }
-        .price-label { color: #aaa; font-size: 0.95rem; margin-bottom: 8px; }
-        .price-amount { font-size: 3rem; font-weight: 800; color: var(--success); text-shadow: 0 0 20px rgba(0,230,118,0.5); }
-        .price-currency { font-size: 1.5rem; color: var(--gold); }
-        .addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
-        .addon-card { background: rgba(20,20,35,0.8); padding: 15px; border-radius: 10px; border: 1px solid #333; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; }
-        .addon-card:hover, .addon-card.active { border-color: var(--accent); background: rgba(112,0,255,0.15); }
-        .addon-checkbox { width: 20px; height: 20px; border: 2px solid #555; border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .addon-card.active .addon-checkbox { background: var(--success); border-color: var(--success); }
-        .addon-card.active .addon-checkbox::after { content: '✓'; color: #000; font-weight: bold; font-size: 14px; }
-        .addon-info h4 { font-size: 0.95rem; margin-bottom: 3px; }
-        .addon-info p { font-size: 0.8rem; color: #888; }
-        .addon-price { margin-left: auto; color: var(--gold); font-weight: 700; font-size: 0.9rem; }
-        .booster-select { margin: 25px 0; }
-        .booster-select label { display: block; margin-bottom: 12px; font-weight: 600; }
-        .booster-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-        .booster-option { background: rgba(20,20,35,0.8); padding: 12px; border-radius: 10px; border: 2px solid #333; cursor: pointer; transition: 0.3s; text-align: center; }
-        .booster-option:hover, .booster-option.selected { border-color: var(--primary); background: rgba(255,0,60,0.15); }
-        .booster-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
-        .booster-name { font-weight: 600; font-size: 0.9rem; }
-        .booster-rating { color: var(--gold); font-size: 0.8rem; }
-        .order-notes { margin: 25px 0; }
-        .order-notes label { display: block; margin-bottom: 10px; font-weight: 600; }
-        .order-notes textarea { width: 100%; padding: 14px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 0.95rem; min-height: 80px; resize: vertical; }
-        .order-notes textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(255,0,60,0.3); }
-        .order-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--success), #00c853); color: #000; font-weight: 800; font-size: 1.2rem; border-radius: 12px; text-transform: uppercase; margin-top: 10px; box-shadow: 0 0 30px rgba(0,230,118,0.4); transition: 0.3s; }
-        .order-btn:hover { transform: scale(1.03); box-shadow: 0 0 50px var(--success); }
-        .guarantees { padding: 50px 5%; background: rgba(15,15,28,0.8); }
-        .guarantees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
-        .guarantee-card { text-align: center; padding: 25px 20px; background: var(--card); border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
-        .guarantee-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .guarantee-icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .guarantee-card h4 { font-size: 1.1rem; margin-bottom: 10px; color: var(--gold); }
-        .guarantee-card p { color: #aaa; font-size: 0.9rem; line-height: 1.5; }
-        .live-reviews { padding: 40px 5%; background: linear-gradient(180deg, transparent, rgba(20,15,35,0.6), transparent); overflow: hidden; }
-        .reviews-track { display: flex; gap: 20px; animation: scrollReviews 40s linear infinite; width: max-content; }
-        @keyframes scrollReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .review-item { background: var(--card); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); min-width: 320px; max-width: 320px; }
-        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .review-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cr-gem)); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; }
-        .review-user { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
-        .review-stars { color: var(--gold); font-size: 0.85rem; margin-left: auto; }
-        .review-text { color: #ccc; font-size: 0.9rem; line-height: 1.5; }
-        .review-time { color: #666; font-size: 0.8rem; margin-top: 8px; }
-        .faq-section { padding: 60px 5%; }
-        .faq-container { max-width: 800px; margin: 0 auto; }
-        .faq-item { background: var(--card); border-radius: 12px; margin-bottom: 12px; border: 1px solid #333; overflow: hidden; }
-        .faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; }
-        .faq-question:hover { background: rgba(112,0,255,0.1); color: var(--primary); }
-        .faq-question::after { content: '+'; font-size: 1.5rem; color: var(--accent); transition: 0.3s; }
-        .faq-item.active .faq-question::after { content: '−'; transform: rotate(180deg); }
-        .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: #aaa; line-height: 1.6; font-size: 0.95rem; }
-        .faq-item.active .faq-answer { padding: 0 25px 20px; max-height: 500px; }
-        .newsletter { padding: 50px 5%; background: linear-gradient(135deg, rgba(112,0,255,0.2), rgba(255,0,60,0.15)); text-align: center; }
-        .newsletter h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
-        .newsletter p { color: #ccc; margin-bottom: 25px; max-width: 500px; margin-left: auto; margin-right: auto; }
-        .newsletter-form { display: flex; gap: 10px; max-width: 450px; margin: 0 auto; }
-        .newsletter-input { flex: 1; padding: 14px 18px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 1rem; }
-        .newsletter-input:focus { outline: none; border-color: var(--accent); }
-        .newsletter-btn { padding: 14px 25px; background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; font-weight: 700; border-radius: 10px; text-transform: uppercase; }
-        .profile-section { display: none; padding-top: 120px; min-height: 100vh; }
-        .profile-section.active { display: block; animation: fadeIn 0.5s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .profile-dashboard { display: grid; grid-template-columns: 320px 1fr; gap: 35px; max-width: 1100px; margin: 0 auto; padding: 0 5%; }
-        .profile-sidebar { background: var(--card); padding: 35px; border-radius: 20px; border: 1px solid #333; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: sticky; top: 100px; }
-        .profile-avatar-container { position: relative; width: 110px; height: 110px; margin: 0 auto 20px; cursor: pointer; transition: 0.3s; }
-        .profile-avatar-container:hover { transform: scale(1.1); }
-        .profile-avatar { width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: bold; border: 4px solid var(--text); box-shadow: 0 0 30px rgba(112,0,255,0.5); }
-        .avatar-hint { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: #aaa; white-space: nowrap; opacity: 0; transition: 0.3s; background: rgba(0,0,0,0.8); padding: 4px 10px; border-radius: 20px; }
-        .profile-avatar-container:hover .avatar-hint { opacity: 1; bottom: -32px; }
-        .profile-name { font-size: 1.4rem; font-weight: 700; margin: 10px 0 5px; }
-        .profile-email { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-        .balance { font-size: 1.7rem; color: var(--success); margin: 15px 0; font-weight: 800; text-shadow: 0 0 15px rgba(0,230,118,0.4); }
-        .ref-box { background: #0f0f1f; padding: 12px; border-radius: 10px; font-size: 0.8rem; word-break: break-all; margin: 15px 0; border: 1px dashed #444; color: #ccc; }
-        .edit-btn { background: var(--accent); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 0.9rem; width: 100%; margin-top: 8px; transition: 0.3s; font-weight: 600; }
-        .edit-btn:hover { background: var(--primary); }
-        .order-list { display: flex; flex-direction: column; gap: 18px; }
-        .order-card { background: var(--card); padding: 22px; border-radius: 12px; border-left: 5px solid #333; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
-        .order-card:hover { transform: translateX(8px); background: #1a1a2a; }
-        .order-card.status-active { border-left-color: var(--success); box-shadow: 0 5px 20px rgba(0,230,118,0.1); }
-        .status-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
-        .status-active .status-badge { background: rgba(0,230,118,0.2); color: var(--success); }
-        .floating-reviews { position: fixed; bottom: 25px; right: 25px; width: 310px; z-index: 2000; display: flex; flex-direction: column; gap: 12px; pointer-events: none; }
-        .float-review { background: rgba(20,20,35,0.98); backdrop-filter: blur(12px); padding: 16px 20px; border-radius: 14px; border-left: 4px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275); pointer-events: auto; max-width: 310px; border: 1px solid #2a2a4a; }
-        .float-review.show { transform: translateX(0); }
-        .float-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        .float-user { font-weight: 700; color: var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
-        .float-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cr-gem)); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
-        .float-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; }
-        .float-text { color: #ddd; font-size: 0.9rem; line-height: 1.45; }
-        .float-close { position: absolute; top: 8px; right: 12px; color: #555; cursor: pointer; font-size: 1.3rem; pointer-events: auto; transition: 0.2s; }
-        .float-close:hover { color: var(--primary); }
-        footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-top: 2px solid var(--accent); margin-top: 40px; }
-        .footer-logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; display: inline-block; text-shadow: 0 0 15px rgba(255,0,60,0.5); }
-        .socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 25px; flex-wrap: wrap; }
-        .socials a { padding: 11px 24px; border: 2px solid var(--accent); color: #fff; border-radius: 50px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; gap: 7px; }
-        .socials a:hover { background: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(112,0,255,0.4); }
-        .copyright { color: #444; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #1a1a2a; }
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); justify-content: center; align-items: center; animation: fadeIn 0.3s; }
-        .modal-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--primary); width: 100%; max-width: 460px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(255,0,60,0.35); transform: scale(0.95); transition: 0.3s ease; }
-        .modal.show .modal-content { transform: scale(1); }
-        .close { position: absolute; top: 18px; right: 22px; color: #aaa; font-size: 30px; cursor: pointer; transition: 0.2s; line-height: 1; }
-        .close:hover { color: var(--primary); transform: rotate(90deg) scale(1.1); }
-        .modal h2 { margin-bottom: 28px; text-align: center; color: #fff; font-size: 2rem; letter-spacing: 1px; }
-        .form-group { margin-bottom: 22px; }
-        .form-group label { display: block; margin-bottom: 10px; color: #b0b0c0; font-size: 0.95rem; font-weight: 600; }
-        .form-group input { width: 100%; padding: 15px; background: #0f0f1f; border: 2px solid #333; color: #fff; border-radius: 12px; font-size: 1rem; transition: 0.3s; }
-        .form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 18px rgba(255,0,60,0.25); }
-        .captcha-box { background: #0f0f1f; border: 2px solid #333; padding: 22px; margin: 22px 0; border-radius: 14px; text-align: center; }
-        .captcha-question { font-size: 1.6rem; font-weight: 800; color: var(--accent); margin-bottom: 18px; letter-spacing: 3px; text-shadow: 0 0 12px var(--accent); font-family: monospace; }
-        .captcha-input { width: 110px !important; text-align: center; font-size: 1.6rem !important; display: inline-block !important; font-weight: bold; background: #1a1a2a !important; }
-        .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--primary), var(--accent)); border: none; color: #fff; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-top: 12px; border-radius: 12px; font-size: 1.1rem; transition: 0.3s; letter-spacing: 1px; }
-        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255,0,60,0.4); }
-        .chat-modal { z-index: 4000; }
-        .chat-window { background: #1a1a2e; width: 100%; max-width: 560px; height: 670px; border: 2px solid var(--accent); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 0 60px rgba(112,0,255,0.35); }
-        .chat-header { padding: 20px 25px; background: linear-gradient(90deg, var(--primary), var(--accent)); display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.1rem; }
-        .chat-messages { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; background: #131325; }
-        .msg { max-width: 82%; padding: 13px 19px; border-radius: 16px; font-size: 0.98rem; line-height: 1.5; animation: popIn 0.35s cubic-bezier(0.175,0.885,0.32,1.275); }
-        @keyframes popIn { from { opacity: 0; transform: scale(0.85) translateY(25px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-        .msg.bot { align-self: flex-start; background: #16213e; border-bottom-left-radius: 6px; border-left: 3px solid var(--accent); color: #eee; }
-        .msg.user { align-self: flex-end; background: var(--primary); border-bottom-right-radius: 6px; color: #fff; box-shadow: 0 6px 18px rgba(255,0,60,0.35); }
-        .msg.system { align-self: center; background: rgba(0,0,0,0.65); color: var(--gold); font-size: 0.88rem; padding: 9px 22px; border-radius: 22px; border: 1px solid var(--gold); font-weight: 500; }
-        .chat-input-area { padding: 20px 25px; background: #121222; display: flex; gap: 14px; border-top: 1px solid #333; }
-        .chat-input { flex: 1; padding: 16px; background: #0f0f1f; border: 2px solid #333; color: #fff; border-radius: 12px; font-size: 1rem; }
-        .chat-input:focus { border-color: var(--primary); }
-        .chat-send { padding: 0 26px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; font-weight: 700; border-radius: 12px; font-size: 1.25rem; transition: 0.3s; }
-        .chat-send:hover { transform: scale(1.08); }
-        .pay-btn { display: block; width: 100%; padding: 19px; background: var(--success); color: #000; font-weight: 900; text-align: center; border-radius: 12px; margin-top: 16px; text-transform: uppercase; font-size: 1.1rem; animation: pulseBtn 1.6s infinite; box-shadow: 0 0 25px rgba(0,230,118,0.45); }
-        @keyframes pulseBtn { 0% { box-shadow: 0 0 0 0 rgba(0,230,118,0.7); } 70% { box-shadow: 0 0 0 18px rgba(0,230,118,0); } 100% { box-shadow: 0 0 0 0 rgba(0,230,118,0); } }
-        .notification-container { position: fixed; top: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; max-width: 350px; }
-        .notification { background: #1a1a2a; color: #fff; padding: 16px 22px; border-radius: 12px; border-left: 5px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.45s cubic-bezier(0.175,0.885,0.32,1.275); display: flex; align-items: center; gap: 12px; font-size: 0.95rem; border: 1px solid #2a2a4a; }
-        .notification.show { transform: translateX(0); }
-        .notification.success { border-left-color: var(--success); }
-        .notification.error { border-left-color: #ff003c; }
-        .notification.info { border-left-color: var(--accent); }
-        .wheel-section { padding: 60px 5%; background: radial-gradient(circle at center, rgba(20,15,40,0.9) 0%, var(--bg) 100%); }
-        .wheel-container { position: relative; width: 380px; height: 380px; margin: 0 auto; }
-        canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-bezier(0.17,0.67,0.12,0.99); filter: drop-shadow(0 0 25px rgba(112,0,255,0.45)); border-radius: 50%; }
-        .wheel-pointer { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); width: 42px; height: 52px; background: var(--primary); clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; filter: drop-shadow(0 6px 6px rgba(0,0,0,0.5)); border-radius: 0 0 8px 8px; }
-        .wheel-pointer::after { content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: #fff; border-radius: 50%; }
-        .wheel-btn { display: block; margin: 32px auto 0; padding: 16px 52px; background: linear-gradient(135deg, var(--gold), #ffaa00); color: #000; font-weight: 800; font-size: 1.35rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 0 35px rgba(255,215,0,0.45); transition: 0.3s; }
-        .wheel-btn:hover { transform: scale(1.08); box-shadow: 0 0 55px rgba(255,215,0,0.8); }
-        .wheel-btn:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(1); transform: none !important; }
-        .wheel-result { text-align: center; font-size: 1.9rem; color: var(--gold); font-weight: 700; min-height: 55px; margin-top: 22px; text-shadow: 0 0 18px var(--gold); opacity: 0; transition: 0.5s; }
-        .wheel-result.show { opacity: 1; transform: translateY(-12px); }
-        .verify-modal { z-index: 3500; }
-        .verify-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--accent); width: 100%; max-width: 420px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(112,0,255,0.4); text-align: center; }
-        .verify-code-inputs { display: flex; gap: 10px; justify-content: center; margin: 25px 0; }
-        .verify-digit { width: 50px; height: 60px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 1.8rem; font-weight: bold; text-align: center; }
-        .verify-digit:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 15px rgba(112,0,255,0.4); }
-        .verify-email { color: var(--gold); font-weight: 600; margin: 10px 0 20px; font-size: 1.1rem; }
-        .verify-hint { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-        .verify-resend { color: var(--accent); cursor: pointer; font-size: 0.9rem; margin-top: 15px; display: inline-block; }
-        .verify-resend:hover { text-decoration: underline; }
-        .verify-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--primary)); border: none; color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 10px; margin-top: 10px; cursor: pointer; }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3.2rem; }
-            .hero h1 span { font-size: 3.8rem; }
-            .nav-links { display: none; }
-            .logo { font-size: 1.5rem; }
-            .profile-dashboard { grid-template-columns: 1fr; }
-            .profile-sidebar { position: static; }
-            .wheel-container { width: 300px; height: 300px; }
-            .floating-reviews { display: none; }
-            .newsletter-form { flex-direction: column; }
-            .calc-container { padding: 25px; }
-            .price-amount { font-size: 2.5rem; }
-            .verify-code-inputs { flex-wrap: wrap; }
-            .verify-digit { width: 45px; height: 55px; font-size: 1.5rem; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DESTRUCTIV | Clash Royale Boosting</title>
+<!-- SEO Meta Tags -->
+<meta name="description" content="DESTRUCTIV Shop — профессиональный буст Clash Royale. Быстро, безопасно, анонимно.">
+<meta name="keywords" content="clash royale boost, буст клеш рояль, купить гемы, поднять кубки, destructiv shop">
+<meta name="author" content="DESTRUCTIV Shop">
+<link rel="canonical" href="https://destructiv-shop.vercel.app">
+
+<!-- Open Graph for Social Media -->
+<meta property="og:title" content="DESTRUCTIV Shop | Clash Royale Boosting">
+<meta property="og:description" content="Лучший сервис буста в Clash Royale. Закажи сейчас!">
+<meta property="og:image" content="https://destructiv-shop.vercel.app/logo.png">
+<meta property="og:url" content="https://destructiv-shop.vercel.app">
+<meta property="og:type" content="website">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root { --bg: #0a0a12; --card: #151525; --primary: #ff003c; --accent: #7000ff; --text: #fff; --gold: #ffd700; --success: #00e676; --cr-elixir: #ff4081; --cr-gem: #00e5ff; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
+h1, h2, h3, h4 { font-family: 'Rajdhani', sans-serif; text-transform: uppercase; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+button { cursor: pointer; font-family: inherit; border: none; outline: none; }
+input, select, textarea { font-family: inherit; }
+body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 20% 80%, rgba(112,0,255,0.12), transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(255,0,60,0.1), transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(0,229,255,0.06), transparent 60%); z-index: -1; }
+.particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; overflow: hidden; }
+.particle { position: absolute; width: 4px; height: 4px; border-radius: 50%; animation: float 15s infinite linear; opacity: 0.6; }
+.particle:nth-child(odd) { background: var(--primary); }
+.particle:nth-child(even) { background: var(--accent); }
+.particle:nth-child(3n) { background: var(--cr-gem); }
+.particle:nth-child(5n) { width: 6px; height: 6px; background: var(--gold); animation-duration: 20s; }
+@keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100px) rotate(720deg); opacity: 0; } }
+.confetti { position: fixed; width: 10px; height: 10px; animation: confettiFall 3s linear forwards; z-index: 9999; pointer-events: none; border-radius: 2px; }
+@keyframes confettiFall { 0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg) scale(0); opacity: 0; } }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(10,10,18,0.98); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary); backdrop-filter: blur(12px); box-shadow: 0 5px 30px rgba(0,0,0,0.6); }
+.logo { font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: 2px; text-shadow: 2px 2px 0 var(--primary); }
+.logo span { color: var(--primary); }
+.nav-links { display: flex; gap: 22px; align-items: center; }
+.nav-links a, .nav-links button { background: none; color: var(--text); font-weight: 600; font-size: 0.95rem; padding: 8px 12px; border-radius: 6px; transition: 0.3s; }
+.nav-links a:hover, .nav-links button:hover { color: var(--primary); background: rgba(255,0,60,0.15); text-shadow: 0 0 10px var(--primary); }
+.nav-top { display: flex; gap: 15px; align-items: center; margin-left: auto; }
+.currency-select { background: #0f0f1f; border: 1px solid #333; color: var(--gold); padding: 6px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.auth-btns { display: flex; gap: 8px; }
+.btn { padding: 9px 18px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); transition: 0.3s; border-radius: 4px; }
+.btn-login { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-login:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px var(--primary); }
+.btn-reg { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; }
+.btn-reg:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(10,10,18,0.85), rgba(20,10,30,0.92)), url('https://wallpapers.com/images/hd/clash-royale-legendary-arena-background.jpg') center/cover; padding-top: 80px; position: relative; }
+.hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, var(--bg), transparent); }
+.hero-content { z-index: 2; max-width: 950px; padding: 20px; }
+.hero h1 { font-size: 4.8rem; line-height: 1; margin-bottom: 18px; text-shadow: 4px 4px 0 var(--accent); animation: glow 3s infinite alternate; }
+@keyframes glow { from { text-shadow: 4px 4px 0 var(--accent), 0 0 25px rgba(112,0,255,0.5); } to { text-shadow: 4px 4px 0 var(--primary), 0 0 45px rgba(255,0,60,0.8); } }
+.hero h1 span { color: var(--primary); display: block; font-size: 5.8rem; filter: drop-shadow(0 0 18px var(--primary)); }
+.hero p { font-size: 1.25rem; color: #e0e0e0; margin-bottom: 35px; max-width: 650px; margin-left: auto; margin-right: auto; background: rgba(20,20,40,0.75); padding: 14px 20px; border-left: 4px solid var(--primary); border-radius: 0 10px 10px 0; backdrop-filter: blur(5px); }
+.cta { display: inline-block; padding: 16px 45px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; font-weight: 800; font-size: 1.25rem; text-transform: uppercase; clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%); box-shadow: 0 0 35px rgba(112,0,255,0.5); transition: 0.3s; }
+.cta:hover { transform: scale(1.06); box-shadow: 0 0 60px var(--primary); }
+.trustpilot-bar { background: rgba(20,20,35,0.95); padding: 12px 25px; display: flex; align-items: center; justify-content: center; gap: 15px; border-bottom: 1px solid #222; }
+.trustpilot-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
+.trustpilot-text { color: #aaa; font-size: 0.9rem; }
+.trustpilot-count { color: var(--success); font-weight: 700; }
+.service-tabs { display: flex; justify-content: center; gap: 8px; padding: 20px 5%; background: rgba(15,15,28,0.9); border-bottom: 1px solid #222; flex-wrap: wrap; }
+.tab-btn { padding: 10px 20px; background: transparent; border: 2px solid #333; color: #aaa; font-weight: 600; border-radius: 8px; transition: 0.3s; font-size: 0.9rem; }
+.tab-btn.active, .tab-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(112,0,255,0.15); box-shadow: 0 0 15px rgba(112,0,255,0.3); }
+.calculator-section { padding: 60px 5%; background: linear-gradient(180deg, transparent, rgba(20,15,35,0.7), transparent); }
+.calc-container { max-width: 900px; margin: 0 auto; background: var(--card); border-radius: 20px; padding: 35px; border: 1px solid #333; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.calc-header { text-align: center; margin-bottom: 30px; }
+.calc-header h3 { font-size: 1.8rem; color: var(--gold); margin-bottom: 8px; }
+.calc-header p { color: #aaa; font-size: 0.95rem; }
+.slider-group { margin: 25px 0; }
+.slider-label { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: 600; }
+.slider-value { color: var(--primary); font-weight: 800; }
+.custom-slider { -webkit-appearance: none; width: 100%; height: 8px; border-radius: 4px; background: #222; outline: none; }
+.custom-slider::-webkit-slider-thumb { -webkit-appearance: none; width: 24px; height: 24px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); cursor: pointer; border: 3px solid #fff; box-shadow: 0 0 15px var(--primary); transition: 0.2s; }
+.custom-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.price-display { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 12px; margin: 25px 0; }
+.price-label { color: #aaa; font-size: 0.95rem; margin-bottom: 8px; }
+.price-amount { font-size: 3rem; font-weight: 800; color: var(--success); text-shadow: 0 0 20px rgba(0,230,118,0.5); }
+.price-currency { font-size: 1.5rem; color: var(--gold); }
+.addons-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 25px 0; }
+.addon-card { background: rgba(20,20,35,0.8); padding: 15px; border-radius: 10px; border: 1px solid #333; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: 0.3s; }
+.addon-card:hover, .addon-card.active { border-color: var(--accent); background: rgba(112,0,255,0.15); }
+.addon-checkbox { width: 20px; height: 20px; border: 2px solid #555; border-radius: 5px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.addon-card.active .addon-checkbox { background: var(--success); border-color: var(--success); }
+.addon-card.active .addon-checkbox::after { content: '✓'; color: #000; font-weight: bold; font-size: 14px; }
+.addon-info h4 { font-size: 0.95rem; margin-bottom: 3px; }
+.addon-info p { font-size: 0.8rem; color: #888; }
+.addon-price { margin-left: auto; color: var(--gold); font-weight: 700; font-size: 0.9rem; }
+.booster-select { margin: 25px 0; }
+.booster-select label { display: block; margin-bottom: 12px; font-weight: 600; }
+.booster-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.booster-option { background: rgba(20,20,35,0.8); padding: 12px; border-radius: 10px; border: 2px solid #333; cursor: pointer; transition: 0.3s; text-align: center; }
+.booster-option:hover, .booster-option.selected { border-color: var(--primary); background: rgba(255,0,60,0.15); }
+.booster-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--accent)); margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
+.booster-name { font-weight: 600; font-size: 0.9rem; }
+.booster-rating { color: var(--gold); font-size: 0.8rem; }
+.order-notes { margin: 25px 0; }
+.order-notes label { display: block; margin-bottom: 10px; font-weight: 600; }
+.order-notes textarea { width: 100%; padding: 14px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 0.95rem; min-height: 80px; resize: vertical; }
+.order-notes textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(255,0,60,0.3); }
+.order-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--success), #00c853); color: #000; font-weight: 800; font-size: 1.2rem; border-radius: 12px; text-transform: uppercase; margin-top: 10px; box-shadow: 0 0 30px rgba(0,230,118,0.4); transition: 0.3s; }
+.order-btn:hover { transform: scale(1.03); box-shadow: 0 0 50px var(--success); }
+.guarantees { padding: 50px 5%; background: rgba(15,15,28,0.8); }
+.guarantees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+.guarantee-card { text-align: center; padding: 25px 20px; background: var(--card); border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
+.guarantee-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.guarantee-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.guarantee-card h4 { font-size: 1.1rem; margin-bottom: 10px; color: var(--gold); }
+.guarantee-card p { color: #aaa; font-size: 0.9rem; line-height: 1.5; }
+.live-reviews { padding: 40px 5%; background: linear-gradient(180deg, transparent, rgba(20,15,35,0.6), transparent); overflow: hidden; }
+.reviews-track { display: flex; gap: 20px; animation: scrollReviews 40s linear infinite; width: max-content; }
+@keyframes scrollReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.review-item { background: var(--card); padding: 20px; border-radius: 12px; border-left: 4px solid var(--primary); min-width: 320px; max-width: 320px; }
+.review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.review-avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cr-gem)); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.1rem; }
+.review-user { font-weight: 700; color: var(--primary); font-size: 0.95rem; }
+.review-stars { color: var(--gold); font-size: 0.85rem; margin-left: auto; }
+.review-text { color: #ccc; font-size: 0.9rem; line-height: 1.5; }
+.review-time { color: #666; font-size: 0.8rem; margin-top: 8px; }
+.faq-section { padding: 60px 5%; }
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { background: var(--card); border-radius: 12px; margin-bottom: 12px; border: 1px solid #333; overflow: hidden; }
+.faq-question { padding: 20px 25px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; transition: 0.3s; }
+.faq-question:hover { background: rgba(112,0,255,0.1); color: var(--primary); }
+.faq-question::after { content: '+'; font-size: 1.5rem; color: var(--accent); transition: 0.3s; }
+.faq-item.active .faq-question::after { content: '−'; transform: rotate(180deg); }
+.faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: #aaa; line-height: 1.6; font-size: 0.95rem; }
+.faq-item.active .faq-answer { padding: 0 25px 20px; max-height: 500px; }
+.newsletter { padding: 50px 5%; background: linear-gradient(135deg, rgba(112,0,255,0.2), rgba(255,0,60,0.15)); text-align: center; }
+.newsletter h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
+.newsletter p { color: #ccc; margin-bottom: 25px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.newsletter-form { display: flex; gap: 10px; max-width: 450px; margin: 0 auto; }
+.newsletter-input { flex: 1; padding: 14px 18px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 1rem; }
+.newsletter-input:focus { outline: none; border-color: var(--accent); }
+.newsletter-btn { padding: 14px 25px; background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; font-weight: 700; border-radius: 10px; text-transform: uppercase; }
+.profile-section { display: none; padding-top: 120px; min-height: 100vh; }
+.profile-section.active { display: block; animation: fadeIn 0.5s; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.profile-dashboard { display: grid; grid-template-columns: 320px 1fr; gap: 35px; max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+.profile-sidebar { background: var(--card); padding: 35px; border-radius: 20px; border: 1px solid #333; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: sticky; top: 100px; }
+.profile-avatar-container { position: relative; width: 110px; height: 110px; margin: 0 auto 20px; cursor: pointer; transition: 0.3s; }
+.profile-avatar-container:hover { transform: scale(1.1); }
+.profile-avatar { width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary), var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.8rem; font-weight: bold; border: 4px solid var(--text); box-shadow: 0 0 30px rgba(112,0,255,0.5); }
+.avatar-hint { position: absolute; bottom: -28px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; color: #aaa; white-space: nowrap; opacity: 0; transition: 0.3s; background: rgba(0,0,0,0.8); padding: 4px 10px; border-radius: 20px; }
+.profile-avatar-container:hover .avatar-hint { opacity: 1; bottom: -32px; }
+.profile-name { font-size: 1.4rem; font-weight: 700; margin: 10px 0 5px; }
+.profile-email { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+.balance { font-size: 1.7rem; color: var(--success); margin: 15px 0; font-weight: 800; text-shadow: 0 0 15px rgba(0,230,118,0.4); }
+.ref-box { background: #0f0f1f; padding: 12px; border-radius: 10px; font-size: 0.8rem; word-break: break-all; margin: 15px 0; border: 1px dashed #444; color: #ccc; }
+.edit-btn { background: var(--accent); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 0.9rem; width: 100%; margin-top: 8px; transition: 0.3s; font-weight: 600; }
+.edit-btn:hover { background: var(--primary); }
+.order-list { display: flex; flex-direction: column; gap: 18px; }
+.order-card { background: var(--card); padding: 22px; border-radius: 12px; border-left: 5px solid #333; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+.order-card:hover { transform: translateX(8px); background: #1a1a2a; }
+.order-card.status-active { border-left-color: var(--success); box-shadow: 0 5px 20px rgba(0,230,118,0.1); }
+.status-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+.status-active .status-badge { background: rgba(0,230,118,0.2); color: var(--success); }
+.floating-reviews { position: fixed; bottom: 25px; right: 25px; width: 310px; z-index: 2000; display: flex; flex-direction: column; gap: 12px; pointer-events: none; }
+.float-review { background: rgba(20,20,35,0.98); backdrop-filter: blur(12px); padding: 16px 20px; border-radius: 14px; border-left: 4px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275); pointer-events: auto; max-width: 310px; border: 1px solid #2a2a4a; }
+.float-review.show { transform: translateX(0); }
+.float-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.float-user { font-weight: 700; color: var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+.float-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cr-gem)); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
+.float-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; }
+.float-text { color: #ddd; font-size: 0.9rem; line-height: 1.45; }
+.float-close { position: absolute; top: 8px; right: 12px; color: #555; cursor: pointer; font-size: 1.3rem; pointer-events: auto; transition: 0.2s; }
+.float-close:hover { color: var(--primary); }
+footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-top: 2px solid var(--accent); margin-top: 40px; }
+.footer-logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; display: inline-block; text-shadow: 0 0 15px rgba(255,0,60,0.5); }
+.socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 25px; flex-wrap: wrap; }
+.socials a { padding: 11px 24px; border: 2px solid var(--accent); color: #fff; border-radius: 50px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; gap: 7px; }
+.socials a:hover { background: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(112,0,255,0.4); }
+.copyright { color: #444; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #1a1a2a; }
+.modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); justify-content: center; align-items: center; animation: fadeIn 0.3s; }
+.modal-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--primary); width: 100%; max-width: 460px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(255,0,60,0.35); transform: scale(0.95); transition: 0.3s ease; }
+.modal.show .modal-content { transform: scale(1); }
+.close { position: absolute; top: 18px; right: 22px; color: #aaa; font-size: 30px; cursor: pointer; transition: 0.2s; line-height: 1; }
+.close:hover { color: var(--primary); transform: rotate(90deg) scale(1.1); }
+.modal h2 { margin-bottom: 28px; text-align: center; color: #fff; font-size: 2rem; letter-spacing: 1px; }
+.form-group { margin-bottom: 22px; }
+.form-group label { display: block; margin-bottom: 10px; color: #b0b0c0; font-size: 0.95rem; font-weight: 600; }
+.form-group input { width: 100%; padding: 15px; background: #0f0f1f; border: 2px solid #333; color: #fff; border-radius: 12px; font-size: 1rem; transition: 0.3s; }
+.form-group input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 18px rgba(255,0,60,0.25); }
+.captcha-box { background: #0f0f1f; border: 2px solid #333; padding: 22px; margin: 22px 0; border-radius: 14px; text-align: center; }
+.captcha-question { font-size: 1.6rem; font-weight: 800; color: var(--accent); margin-bottom: 18px; letter-spacing: 3px; text-shadow: 0 0 12px var(--accent); font-family: monospace; }
+.captcha-input { width: 110px !important; text-align: center; font-size: 1.6rem !important; display: inline-block !important; font-weight: bold; background: #1a1a2a !important; }
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--primary), var(--accent)); border: none; color: #fff; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-top: 12px; border-radius: 12px; font-size: 1.1rem; transition: 0.3s; letter-spacing: 1px; }
+.submit-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255,0,60,0.4); }
+.chat-modal { z-index: 4000; }
+.chat-window { background: #1a1a2e; width: 100%; max-width: 560px; height: 670px; border: 2px solid var(--accent); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 0 60px rgba(112,0,255,0.35); }
+.chat-header { padding: 20px 25px; background: linear-gradient(90deg, var(--primary), var(--accent)); display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.1rem; }
+.chat-messages { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; background: #131325; }
+.msg { max-width: 82%; padding: 13px 19px; border-radius: 16px; font-size: 0.98rem; line-height: 1.5; animation: popIn 0.35s cubic-bezier(0.175,0.885,0.32,1.275); }
+@keyframes popIn { from { opacity: 0; transform: scale(0.85) translateY(25px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+.msg.bot { align-self: flex-start; background: #16213e; border-bottom-left-radius: 6px; border-left: 3px solid var(--accent); color: #eee; }
+.msg.user { align-self: flex-end; background: var(--primary); border-bottom-right-radius: 6px; color: #fff; box-shadow: 0 6px 18px rgba(255,0,60,0.35); }
+.msg.system { align-self: center; background: rgba(0,0,0,0.65); color: var(--gold); font-size: 0.88rem; padding: 9px 22px; border-radius: 22px; border: 1px solid var(--gold); font-weight: 500; }
+.chat-input-area { padding: 20px 25px; background: #121222; display: flex; gap: 14px; border-top: 1px solid #333; }
+.chat-input { flex: 1; padding: 16px; background: #0f0f1f; border: 2px solid #333; color: #fff; border-radius: 12px; font-size: 1rem; }
+.chat-input:focus { border-color: var(--primary); }
+.chat-send { padding: 0 26px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; font-weight: 700; border-radius: 12px; font-size: 1.25rem; transition: 0.3s; }
+.chat-send:hover { transform: scale(1.08); }
+.pay-btn { display: block; width: 100%; padding: 19px; background: var(--success); color: #000; font-weight: 900; text-align: center; border-radius: 12px; margin-top: 16px; text-transform: uppercase; font-size: 1.1rem; animation: pulseBtn 1.6s infinite; box-shadow: 0 0 25px rgba(0,230,118,0.45); }
+@keyframes pulseBtn { 0% { box-shadow: 0 0 0 0 rgba(0,230,118,0.7); } 70% { box-shadow: 0 0 0 18px rgba(0,230,118,0); } 100% { box-shadow: 0 0 0 0 rgba(0,230,118,0); } }
+.notification-container { position: fixed; top: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; max-width: 350px; }
+.notification { background: #1a1a2a; color: #fff; padding: 16px 22px; border-radius: 12px; border-left: 5px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.45s cubic-bezier(0.175,0.885,0.32,1.275); display: flex; align-items: center; gap: 12px; font-size: 0.95rem; border: 1px solid #2a2a4a; }
+.notification.show { transform: translateX(0); }
+.notification.success { border-left-color: var(--success); }
+.notification.error { border-left-color: #ff003c; }
+.notification.info { border-left-color: var(--accent); }
+.wheel-section { padding: 60px 5%; background: radial-gradient(circle at center, rgba(20,15,40,0.9) 0%, var(--bg) 100%); }
+.wheel-container { position: relative; width: 380px; height: 380px; margin: 0 auto; }
+canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-bezier(0.17,0.67,0.12,0.99); filter: drop-shadow(0 0 25px rgba(112,0,255,0.45)); border-radius: 50%; }
+.wheel-pointer { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); width: 42px; height: 52px; background: var(--primary); clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; filter: drop-shadow(0 6px 6px rgba(0,0,0,0.5)); border-radius: 0 0 8px 8px; }
+.wheel-pointer::after { content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: #fff; border-radius: 50%; }
+.wheel-btn { display: block; margin: 32px auto 0; padding: 16px 52px; background: linear-gradient(135deg, var(--gold), #ffaa00); color: #000; font-weight: 800; font-size: 1.35rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 0 35px rgba(255,215,0,0.45); transition: 0.3s; }
+.wheel-btn:hover { transform: scale(1.08); box-shadow: 0 0 55px rgba(255,215,0,0.8); }
+.wheel-btn:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(1); transform: none !important; }
+.wheel-result { text-align: center; font-size: 1.9rem; color: var(--gold); font-weight: 700; min-height: 55px; margin-top: 22px; text-shadow: 0 0 18px var(--gold); opacity: 0; transition: 0.5s; }
+.wheel-result.show { opacity: 1; transform: translateY(-12px); }
+.verify-modal { z-index: 3500; }
+.verify-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--accent); width: 100%; max-width: 420px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(112,0,255,0.4); text-align: center; }
+.verify-code-inputs { display: flex; gap: 10px; justify-content: center; margin: 25px 0; }
+.verify-digit { width: 50px; height: 60px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 1.8rem; font-weight: bold; text-align: center; }
+.verify-digit:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 15px rgba(112,0,255,0.4); }
+.verify-email { color: var(--gold); font-weight: 600; margin: 10px 0 20px; font-size: 1.1rem; }
+.verify-hint { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+.verify-resend { color: var(--accent); cursor: pointer; font-size: 0.9rem; margin-top: 15px; display: inline-block; }
+.verify-resend:hover { text-decoration: underline; }
+.verify-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--primary)); border: none; color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 10px; margin-top: 10px; cursor: pointer; }
+@media (max-width: 768px) {
+.hero h1 { font-size: 3.2rem; }
+.hero h1 span { font-size: 3.8rem; }
+.nav-links { display: none; }
+.logo { font-size: 1.5rem; }
+.profile-dashboard { grid-template-columns: 1fr; }
+.profile-sidebar { position: static; }
+.wheel-container { width: 300px; height: 300px; }
+.floating-reviews { display: none; }
+.newsletter-form { flex-direction: column; }
+.calc-container { padding: 25px; }
+.price-amount { font-size: 2.5rem; }
+.verify-code-inputs { flex-wrap: wrap; }
+.verify-digit { width: 45px; height: 55px; font-size: 1.5rem; }
+}
+</style>
 </head>
 <body>
+<div class="particles" id="particles"></div>
+<div class="notification-container" id="notifContainer"></div>
+<div class="floating-reviews" id="floatingReviews"></div>
+<div class="trustpilot-bar">
+<span class="trustpilot-stars">★★★★★</span>
+<span class="trustpilot-text">Rated <b class="trustpilot-count">4.92/5</b> on Trustpilot • <span id="reviewCount">9,780</span> reviews</span>
+</div>
+<nav>
+<div class="logo">DESTRUCTIV <span>SHOP</span></div>
+<div class="nav-links">
+<a href="#" onclick="showSection('home')">Главная</a>
+<a href="#calculator">Калькулятор</a>
+<a href="#guarantees">Гарантии</a>
+<a href="#reviews">Отзывы</a>
+<a href="#faq">FAQ</a>
+<button onclick="handleProfile()">👤 Профиль</button>
+</div>
+<div class="nav-top">
+<select class="currency-select" id="currencySelect" onchange="updateCurrency()">
+<option value="RUB">₽ RUB</option>
+<option value="USD">$ USD</option>
+<option value="EUR">€ EUR</option>
+</select>
+<div class="auth-btns" id="authBtns">
+<button class="btn btn-login" onclick="openModal('loginModal')">Войти</button>
+<button class="btn btn-reg" onclick="openModal('registerModal')">Регистрация</button>
+</div>
+<div class="auth-btns" id="userBtns" style="display:none;">
+<button class="btn btn-reg" onclick="logout()">Выйти</button>
+</div>
+</div>
+</nav>
+<section class="hero" id="homeSection">
+<div class="hero-content">
+<h1>CLASH <br><span>ROYALE BOOST</span></h1>
+<p>Профессиональный буст кубков, аккаунтов и наград. 100% ручная игра • VPN защита • Гарант возврата</p>
+<a href="#calculator" class="cta">🚀 НАЧАТЬ БУСТ</a>
+</div>
+</section>
+<div class="service-tabs">
+<button class="tab-btn active" onclick="switchTab('trophies')">🏆 Трофеи</button>
+<button class="tab-btn" onclick="switchTab('arena')">🏟️ Арена</button>
+<button class="tab-btn" onclick="switchTab('pass')">⚔️ Батл Пасс</button>
+<button class="tab-btn" onclick="switchTab('accounts')">👤 Аккаунты</button>
+<button class="tab-btn" onclick="switchTab('gems')">💎 Гемы</button>
+</div>
+<section id="calculator" class="calculator-section">
+<div class="calc-container">
+<div class="calc-header">
+<h3>🧮 Рассчитать стоимость</h3>
+<p>Выберите текущие и желаемые кубки для мгновенного расчёта</p>
+</div>
+<div class="slider-group">
+<div class="slider-label">
+<span>Текущие кубки</span>
+<span class="slider-value" id="currentValue">5000</span>
+</div>
+<input type="range" class="custom-slider" id="currentSlider" min="0" max="15000" step="100" value="5000" oninput="calculatePrice()">
+</div>
+<div class="slider-group">
+<div class="slider-label">
+<span>Желаемые кубки</span>
+<span class="slider-value" id="targetValue">7000</span>
+</div>
+<input type="range" class="custom-slider" id="targetSlider" min="0" max="15000" step="100" value="7000" oninput="calculatePrice()">
+</div>
+<div class="price-display">
+<div class="price-label">Итоговая стоимость</div>
+<div><span class="price-amount" id="finalPrice">3000</span> <span class="price-currency" id="priceCurrency">₽</span></div>
+</div>
+<div style="margin: 25px 0; font-weight: 600; color: var(--gold);">⚙️ Дополнительные опции</div>
+<div class="addons-grid">
+<div class="addon-card" onclick="toggleAddon(this, 'stream', 0.2)">
+<div class="addon-checkbox"></div>
+<div class="addon-info">
+<h4>📹 Стрим игр</h4>
+<p>Запись всех боёв</p>
+</div>
+<div class="addon-price">+20%</div>
+</div>
+<div class="addon-card" onclick="toggleAddon(this, 'express', 0.3)">
+<div class="addon-checkbox"></div>
+<div class="addon-info">
+<h4>⚡ Экспресс</h4>
+<p>Выполнение за 3-6ч</p>
+</div>
+<div class="addon-price">+30%</div>
+</div>
+<div class="addon-card" onclick="toggleAddon(this, 'offline', 0)">
+<div class="addon-checkbox"></div>
+<div class="addon-info">
+<h4>👻 Оффлайн</h4>
+<p>Невидимость в друзьях</p>
+</div>
+<div class="addon-price">Бесплатно</div>
+</div>
+</div>
+<div class="booster-select">
+<label>👤 Выбрать бустера (опционально)</label>
+<div class="booster-options">
+<div class="booster-option selected" onclick="selectBooster(this, 'random')">
+<div class="booster-avatar">🎲</div>
+<div class="booster-name">Авто</div>
+<div class="booster-rating">⭐ Лучший</div>
+</div>
+<div class="booster-option" onclick="selectBooster(this, 'shadow')">
+<div class="booster-avatar">S</div>
+<div class="booster-name">Shadow</div>
+<div class="booster-rating">⭐ 4.98</div>
+</div>
+<div class="booster-option" onclick="selectBooster(this, 'pro')">
+<div class="booster-avatar">P</div>
+<div class="booster-name">ProKing</div>
+<div class="booster-rating">⭐ 4.95</div>
+</div>
+<div class="booster-option" onclick="selectBooster(this, 'fast')">
+<div class="booster-avatar">F</div>
+<div class="booster-name">FastBoost</div>
+<div class="booster-rating">⭐ 4.91</div>
+</div>
+</div>
+</div>
+<div class="order-notes">
+<label>📝 Дополнительные требования</label>
+<textarea placeholder="Например: не использовать определённые карты, играть в определённое время, и т.д."></textarea>
+</div>
+<button class="order-btn" onclick="orderNow()">🛒 ОФОРМИТЬ ЗАКАЗ</button>
+</div>
+</section>
+<section id="guarantees" class="guarantees">
+<h2 class="title" style="margin-bottom:40px">🛡️ НАШИ ГАРАНТИИ</h2>
+<div class="guarantees-grid">
+<div class="guarantee-card">
+<div class="guarantee-icon">🔐</div>
+<h4>VPN Защита</h4>
+<p>Все бустеры используют VPN ваших регионов для полной анонимности</p>
+</div>
+<div class="guarantee-card">
+<div class="guarantee-icon">👻</div>
+<h4>Оффлайн Режим</h4>
+<p>Бустер играет в оффлайне — ваши друзья не увидят активность</p>
+</div>
+<div class="guarantee-card">
+<div class="guarantee-icon">✋</div>
+<h4>100% Ручная Игра</h4>
+<p>Никаких ботов и скриптов. Только профессиональные игроки</p>
+</div>
+<div class="guarantee-card">
+<div class="guarantee-icon">💰</div>
+<h4>Гарант Возврата</h4>
+<p>Если заказ не выполнен в срок — полный возврат средств</p>
+</div>
+</div>
+</section>
+<section id="reviews" class="live-reviews">
+<h2 class="title" style="margin-bottom:30px">💬 ЖИВЫЕ ОТЗЫВЫ</h2>
+<div class="reviews-track" id="reviewsTrack"></div>
+</section>
+<section id="faq" class="faq-section">
+<h2 class="title">❓ ЧАСТЫЕ ВОПРОСЫ</h2>
+<div class="faq-container">
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">Безопасно ли передавать аккаунт?</div>
+<div class="faq-answer">Да! Мы используем только ручную игру без стороннего ПО. Все бустеры работают через VPN вашего региона, а аккаунт играет в оффлайн-режиме — никто не увидит активность.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">Как быстро выполняется заказ?</div>
+<div class="faq-answer">Стандартный буст занимает 1-2 дня. При выборе опции "Экспресс" — от 3 до 6 часов.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)">Что если я передумаю во время буста?</div>
+<div class="faq-answer">Вы можете отменить заказ в любой момент. Возвращается пропорциональная часть суммы за невыполненную часть.</div>
+</div>
+</div>
+</section>
+<section class="newsletter">
+<h3>🎁 Join the Club</h3>
+<p>Подпишитесь на рассылку и получите <b>500₽ бонус</b> на первый заказ + эксклюзивные скидки</p>
+<form class="newsletter-form" onsubmit="subscribe(event)">
+<input type="email" class="newsletter-input" placeholder="Ваш email" required>
+<button type="submit" class="newsletter-btn">Подписаться</button>
+</form>
+</section>
+<section id="profileSection" class="profile-section">
+<h2 class="title">👤 ЛИЧНЫЙ КАБИНЕТ</h2>
+<div class="profile-dashboard">
+<div class="profile-sidebar">
+<div class="profile-avatar-container" onclick="changeAvatar()">
+<div class="profile-avatar" id="profileAvatar">👤</div>
+<div class="avatar-hint">Нажми для смены</div>
+</div>
+<div class="profile-name" id="profileName">User123</div>
+<div class="profile-email" id="profileEmail">user@example.com</div>
+<div class="balance" id="profileBalance">Баланс: 0₽</div>
+<div style="text-align:left; font-size:0.85rem; color:#aaa; margin-top:15px;">🔗 Реферальная ссылка:</div>
+<div class="ref-box" id="refLink">destructiv.shop/ref/user123</div>
+<button class="btn btn-login" style="width:100%; font-size:0.8rem;" onclick="copyRef()">📋 Копировать</button>
+<button class="edit-btn" onclick="editProfile()">✏️ Редактировать профиль</button>
+</div>
+<div class="order-list" id="orderList">
+<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">У вас пока нет активных заказов</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-logo">DESTRUCTIV</div>
+<div class="socials">
+<a href="https://t.me/destructivRoyal" target="_blank">💬 Telegram</a>
+<a href="https://playerok.com/profile/destructiv/products" target="_blank">🛒 Playerok</a>
+<a href="https://funpay.com/users/18952177/" target="_blank">🎮 Funpay</a>
+</div>
+<div class="copyright">© 2024 Destructiv Shop. Не связано с Supercell.</div>
+</footer>
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('loginModal')">&times;</span>
+<h2>🔐 ВХОД</h2>
+<form onsubmit="handleAuth(event, 'login')">
+<div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div>
+<div class="form-group"><label>Пароль</label><input type="password" id="loginPass" required></div>
+<div class="captcha-box">
+<div class="captcha-question" id="qLogin">2 + 2 = ?</div>
+<input type="number" class="captcha-input" id="aLogin" placeholder="?">
+</div>
+<button type="submit" class="submit-btn">Войти</button>
+</form>
+</div>
+</div>
+<div id="registerModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('registerModal')">&times;</span>
+<h2>✨ РЕГИСТРАЦИЯ</h2>
+<form id="registerForm" onsubmit="startEmailVerification(event)">
+<div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div>
+<div class="form-group"><label>Пароль</label><input type="password" id="regPass" minlength="6" required></div>
+<div class="form-group"><label>Никнейм</label><input type="text" id="regNick" placeholder="Player123" required></div>
+<div class="captcha-box">
+<div class="captcha-question" id="qReg">3 + 3 = ?</div>
+<input type="number" class="captcha-input" id="aReg" placeholder="?">
+</div>
+<button type="submit" class="submit-btn">Зарегистрироваться</button>
+</form>
+</div>
+</div>
+<div id="verifyModal" class="modal verify-modal">
+<div class="verify-content">
+<span class="close" onclick="closeModal('verifyModal')">&times;</span>
+<h2>📧 Подтверждение</h2>
+<p class="verify-hint">Код подтверждения отправлен на:</p>
+<div class="verify-email" id="verifyEmailDisplay">user@example.com</div>
+<div class="verify-code-inputs">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+</div>
+<button class="verify-btn" onclick="verifyCode()">Подтвердить</button>
+<div class="verify-resend" onclick="resendCode()">🔄 Отправить код снова</div>
+</div>
+</div>
+<section class="wheel-section">
+<h2 class="title">🎡 КОЛЕСО ФОРТУНЫ</h2>
+<div class="wheel-container">
+<div class="wheel-pointer"></div>
+<canvas id="wheelCanvas" width="400" height="400"></canvas>
+</div>
+<button class="wheel-btn" id="spinBtn" onclick="spinWheel()">КРУТИТЬ!</button>
+<div class="wheel-result" id="wheelResult"></div>
+<p style="text-align:center; color:#666; font-size:0.8rem; margin-top:15px;">Одна попытка каждые 24 часа</p>
+</section>
+<script>
+const particlesContainer = document.getElementById('particles');
+for(let i=0; i<35; i++){
+let p = document.createElement('div');
+p.className = 'particle';
+p.style.left = Math.random()*100+'%';
+p.style.animationDelay = Math.random()*15+'s';
+p.style.animationDuration = (15 + Math.random()*10)+'s';
+particlesContainer.appendChild(p);
+}
+let currentUser = null;
+let captchaAnswer = 0;
+let wheelRotation = 0;
+let isSpinning = false;
+let basePrice = 3000;
+let addons = { stream: false, express: false, offline: false };
+let selectedBooster = 'random';
+let currency = 'RUB';
+let pendingRegistration = null;
+const exchangeRates = { RUB: 1, USD: 0.011, EUR: 0.01 };
+const currencySymbols = { RUB: '₽', USD: '$', EUR: '€' };
+const reviewData = [
+{ user: 'ShadowKing', avatar: 'S', text: 'Подняли с 5к до 7.5к за ночь! Бустер играл аккуратно. 🔥', time: '2ч назад' },
+{ user: 'ProGamer24', avatar: 'P', text: 'Лучший сервис, уже 4 раз заказываю. Всегда качественно.', time: '5ч назад' },
+{ user: 'NightWolf', avatar: 'N', text: 'Боялся бана, но всё чисто. VPN + оффлайн режим = идеально.', time: '8ч назад' },
+{ user: 'DragonSlayer', avatar: 'D', text: 'Выиграл 500₽ в колесе, спасибо! Буст тоже на высоте.', time: '12ч назад' },
+{ user: 'CyberNinja', avatar: 'C', text: 'Быстро и качественно. 5 звезд ⭐ Менеджер всегда на связи.', time: '1д назад' }
+];
+const prizes = [
+{ text: '500₽', color: '#ff003c' },
+{ text: 'Скидка 15%', color: '#7000ff' },
+{ text: '+150 кубков', color: '#ffd700' },
+{ text: 'Пусто', color: '#2a2a4a' },
+{ text: 'VIP статус', color: '#00e676' },
+{ text: '100 гемов', color: '#00bcd4' }
+];
+document.addEventListener('DOMContentLoaded', () => {
+const urlParams = new URLSearchParams(window.location.search);
+const referrer = urlParams.get('ref');
+if(referrer) {
+localStorage.setItem('pending_ref', referrer);
+showNotification(`🤝 Вас пригласил ${referrer}! +500₽ бонус`, 'success');
+}
+const saved = localStorage.getItem('destructiv_user');
+if(saved) { currentUser = JSON.parse(saved); updateAuthUI(); }
+generateCaptcha('login');
+generateCaptcha('register');
+calculatePrice();
+drawWheel();
+generateLiveReviews();
+startFloatingReviews();
+updateReviewCount();
+setupVerifyInputs();
+});
+function openModal(id){
+document.getElementById(id).style.display = 'flex';
+setTimeout(() => document.getElementById(id).classList.add('show'), 10);
+}
+function closeModal(id){
+document.getElementById(id).classList.remove('show');
+setTimeout(() => document.getElementById(id).style.display = 'none', 300);
+}
+window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
+function generateCaptcha(type) {
+const n1 = Math.floor(Math.random() * 5) + 1, n2 = Math.floor(Math.random() * 5) + 1;
+captchaAnswer = n1 + n2;
+document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`;
+}
 
-    <div class="particles" id="particles"></div>
-    <div class="notification-container" id="notifContainer"></div>
-    <div class="floating-reviews" id="floatingReviews"></div>
-
-    <div class="trustpilot-bar">
-        <span class="trustpilot-stars">★★★★★</span>
-        <span class="trustpilot-text">Rated <b class="trustpilot-count">4.92/5</b> on Trustpilot • <span id="reviewCount">9,780</span> reviews</span>
-    </div>
-
-    <nav>
-        <div class="logo">DESTRUCTIV <span>SHOP</span></div>
-        <div class="nav-links">
-            <a href="#" onclick="showSection('home')">Главная</a>
-            <a href="#calculator">Калькулятор</a>
-            <a href="#guarantees">Гарантии</a>
-            <a href="#reviews">Отзывы</a>
-            <a href="#faq">FAQ</a>
-            <button onclick="handleProfile()">👤 Профиль</button>
-        </div>
-        <div class="nav-top">
-            <select class="currency-select" id="currencySelect" onchange="updateCurrency()">
-                <option value="RUB">₽ RUB</option>
-                <option value="USD">$ USD</option>
-                <option value="EUR">€ EUR</option>
-            </select>
-            <div class="auth-btns" id="authBtns">
-                <button class="btn btn-login" onclick="openModal('loginModal')">Войти</button>
-                <button class="btn btn-reg" onclick="openModal('registerModal')">Регистрация</button>
-            </div>
-            <div class="auth-btns" id="userBtns" style="display:none;">
-                <button class="btn btn-reg" onclick="logout()">Выйти</button>
-            </div>
-        </div>
-    </nav>
-
-    <section class="hero" id="homeSection">
-        <div class="hero-content">
-            <h1>CLASH <br><span>ROYALE BOOST</span></h1>
-            <p>Профессиональный буст кубков, аккаунтов и наград. 100% ручная игра • VPN защита • Гарант возврата</p>
-            <a href="#calculator" class="cta">🚀 НАЧАТЬ БУСТ</a>
-        </div>
-    </section>
-
-    <div class="service-tabs">
-        <button class="tab-btn active" onclick="switchTab('trophies')">🏆 Трофеи</button>
-        <button class="tab-btn" onclick="switchTab('arena')">🏟️ Арена</button>
-        <button class="tab-btn" onclick="switchTab('pass')">⚔️ Батл Пасс</button>
-        <button class="tab-btn" onclick="switchTab('accounts')">👤 Аккаунты</button>
-        <button class="tab-btn" onclick="switchTab('gems')">💎 Гемы</button>
-    </div>
-
-    <section id="calculator" class="calculator-section">
-        <div class="calc-container">
-            <div class="calc-header">
-                <h3>🧮 Рассчитать стоимость</h3>
-                <p>Выберите текущие и желаемые кубки для мгновенного расчёта</p>
-            </div>
-            
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span>Текущие кубки</span>
-                    <span class="slider-value" id="currentValue">5000</span>
-                </div>
-                <input type="range" class="custom-slider" id="currentSlider" min="0" max="15000" step="100" value="5000" oninput="calculatePrice()">
-            </div>
-            
-            <div class="slider-group">
-                <div class="slider-label">
-                    <span>Желаемые кубки</span>
-                    <span class="slider-value" id="targetValue">7000</span>
-                </div>
-                <input type="range" class="custom-slider" id="targetSlider" min="0" max="15000" step="100" value="7000" oninput="calculatePrice()">
-            </div>
-            
-            <div class="price-display">
-                <div class="price-label">Итоговая стоимость</div>
-                <div><span class="price-amount" id="finalPrice">3000</span> <span class="price-currency" id="priceCurrency">₽</span></div>
-            </div>
-            
-            <div style="margin: 25px 0; font-weight: 600; color: var(--gold);">⚙️ Дополнительные опции</div>
-            <div class="addons-grid">
-                <div class="addon-card" onclick="toggleAddon(this, 'stream', 0.2)">
-                    <div class="addon-checkbox"></div>
-                    <div class="addon-info">
-                        <h4>📹 Стрим игр</h4>
-                        <p>Запись всех боёв</p>
-                    </div>
-                    <div class="addon-price">+20%</div>
-                </div>
-                <div class="addon-card" onclick="toggleAddon(this, 'express', 0.3)">
-                    <div class="addon-checkbox"></div>
-                    <div class="addon-info">
-                        <h4>⚡ Экспресс</h4>
-                        <p>Выполнение за 3-6ч</p>
-                    </div>
-                    <div class="addon-price">+30%</div>
-                </div>
-                <div class="addon-card" onclick="toggleAddon(this, 'offline', 0)">
-                    <div class="addon-checkbox"></div>
-                    <div class="addon-info">
-                        <h4>👻 Оффлайн</h4>
-                        <p>Невидимость в друзьях</p>
-                    </div>
-                    <div class="addon-price">Бесплатно</div>
-                </div>
-            </div>
-            
-            <div class="booster-select">
-                <label>👤 Выбрать бустера (опционально)</label>
-                <div class="booster-options">
-                    <div class="booster-option selected" onclick="selectBooster(this, 'random')">
-                        <div class="booster-avatar">🎲</div>
-                        <div class="booster-name">Авто</div>
-                        <div class="booster-rating">⭐ Лучший</div>
-                    </div>
-                    <div class="booster-option" onclick="selectBooster(this, 'shadow')">
-                        <div class="booster-avatar">S</div>
-                        <div class="booster-name">Shadow</div>
-                        <div class="booster-rating">⭐ 4.98</div>
-                    </div>
-                    <div class="booster-option" onclick="selectBooster(this, 'pro')">
-                        <div class="booster-avatar">P</div>
-                        <div class="booster-name">ProKing</div>
-                        <div class="booster-rating">⭐ 4.95</div>
-                    </div>
-                    <div class="booster-option" onclick="selectBooster(this, 'fast')">
-                        <div class="booster-avatar">F</div>
-                        <div class="booster-name">FastBoost</div>
-                        <div class="booster-rating">⭐ 4.91</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="order-notes">
-                <label>📝 Дополнительные требования</label>
-                <textarea placeholder="Например: не использовать определённые карты, играть в определённое время, и т.д."></textarea>
-            </div>
-            
-            <button class="order-btn" onclick="orderNow()">🛒 ОФОРМИТЬ ЗАКАЗ</button>
-        </div>
-    </section>
-
-    <section id="guarantees" class="guarantees">
-        <h2 class="title" style="margin-bottom:40px">🛡️ НАШИ ГАРАНТИИ</h2>
-        <div class="guarantees-grid">
-            <div class="guarantee-card">
-                <div class="guarantee-icon">🔐</div>
-                <h4>VPN Защита</h4>
-                <p>Все бустеры используют VPN ваших регионов для полной анонимности</p>
-            </div>
-            <div class="guarantee-card">
-                <div class="guarantee-icon">👻</div>
-                <h4>Оффлайн Режим</h4>
-                <p>Бустер играет в оффлайне — ваши друзья не увидят активность</p>
-            </div>
-            <div class="guarantee-card">
-                <div class="guarantee-icon">✋</div>
-                <h4>100% Ручная Игра</h4>
-                <p>Никаких ботов и скриптов. Только профессиональные игроки</p>
-            </div>
-            <div class="guarantee-card">
-                <div class="guarantee-icon">💰</div>
-                <h4>Гарант Возврата</h4>
-                <p>Если заказ не выполнен в срок — полный возврат средств</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="live-reviews">
-        <h2 class="title" style="margin-bottom:30px">💬 ЖИВЫЕ ОТЗЫВЫ</h2>
-        <div class="reviews-track" id="reviewsTrack"></div>
-    </section>
-
-    <section id="faq" class="faq-section">
-        <h2 class="title">❓ ЧАСТЫЕ ВОПРОСЫ</h2>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Безопасно ли передавать аккаунт?</div>
-                <div class="faq-answer">Да! Мы используем только ручную игру без стороннего ПО. Все бустеры работают через VPN вашего региона, а аккаунт играет в оффлайн-режиме — никто не увидит активность.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Как быстро выполняется заказ?</div>
-                <div class="faq-answer">Стандартный буст занимает 1-2 дня. При выборе опции "Экспресс" — от 3 до 6 часов.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFaq(this)">Что если я передумаю во время буста?</div>
-                <div class="faq-answer">Вы можете отменить заказ в любой момент. Возвращается пропорциональная часть суммы за невыполненную часть.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="newsletter">
-        <h3>🎁 Join the Club</h3>
-        <p>Подпишитесь на рассылку и получите <b>500₽ бонус</b> на первый заказ + эксклюзивные скидки</p>
-        <form class="newsletter-form" onsubmit="subscribe(event)">
-            <input type="email" class="newsletter-input" placeholder="Ваш email" required>
-            <button type="submit" class="newsletter-btn">Подписаться</button>
-        </form>
-    </section>
-
-    <section id="profileSection" class="profile-section">
-        <h2 class="title">👤 ЛИЧНЫЙ КАБИНЕТ</h2>
-        <div class="profile-dashboard">
-            <div class="profile-sidebar">
-                <div class="profile-avatar-container" onclick="changeAvatar()">
-                    <div class="profile-avatar" id="profileAvatar">👤</div>
-                    <div class="avatar-hint">Нажми для смены</div>
-                </div>
-                <div class="profile-name" id="profileName">User123</div>
-                <div class="profile-email" id="profileEmail">user@example.com</div>
-                <div class="balance" id="profileBalance">Баланс: 0₽</div>
-                <div style="text-align:left; font-size:0.85rem; color:#aaa; margin-top:15px;">🔗 Реферальная ссылка:</div>
-                <div class="ref-box" id="refLink">destructiv.shop/ref/user123</div>
-                <button class="btn btn-login" style="width:100%; font-size:0.8rem;" onclick="copyRef()">📋 Копировать</button>
-                <button class="edit-btn" onclick="editProfile()">✏️ Редактировать профиль</button>
-            </div>
-            <div class="order-list" id="orderList">
-                <div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">У вас пока нет активных заказов</div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-logo">DESTRUCTIV</div>
-        <div class="socials">
-            <a href="https://t.me/destructivRoyal" target="_blank">💬 Telegram</a>
-            <a href="https://playerok.com/profile/destructiv/products" target="_blank">🛒 Playerok</a>
-            <a href="https://funpay.com/users/18952177/" target="_blank">🎮 Funpay</a>
-        </div>
-        <div class="copyright">© 2024 Destructiv Shop. Не связано с Supercell.</div>
-    </footer>
-
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>🔐 ВХОД</h2>
-            <form onsubmit="handleAuth(event, 'login')">
-                <div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div>
-                <div class="form-group"><label>Пароль</label><input type="password" id="loginPass" required></div>
-                <div class="captcha-box">
-                    <div class="captcha-question" id="qLogin">2 + 2 = ?</div>
-                    <input type="number" class="captcha-input" id="aLogin" placeholder="?">
-                </div>
-                <button type="submit" class="submit-btn">Войти</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="registerModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('registerModal')">&times;</span>
-            <h2>✨ РЕГИСТРАЦИЯ</h2>
-            <form id="registerForm" onsubmit="startEmailVerification(event)">
-                <div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div>
-                <div class="form-group"><label>Пароль</label><input type="password" id="regPass" minlength="6" required></div>
-                <div class="form-group"><label>Никнейм</label><input type="text" id="regNick" placeholder="Player123" required></div>
-                <div class="captcha-box">
-                    <div class="captcha-question" id="qReg">3 + 3 = ?</div>
-                    <input type="number" class="captcha-input" id="aReg" placeholder="?">
-                </div>
-                <button type="submit" class="submit-btn">Зарегистрироваться</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="verifyModal" class="modal verify-modal">
-        <div class="verify-content">
-            <span class="close" onclick="closeModal('verifyModal')">&times;</span>
-            <h2>📧 Подтверждение</h2>
-            <p class="verify-hint">Код подтверждения отправлен на:</p>
-            <div class="verify-email" id="verifyEmailDisplay">user@example.com</div>
-            <div class="verify-code-inputs">
-                <input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-            </div>
-            <button class="verify-btn" onclick="verifyCode()">Подтвердить</button>
-            <div class="verify-resend" onclick="resendCode()">🔄 Отправить код снова</div>
-        </div>
-    </div>
-
-    <section class="wheel-section">
-        <h2 class="title">🎡 КОЛЕСО ФОРТУНЫ</h2>
-        <div class="wheel-container">
-            <div class="wheel-pointer"></div>
-            <canvas id="wheelCanvas" width="400" height="400"></canvas>
-        </div>
-        <button class="wheel-btn" id="spinBtn" onclick="spinWheel()">КРУТИТЬ!</button>
-        <div class="wheel-result" id="wheelResult"></div>
-        <p style="text-align:center; color:#666; font-size:0.8rem; margin-top:15px;">Одна попытка каждые 24 часа</p>
-    </section>
-
-    <script>
-        const particlesContainer = document.getElementById('particles');
-        for(let i=0; i<35; i++){
-            let p = document.createElement('div');
-            p.className = 'particle';
-            p.style.left = Math.random()*100+'%';
-            p.style.animationDelay = Math.random()*15+'s';
-            p.style.animationDuration = (15 + Math.random()*10)+'s';
-            particlesContainer.appendChild(p);
-        }
-
-        let currentUser = null;
-        let captchaAnswer = 0;
-        let wheelRotation = 0;
-        let isSpinning = false;
-        let basePrice = 3000;
-        let addons = { stream: false, express: false, offline: false };
-        let selectedBooster = 'random';
-        let currency = 'RUB';
-        let pendingRegistration = null;
-        const exchangeRates = { RUB: 1, USD: 0.011, EUR: 0.01 };
-        const currencySymbols = { RUB: '₽', USD: '$', EUR: '€' };
-
-        const reviewData = [
-            { user: 'ShadowKing', avatar: 'S', text: 'Подняли с 5к до 7.5к за ночь! Бустер играл аккуратно. 🔥', time: '2ч назад' },
-            { user: 'ProGamer24', avatar: 'P', text: 'Лучший сервис, уже 4 раз заказываю. Всегда качественно.', time: '5ч назад' },
-            { user: 'NightWolf', avatar: 'N', text: 'Боялся бана, но всё чисто. VPN + оффлайн режим = идеально.', time: '8ч назад' },
-            { user: 'DragonSlayer', avatar: 'D', text: 'Выиграл 500₽ в колесе, спасибо! Буст тоже на высоте.', time: '12ч назад' },
-            { user: 'CyberNinja', avatar: 'C', text: 'Быстро и качественно. 5 звезд ⭐ Менеджер всегда на связи.', time: '1д назад' }
-        ];
-
-        const prizes = [
-            { text: '500₽', color: '#ff003c' },
-            { text: 'Скидка 15%', color: '#7000ff' },
-            { text: '+150 кубков', color: '#ffd700' },
-            { text: 'Пусто', color: '#2a2a4a' },
-            { text: 'VIP статус', color: '#00e676' },
-            { text: '100 гемов', color: '#00bcd4' }
-        ];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const referrer = urlParams.get('ref');
-            if(referrer) {
-                localStorage.setItem('pending_ref', referrer);
-                showNotification(`🤝 Вас пригласил ${referrer}! +500₽ бонус`, 'success');
-            }
-            const saved = localStorage.getItem('destructiv_user');
-            if(saved) { currentUser = JSON.parse(saved); updateAuthUI(); }
-            generateCaptcha('login'); 
-            generateCaptcha('register');
-            calculatePrice(); 
-            drawWheel(); 
-            generateLiveReviews();
-            startFloatingReviews(); 
-            updateReviewCount();
-            setupVerifyInputs();
+// --- ИЗМЕНЕННЫЕ ФУНКЦИИ С НОВЫМ URL ---
+async function startEmailVerification(e) {
+    e.preventDefault();
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPass').value;
+    const nick = document.getElementById('regNick').value;
+    const captchaInput = parseInt(document.getElementById('aReg').value);
+    if(captchaInput !== captchaAnswer) {
+        showNotification('❌ Неверная капча!', 'error');
+        generateCaptcha('register');
+        return;
+    }
+    if(password.length < 6) {
+        showNotification('❌ Пароль минимум 6 символов!', 'error');
+        return;
+    }
+    try {
+        // ИЗМЕНЕНО: http://localhost:3000 -> https://destructiv-shop.vercel.app
+        const response = await fetch('https://destructiv-shop.vercel.app/api/auth/send-verification', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
         });
-
-        function openModal(id){ 
-            document.getElementById(id).style.display = 'flex'; 
-            setTimeout(() => document.getElementById(id).classList.add('show'), 10); 
+        const result = await response.json();
+        if(result.success) {
+            pendingRegistration = { email, password, nick };
+            document.getElementById('verifyEmailDisplay').innerText = email;
+            document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
+            document.querySelectorAll('.verify-digit')[0].focus();
+            closeModal('registerModal');
+            openModal('verifyModal');
+            showNotification('📧 Код отправлен на email!', 'success');
+        } else {
+            showNotification(`❌ ${result.error}`, 'error');
         }
-        function closeModal(id){ 
-            document.getElementById(id).classList.remove('show'); 
-            setTimeout(() => document.getElementById(id).style.display = 'none', 300); 
-        }
-        window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
+    } catch (error) {
+        console.error(error);
+        showNotification('❌ Ошибка соединения с сервером', 'error');
+    }
+}
 
-        function generateCaptcha(type) {
-            const n1 = Math.floor(Math.random() * 5) + 1, n2 = Math.floor(Math.random() * 5) + 1;
-            captchaAnswer = n1 + n2;
-            document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`;
-        }
+function setupVerifyInputs() {
+    const inputs = document.querySelectorAll('.verify-digit');
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', (e) => {
+            if(e.target.value && index < inputs.length - 1) inputs[index + 1].focus();
+        });
+        input.addEventListener('keydown', (e) => {
+            if(e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus();
+        });
+    });
+}
+function getVerificationInput() {
+    return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join('');
+}
 
-        async function startEmailVerification(e) {
-            e.preventDefault();
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPass').value;
-            const nick = document.getElementById('regNick').value;
-            const captchaInput = parseInt(document.getElementById('aReg').value);
-            
-            if(captchaInput !== captchaAnswer) { 
-                showNotification('❌ Неверная капча!', 'error'); 
-                generateCaptcha('register'); 
-                return; 
-            }
-            if(password.length < 6) { 
-                showNotification('❌ Пароль минимум 6 символов!', 'error'); 
-                return; 
-            }
-            
-            try {
-                const response = await fetch('http://localhost:3000/api/auth/send-verification', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ email })
-                });
-                const result = await response.json();
-                
-                if(result.success) {
-                    pendingRegistration = { email, password, nick };
-                    document.getElementById('verifyEmailDisplay').innerText = email;
-                    document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
-                    document.querySelectorAll('.verify-digit')[0].focus();
-                    closeModal('registerModal');
-                    openModal('verifyModal');
-                    showNotification('📧 Код отправлен на email!', 'success');
-                } else {
-                    showNotification(`❌ ${result.error}`, 'error');
-                }
-            } catch (error) {
-                showNotification('❌ Ошибка соединения с сервером', 'error');
-            }
-        }
-
-        function setupVerifyInputs() {
-            const inputs = document.querySelectorAll('.verify-digit');
-            inputs.forEach((input, index) => {
-                input.addEventListener('input', (e) => {
-                    if(e.target.value && index < inputs.length - 1) inputs[index + 1].focus();
-                });
-                input.addEventListener('keydown', (e) => {
-                    if(e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus();
-                });
-            });
-        }
-
-        function getVerificationInput() {
-            return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join('');
-        }
-
-        async function verifyCode() {
-            const enteredCode = getVerificationInput();
-            if(enteredCode.length !== 6) { 
-                showNotification('❌ Введите 6-значный код', 'error'); 
-                return; 
-            }
-            
-            if(!pendingRegistration) return;
-            
-            try {
-                const response = await fetch('http://localhost:3000/api/auth/verify-code', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        email: pendingRegistration.email,
-                        code: enteredCode,
-                        password: pendingRegistration.password,
-                        nick: pendingRegistration.nick
-                    })
-                });
-                const result = await response.json();
-                
-                if(result.success) {
-                    localStorage.setItem('destructiv_token', result.token);
-                    localStorage.setItem('destructiv_user', JSON.stringify(result.user));
-                    currentUser = result.user;
-                    updateAuthUI();
-                    updateProfileUI();
-                    closeModal('verifyModal');
-                    showNotification('✅ Аккаунт создан и подтверждён!', 'success');
-                    createConfetti();
-                    pendingRegistration = null;
-                    document.getElementById('registerForm')?.reset();
-                    generateCaptcha('register');
-                } else {
-                    showNotification(`❌ ${result.error}`, 'error');
-                    document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
-                    document.querySelectorAll('.verify-digit')[0].focus();
-                }
-            } catch (error) {
-                showNotification('❌ Ошибка соединения с сервером', 'error');
-            }
-        }
-
-        function resendCode() {
-            if(!pendingRegistration) return;
-            showNotification('📧 Код отправлен повторно', 'info');
+async function verifyCode() {
+    const enteredCode = getVerificationInput();
+    if(enteredCode.length !== 6) {
+        showNotification('❌ Введите 6-значный код', 'error');
+        return;
+    }
+    if(!pendingRegistration) return;
+    try {
+        // ИЗМЕНЕНО: http://localhost:3000 -> https://destructiv-shop.vercel.app
+        const response = await fetch('https://destructiv-shop.vercel.app/api/auth/verify-code', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: pendingRegistration.email,
+                code: enteredCode,
+                password: pendingRegistration.password,
+                nick: pendingRegistration.nick
+            })
+        });
+        const result = await response.json();
+        if(result.success) {
+            localStorage.setItem('destructiv_token', result.token);
+            localStorage.setItem('destructiv_user', JSON.stringify(result.user));
+            currentUser = result.user;
+            updateAuthUI();
+            updateProfileUI();
+            closeModal('verifyModal');
+            showNotification('✅ Аккаунт создан и подтверждён!', 'success');
+            createConfetti();
+            pendingRegistration = null;
+            document.getElementById('registerForm')?.reset();
+            generateCaptcha('register');
+        } else {
+            showNotification(`❌ ${result.error}`, 'error');
             document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
             document.querySelectorAll('.verify-digit')[0].focus();
         }
+    } catch (error) {
+        console.error(error);
+        showNotification('❌ Ошибка соединения с сервером', 'error');
+    }
+}
 
-        async function handleAuth(e, type) {
-            e.preventDefault();
-            
-            if (type === 'login') {
-                const email = document.getElementById('loginEmail').value;
-                const password = document.getElementById('loginPass').value;
-                const captchaInput = parseInt(document.getElementById('aLogin').value);
-                
-                if(captchaInput !== captchaAnswer) { 
-                    showNotification('❌ Неверная капча!', 'error'); 
-                    generateCaptcha('login'); 
-                    return; 
-                }
-                
-                try {
-                    const response = await fetch('http://localhost:3000/api/auth/login', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, password })
-                    });
-                    const result = await response.json();
-                    
-                    if(result.success) {
-                        localStorage.setItem('destructiv_token', result.token);
-                        localStorage.setItem('destructiv_user', JSON.stringify(result.user));
-                        currentUser = result.user;
-                        updateAuthUI();
-                        updateProfileUI();
-                        closeModal('loginModal');
-                        showNotification('✅ ' + result.message, 'success');
-                        createConfetti();
-                        e.target.reset();
-                        generateCaptcha('login');
-                    } else {
-                        showNotification(`❌ ${result.error}`, 'error');
-                    }
-                } catch (error) {
-                    showNotification('❌ Ошибка соединения с сервером', 'error');
-                }
+function resendCode() {
+    if(!pendingRegistration) return;
+    showNotification('📧 Код отправлен повторно', 'info');
+    document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
+    document.querySelectorAll('.verify-digit')[0].focus();
+}
+
+async function handleAuth(e, type) {
+    e.preventDefault();
+    if (type === 'login') {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPass').value;
+        const captchaInput = parseInt(document.getElementById('aLogin').value);
+        if(captchaInput !== captchaAnswer) {
+            showNotification('❌ Неверная капча!', 'error');
+            generateCaptcha('login');
+            return;
+        }
+        try {
+            // ИЗМЕНЕНО: http://localhost:3000 -> https://destructiv-shop.vercel.app
+            const response = await fetch('https://destructiv-shop.vercel.app/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const result = await response.json();
+            if(result.success) {
+                localStorage.setItem('destructiv_token', result.token);
+                localStorage.setItem('destructiv_user', JSON.stringify(result.user));
+                currentUser = result.user;
+                updateAuthUI();
+                updateProfileUI();
+                closeModal('loginModal');
+                showNotification('✅ ' + result.message, 'success');
+                createConfetti();
+                e.target.reset();
+                generateCaptcha('login');
+            } else {
+                showNotification(`❌ ${result.error}`, 'error');
             }
+        } catch (error) {
+            console.error(error);
+            showNotification('❌ Ошибка соединения с сервером', 'error');
         }
+    }
+}
+// ----------------------------------------
 
-        function logout() { 
-            currentUser = null; 
-            localStorage.removeItem('destructiv_user'); 
-            localStorage.removeItem('destructiv_token');
-            updateAuthUI(); 
-            showSection('home'); 
-            showNotification('👋 Вы вышли', 'info'); 
+function logout() {
+    currentUser = null;
+    localStorage.removeItem('destructiv_user');
+    localStorage.removeItem('destructiv_token');
+    updateAuthUI();
+    showSection('home');
+    showNotification('👋 Вы вышли', 'info');
+}
+function updateAuthUI() {
+    document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex';
+    document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none';
+}
+function handleProfile() {
+    if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; }
+    updateProfileUI();
+    showSection('profile');
+}
+function showSection(section) {
+    document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none';
+    document.getElementById('profileSection').classList.toggle('active', section === 'profile');
+    if(section !== 'profile') document.getElementById('profileSection').classList.remove('active');
+    window.scrollTo(0, 0);
+}
+function updateProfileUI() {
+    if(!currentUser) return;
+    document.getElementById('profileName').innerText = currentUser.name;
+    document.getElementById('profileEmail').innerText = currentUser.email;
+    document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`;
+    document.getElementById('profileAvatar').innerText = currentUser.avatar;
+    // Обновляем реферальную ссылку на реальный домен
+    document.getElementById('refLink').innerText = `https://destructiv-shop.vercel.app/?ref=${currentUser.name}`;
+    const orderList = document.getElementById('orderList');
+    if(currentUser.orders?.length > 0) {
+        orderList.innerHTML = currentUser.orders.map(o => `
+        <div class="order-card status-active">
+        <div><div style="font-weight:bold;">${o.service}</div><div style="font-size:0.85rem; color:#aaa;">Тег: ${o.tag}</div></div>
+        <div style="text-align:right;"><div style="color:var(--gold); font-weight:bold;">${o.price}${currencySymbols[currency]}</div><span class="status-badge">В работе</span></div>
+        </div>`).join('');
+    } else {
+        orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>';
+    }
+}
+function changeAvatar() {
+    if(!currentUser) return;
+    const avatars = ['👤','','👩','','🦸','','👹','','💀','','🤖',''];
+    currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length];
+    saveUser();
+    updateProfileUI();
+    showNotification('🎨 Аватарка изменена!', 'success');
+}
+function editProfile() {
+    if(!currentUser) return;
+    const newName = prompt('Новый никнейм:', currentUser.name);
+    if(newName?.trim()) {
+        currentUser.name = newName.trim();
+        saveUser();
+        updateProfileUI();
+        showNotification('✏️ Профиль обновлён!', 'success');
+    }
+}
+function copyRef() {
+    navigator.clipboard.writeText(document.getElementById('refLink').innerText);
+    showNotification('📋 Ссылка скопирована!', 'success');
+}
+function saveUser() {
+    localStorage.setItem('destructiv_user', JSON.stringify(currentUser));
+}
+function calculatePrice() {
+    const current = parseInt(document.getElementById('currentSlider').value),
+    target = parseInt(document.getElementById('targetSlider').value);
+    document.getElementById('currentValue').innerText = current;
+    document.getElementById('targetValue').innerText = target;
+    const diff = Math.max(0, target - current);
+    let price = diff * 1.5;
+    if(addons.stream) price *= 1.2;
+    if(addons.express) price *= 1.3;
+    basePrice = price;
+    updatePriceDisplay();
+}
+function toggleAddon(el, name, multiplier) {
+    el.classList.toggle('active');
+    addons[name] = el.classList.contains('active');
+    calculatePrice();
+}
+function selectBooster(el, name) {
+    document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedBooster = name;
+}
+function updatePriceDisplay() {
+    const convertedPrice = Math.round(basePrice * exchangeRates[currency]);
+    document.getElementById('finalPrice').innerText = convertedPrice;
+    document.getElementById('priceCurrency').innerText = currencySymbols[currency];
+}
+function updateCurrency() {
+    currency = document.getElementById('currencySelect').value;
+    updatePriceDisplay();
+    if(currentUser) updateProfileUI();
+}
+function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    showNotification(`📋 Категория: ${event.target.innerText}`, 'info');
+}
+function orderNow() {
+    if(!currentUser) {
+        showNotification('⚠️ Войдите для заказа!', 'error');
+        openModal('loginModal');
+        return;
+    }
+    const service = document.querySelector('.tab-btn.active').innerText;
+    showNotification('📝 Заказ оформлен! (демо)', 'success');
+}
+const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d');
+const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10;
+const segmentAngle = (2 * Math.PI) / prizes.length;
+function drawWheel() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    prizes.forEach((prize, i) => {
+        const angle = i * segmentAngle;
+        ctx.beginPath(); ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, angle, angle + segmentAngle);
+        ctx.fillStyle = prize.color; ctx.fill(); ctx.stroke();
+        ctx.save(); ctx.translate(centerX, centerY); ctx.rotate(angle + segmentAngle/2);
+        ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "bold 15px Rajdhani";
+        ctx.fillText(prize.text, radius - 22, 5); ctx.restore();
+    });
+}
+function spinWheel() {
+    if(isSpinning || !currentUser) {
+        if(!currentUser) {
+            showNotification('⚠️ Войдите чтобы крутить!', 'error');
+            openModal('loginModal');
         }
-
-        function updateAuthUI() { 
-            document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex'; 
-            document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none'; 
+        return;
+    }
+    const now = Date.now();
+    if(currentUser.lastSpin && now - currentUser.lastSpin < 86400000) {
+        showNotification('⏳ Попробуйте через 24 часа!', 'error');
+        return;
+    }
+    isSpinning = true; document.getElementById('spinBtn').disabled = true;
+    document.getElementById('wheelResult').classList.remove('show');
+    const winningIndex = Math.floor(Math.random() * prizes.length);
+    const extraSpins = 5 * 2 * Math.PI;
+    const targetAngle = extraSpins + (2*Math.PI - (winningIndex*segmentAngle)) - (segmentAngle/2);
+    wheelRotation += targetAngle;
+    canvas.style.transform = `rotate(${wheelRotation}rad)`;
+    setTimeout(() => {
+        isSpinning = false;
+        const prize = prizes[winningIndex];
+        const resultEl = document.getElementById('wheelResult');
+        resultEl.innerText = `🎉 Выигрыш: ${prize.text}!`; resultEl.classList.add('show');
+        if(prize.text !== 'Пусто') {
+            showNotification(`🎁 Вы выиграли: ${prize.text}`, 'success');
+            createConfetti();
         }
-
-        function handleProfile() { 
-            if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; }
-            updateProfileUI(); 
-            showSection('profile'); 
-        }
-        
-        function showSection(section) { 
-            document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none'; 
-            document.getElementById('profileSection').classList.toggle('active', section === 'profile'); 
-            if(section !== 'profile') document.getElementById('profileSection').classList.remove('active'); 
-            window.scrollTo(0, 0); 
-        }
-        
-        function updateProfileUI() { 
-            if(!currentUser) return; 
-            document.getElementById('profileName').innerText = currentUser.name; 
-            document.getElementById('profileEmail').innerText = currentUser.email; 
-            document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`; 
-            document.getElementById('profileAvatar').innerText = currentUser.avatar; 
-            document.getElementById('refLink').innerText = `${window.location.origin}${window.location.pathname}?ref=${currentUser.name}`; 
-            
-            const orderList = document.getElementById('orderList');
-            if(currentUser.orders?.length > 0) { 
-                orderList.innerHTML = currentUser.orders.map(o => `
-                    <div class="order-card status-active">
-                        <div><div style="font-weight:bold;">${o.service}</div><div style="font-size:0.85rem; color:#aaa;">Тег: ${o.tag}</div></div>
-                        <div style="text-align:right;"><div style="color:var(--gold); font-weight:bold;">${o.price}${currencySymbols[currency]}</div><span class="status-badge">В работе</span></div>
-                    </div>`).join(''); 
-            } else { 
-                orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>'; 
-            } 
-        }
-        
-        function changeAvatar() { 
-            if(!currentUser) return; 
-            const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽']; 
-            currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length]; 
-            saveUser(); 
-            updateProfileUI(); 
-            showNotification('🎨 Аватарка изменена!', 'success'); 
-        }
-        
-        function editProfile() { 
-            if(!currentUser) return; 
-            const newName = prompt('Новый никнейм:', currentUser.name); 
-            if(newName?.trim()) { 
-                currentUser.name = newName.trim(); 
-                saveUser(); 
-                updateProfileUI(); 
-                showNotification('✏️ Профиль обновлён!', 'success'); 
-            } 
-        }
-        
-        function copyRef() { 
-            navigator.clipboard.writeText(document.getElementById('refLink').innerText); 
-            showNotification('📋 Ссылка скопирована!', 'success'); 
-        }
-        
-        function saveUser() { 
-            localStorage.setItem('destructiv_user', JSON.stringify(currentUser)); 
-        }
-
-        function calculatePrice() { 
-            const current = parseInt(document.getElementById('currentSlider').value), 
-                  target = parseInt(document.getElementById('targetSlider').value); 
-            document.getElementById('currentValue').innerText = current; 
-            document.getElementById('targetValue').innerText = target; 
-            const diff = Math.max(0, target - current); 
-            let price = diff * 1.5; 
-            if(addons.stream) price *= 1.2; 
-            if(addons.express) price *= 1.3; 
-            basePrice = price; 
-            updatePriceDisplay(); 
-        }
-        
-        function toggleAddon(el, name, multiplier) { 
-            el.classList.toggle('active'); 
-            addons[name] = el.classList.contains('active'); 
-            calculatePrice(); 
-        }
-        
-        function selectBooster(el, name) { 
-            document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected')); 
-            el.classList.add('selected'); 
-            selectedBooster = name; 
-        }
-        
-        function updatePriceDisplay() { 
-            const convertedPrice = Math.round(basePrice * exchangeRates[currency]); 
-            document.getElementById('finalPrice').innerText = convertedPrice; 
-            document.getElementById('priceCurrency').innerText = currencySymbols[currency]; 
-        }
-        
-        function updateCurrency() { 
-            currency = document.getElementById('currencySelect').value; 
-            updatePriceDisplay(); 
-            if(currentUser) updateProfileUI(); 
-        }
-        
-        function switchTab(tab) { 
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); 
-            event.target.classList.add('active'); 
-            showNotification(`📋 Категория: ${event.target.innerText}`, 'info'); 
-        }
-        
-        function orderNow() { 
-            if(!currentUser) { 
-                showNotification('⚠️ Войдите для заказа!', 'error'); 
-                openModal('loginModal'); 
-                return; 
-            } 
-            const service = document.querySelector('.tab-btn.active').innerText; 
-            showNotification('📝 Заказ оформлен! (демо)', 'success');
-        }
-
-        const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d');
-        const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10;
-        const segmentAngle = (2 * Math.PI) / prizes.length;
-        
-        function drawWheel() { 
-            ctx.clearRect(0,0,canvas.width,canvas.height); 
-            prizes.forEach((prize, i) => { 
-                const angle = i * segmentAngle; 
-                ctx.beginPath(); ctx.moveTo(centerX, centerY); 
-                ctx.arc(centerX, centerY, radius, angle, angle + segmentAngle); 
-                ctx.fillStyle = prize.color; ctx.fill(); ctx.stroke(); 
-                ctx.save(); ctx.translate(centerX, centerY); ctx.rotate(angle + segmentAngle/2); 
-                ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "bold 15px Rajdhani"; 
-                ctx.fillText(prize.text, radius - 22, 5); ctx.restore(); 
-            }); 
-        }
-        
-        function spinWheel() { 
-            if(isSpinning || !currentUser) { 
-                if(!currentUser) { 
-                    showNotification('⚠️ Войдите чтобы крутить!', 'error'); 
-                    openModal('loginModal'); 
-                } 
-                return; 
-            } 
-            const now = Date.now(); 
-            if(currentUser.lastSpin && now - currentUser.lastSpin < 86400000) { 
-                showNotification('⏳ Попробуйте через 24 часа!', 'error'); 
-                return; 
-            } 
-            isSpinning = true; document.getElementById('spinBtn').disabled = true; 
-            document.getElementById('wheelResult').classList.remove('show'); 
-            const winningIndex = Math.floor(Math.random() * prizes.length); 
-            const extraSpins = 5 * 2 * Math.PI; 
-            const targetAngle = extraSpins + (2*Math.PI - (winningIndex*segmentAngle)) - (segmentAngle/2); 
-            wheelRotation += targetAngle; 
-            canvas.style.transform = `rotate(${wheelRotation}rad)`; 
-            setTimeout(() => { 
-                isSpinning = false; 
-                const prize = prizes[winningIndex]; 
-                const resultEl = document.getElementById('wheelResult'); 
-                resultEl.innerText = `🎉 Выигрыш: ${prize.text}!`; resultEl.classList.add('show'); 
-                if(prize.text !== 'Пусто') { 
-                    showNotification(`🎁 Вы выиграли: ${prize.text}`, 'success'); 
-                    createConfetti(); 
-                } 
-                currentUser.lastSpin = Date.now(); saveUser(); 
-            }, 5000); 
-        }
-
-        function generateLiveReviews() { 
-            const track = document.getElementById('reviewsTrack'); 
-            const doubled = [...reviewData, ...reviewData]; 
-            track.innerHTML = doubled.map(r => `
-                <div class="review-item">
-                    <div class="review-header">
-                        <div style="display:flex; align-items:center; gap:10px;">
-                            <div class="review-avatar">${r.avatar}</div>
-                            <span class="review-user">@${r.user}</span>
-                        </div>
-                        <span class="review-stars">★★★★★</span>
-                    </div>
-                    <div class="review-text">${r.text}</div>
-                    <div class="review-time">${r.time}</div>
-                </div>
-            `).join(''); 
-        }
-        
-        function startFloatingReviews() { 
-            setInterval(() => { 
-                const r = reviewData[Math.floor(Math.random() * reviewData.length)]; 
-                const el = document.createElement('div'); 
-                el.className = 'float-review'; 
-                el.innerHTML = `
-                    <div class="float-close" onclick="this.parentElement.remove()">&times;</div>
-                    <div class="float-header">
-                        <span class="float-user"><span class="float-avatar">${r.avatar}</span>@${r.user}</span>
-                        <span class="float-stars">★★★★★</span>
-                    </div>
-                    <div class="float-text">${r.text}</div>
-                `; 
-                document.getElementById('floatingReviews').appendChild(el); 
-                setTimeout(() => el.classList.add('show'), 100); 
-                setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000); 
-            }, 6000); 
-        }
-        
-        function updateReviewCount() { 
-            const countEl = document.getElementById('reviewCount'); 
-            let count = 9780; 
-            setInterval(() => { 
-                count += Math.floor(Math.random()*3)+1; 
-                countEl.innerText = count.toLocaleString('ru-RU'); 
-            }, 8000); 
-        }
-        
-        function toggleFaq(el) { 
-            el.parentElement.classList.toggle('active'); 
-        }
-        
-        function subscribe(e) { 
-            e.preventDefault(); 
-            showNotification('✅ Подписка оформлена! +500₽', 'success'); 
-            if(currentUser) { 
-                currentUser.balance += 500; 
-                saveUser(); 
-                updateProfileUI(); 
-            } 
-            e.target.reset(); 
-        }
-
-        function createConfetti() { 
-            const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4']; 
-            for(let i=0; i<70; i++) { 
-                const c = document.createElement('div'); 
-                c.className = 'confetti'; 
-                c.style.left = Math.random()*100+'vw'; 
-                c.style.background = colors[Math.floor(Math.random()*colors.length)]; 
-                c.style.animationDelay = Math.random()*0.5+'s'; 
-                c.style.width = (Math.random()*8+5)+'px'; 
-                c.style.height = c.style.width; 
-                document.body.appendChild(c); 
-                setTimeout(() => c.remove(), 3200); 
-            } 
-        }
-        
-        function showNotification(text, type='info') { 
-            const container = document.getElementById('notifContainer'); 
-            const notif = document.createElement('div'); 
-            notif.className = `notification ${type}`; 
-            notif.innerHTML = `<span>${type==='success'?'✅':type==='error'?'❌':'ℹ️'}</span><span>${text}</span>`; 
-            container.appendChild(notif); 
-            setTimeout(() => notif.classList.add('show'), 10); 
-            setTimeout(() => { notif.classList.remove('show'); setTimeout(() => notif.remove(), 400); }, 3500); 
-        }
-    </script>
+        currentUser.lastSpin = Date.now(); saveUser();
+    }, 5000);
+}
+function generateLiveReviews() {
+    const track = document.getElementById('reviewsTrack');
+    const doubled = [...reviewData, ...reviewData];
+    track.innerHTML = doubled.map(r => `
+    <div class="review-item">
+    <div class="review-header">
+    <div style="display:flex; align-items:center; gap:10px;">
+    <div class="review-avatar">${r.avatar}</div>
+    <span class="review-user">@${r.user}</span>
+    </div>
+    <span class="review-stars">★★★★★</span>
+    </div>
+    <div class="review-text">${r.text}</div>
+    <div class="review-time">${r.time}</div>
+    </div>
+    `).join('');
+}
+function startFloatingReviews() {
+    setInterval(() => {
+        const r = reviewData[Math.floor(Math.random() * reviewData.length)];
+        const el = document.createElement('div');
+        el.className = 'float-review';
+        el.innerHTML = `
+        <div class="float-close" onclick="this.parentElement.remove()">&times;</div>
+        <div class="float-header">
+        <span class="float-user"><span class="float-avatar">${r.avatar}</span>@${r.user}</span>
+        <span class="float-stars">★★★★★</span>
+        </div>
+        <div class="float-text">${r.text}</div>
+        `;
+        document.getElementById('floatingReviews').appendChild(el);
+        setTimeout(() => el.classList.add('show'), 100);
+        setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000);
+    }, 6000);
+}
+function updateReviewCount() {
+    const countEl = document.getElementById('reviewCount');
+    let count = 9780;
+    setInterval(() => {
+        count += Math.floor(Math.random()*3)+1;
+        countEl.innerText = count.toLocaleString('ru-RU');
+    }, 8000);
+}
+function toggleFaq(el) {
+    el.parentElement.classList.toggle('active');
+}
+function subscribe(e) {
+    e.preventDefault();
+    showNotification('✅ Подписка оформлена! +500₽', 'success');
+    if(currentUser) {
+        currentUser.balance += 500;
+        saveUser();
+        updateProfileUI();
+    }
+    e.target.reset();
+}
+function createConfetti() {
+    const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4'];
+    for(let i=0; i<70; i++) {
+        const c = document.createElement('div');
+        c.className = 'confetti';
+        c.style.left = Math.random()*100+'vw';
+        c.style.background = colors[Math.floor(Math.random()*colors.length)];
+        c.style.animationDelay = Math.random()*0.5+'s';
+        c.style.width = (Math.random()*8+5)+'px';
+        c.style.height = c.style.width;
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 3200);
+    }
+}
+function showNotification(text, type='info') {
+    const container = document.getElementById('notifContainer');
+    const notif = document.createElement('div');
+    notif.className = `notification ${type}`;
+    notif.innerHTML = `<span>${type==='success'?'✅':type==='error'?'❌':'ℹ️'}</span><span>${text}</span>`;
+    container.appendChild(notif);
+    setTimeout(() => notif.classList.add('show'), 10);
+    setTimeout(() => { notif.classList.remove('show'); setTimeout(() => notif.remove(), 400); }, 3500);
+}
+</script>
 </body>
 </html>
