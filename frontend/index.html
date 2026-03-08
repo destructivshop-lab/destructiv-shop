@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta name="google-site-verification" content="hlGFeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
+<meta name="google-site-verification" content="hlGfeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTRUCTIV | Clash Royale Boosting</title>
@@ -172,13 +172,16 @@ footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-
 .socials a { padding: 11px 24px; border: 2px solid var(--accent); color: #fff; border-radius: 50px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; gap: 7px; }
 .socials a:hover { background: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(112,0,255,0.4); }
 .copyright { color: #444; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #1a1a2a; }
-.requisites { background: rgba(0,0,0,0.3); padding: 20px; margin-top: 30px; border-radius: 10px; }
-.requisites h3 { color: var(--gold); margin-bottom: 15px; }
-.requisites p { color: #aaa; font-size: 0.9rem; margin: 8px 0; }
+.requisites { background: rgba(0,0,0,0.3); padding: 25px; margin-top: 30px; border-radius: 10px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.requisites h3 { color: var(--gold); margin-bottom: 15px; font-size: 1.2rem; }
+.requisites p { color: #aaa; font-size: 0.9rem; margin: 8px 0; line-height: 1.6; }
 .requisites strong { color: var(--text); }
-.requisites a { color: var(--accent); }
+.requisites a { color: var(--accent); text-decoration: underline; }
+.legal-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+.legal-links a { color: var(--gold); font-size: 0.9rem; transition: 0.3s; }
+.legal-links a:hover { color: var(--accent); }
 .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); justify-content: center; align-items: center; animation: fadeIn 0.3s; }
-.modal-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--primary); width: 100%; max-width: 460px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(255,0,60,0.35); transform: scale(0.95); transition: 0.3s ease; }
+.modal-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--primary); width: 100%; max-width: 460px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(255,0,60,0.35); transform: scale(0.95); transition: 0.3s ease; max-height: 90vh; overflow-y: auto; }
 .modal.show .modal-content { transform: scale(1); }
 .close { position: absolute; top: 18px; right: 22px; color: #aaa; font-size: 30px; cursor: pointer; transition: 0.2s; line-height: 1; }
 .close:hover { color: var(--primary); transform: rotate(90deg) scale(1.1); }
@@ -258,6 +261,7 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 .price-amount { font-size: 2.5rem; }
 .verify-code-inputs { flex-wrap: wrap; }
 .verify-digit { width: 45px; height: 55px; font-size: 1.5rem; }
+.legal-links { flex-direction: column; gap: 10px; }
 }
 </style>
 </head>
@@ -268,50 +272,161 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 
 <!-- ADMIN LOGIN MODAL -->
 <div id="adminLoginModal" class="modal">
-    <div class="modal-content">
-        <h2>🔐 Админ панель</h2>
-        <div class="form-group">
-            <label>Пароль администратора</label>
-            <input type="password" id="adminPassword" placeholder="Введите пароль">
-        </div>
-        <button class="submit-btn" onclick="checkAdminPassword()">Войти</button>
-        <button class="btn btn-login" style="width: 100%; margin-top: 10px;" onclick="closeModal('adminLoginModal')">Отмена</button>
-    </div>
+<div class="modal-content">
+<h2>🔐 Админ панель</h2>
+<div class="form-group">
+<label>Пароль администратора</label>
+<input type="password" id="adminPassword" placeholder="Введите пароль">
+</div>
+<button class="submit-btn" onclick="checkAdminPassword()">Войти</button>
+<button class="btn btn-login" style="width: 100%; margin-top: 10px;" onclick="closeModal('adminLoginModal')">Отмена</button>
+</div>
 </div>
 
 <!-- OFFER MODAL -->
 <div id="offerModal" class="modal">
-    <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
-        <span class="close" onclick="closeModal('offerModal')">&times;</span>
-        <h2>📋 Публичная оферта</h2>
-        <div class="offer-container" style="padding: 20px; border: none;">
-            <h3>1. Общие положения</h3>
-            <p>1.1. Настоящая публичная оферта является официальным предложением самозанятого Гриценко Данила (ИНН: 366225166806) заключить договор на оказание услуг по бустингу в игре Clash Royale.</p>
-            <p>1.2. Акцептом условий настоящей Оферты считается оформление и оплата заказа на сайте DESTRUCTIV Shop.</p>
-            <h3>2. Предмет договора</h3>
-            <p>2.1. Исполнитель обязуется оказать услуги по повышению рейтинга, прокачке аккаунта в Clash Royale, а Заказчик обязуется оплатить эти Услуги.</p>
-            <p>2.2. Услуги оказываются дистанционно с использованием аккаунта Заказчика.</p>
-            <h3>3. Порядок оказания услуг</h3>
-            <p>3.1. Для заказа Услуги Заказчик выбирает тип услуги, указывает данные аккаунта, производит оплату и предоставляет доступ.</p>
-            <p>3.2. Исполнитель оказывает Услуги с использованием VPN для обеспечения безопасности аккаунта.</p>
-            <p>3.3. Срок оказания услуг зависит от выбранного тарифа и составляет от 1 до 7 дней.</p>
-            <h3>4. Стоимость и порядок расчетов</h3>
-            <p>4.1. Стоимость Услуг определяется согласно прайс-листу на сайте.</p>
-            <p>4.2. Оплата производится путем 100% предоплаты.</p>
-            <p>4.3. Способы оплаты: банковские карты, СБП, криптовалюты, платежные системы Playerok, FunPay.</p>
-            <h3>5. Права и обязанности сторон</h3>
-            <p>5.1. Исполнитель обязуется оказать Услуги качественно и в срок, сохранять конфиденциальность данных аккаунта, использовать только ручную игру.</p>
-            <p>5.2. Заказчик обязуется предоставить достоверные данные, не изменять пароль во время оказания услуг, не вмешиваться в процесс.</p>
-            <h3>6. Ответственность сторон</h3>
-            <p>6.1. В случае невыполнения Услуг в срок Исполнитель возвращает полную стоимость заказа.</p>
-            <p>6.2. Исполнитель не несет ответственности за блокировку аккаунта, если она произошла по вине Заказчика.</p>
-            <h3>7. Реквизиты исполнителя</h3>
-            <p><strong>Самозанятый:</strong> Гриценко Данила<br>
-            <strong>ИНН:</strong> 366225166806<br>
-            <strong>Email:</strong> <a href="mailto:destructivshop@gmail.com">destructivshop@gmail.com</a><br>
-            <strong>Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
-        </div>
-    </div>
+<div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+<span class="close" onclick="closeModal('offerModal')">&times;</span>
+<h2>📋 Публичная оферта</h2>
+<div style="padding: 20px; color: #aaa; line-height: 1.6; font-size: 0.95rem;">
+<h3 style="color: var(--gold); margin: 20px 0 10px;">1. Общие положения</h3>
+<p>1.1. Настоящая публичная оферта (далее — «Оферта») является официальным предложением самозанятого Гриценко Данила (ИНН: 366225166806, далее — «Исполнитель») заключить договор на оказание услуг по бустингу в игре Clash Royale (далее — «Услуги»).<br>
+1.2. Акцептом (принятием) условий настоящей Оферты считается оформление и оплата заказа на сайте DESTRUCTIV Shop (https://destructiv-shop.vercel.app).<br>
+1.3. Дата вступления Оферты в силу: 01.01.2024</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">2. Предмет договора</h3>
+<p>2.1. Исполнитель обязуется оказать услуги по повышению рейтинга (кубков), прокачке аккаунта, выполнению заданий сезона в игре Clash Royale (далее — «Услуги»), а Заказчик обязуется оплатить эти Услуги.<br>
+2.2. Услуги оказываются дистанционно с использованием аккаунта Заказчика.<br>
+2.3. Исполнитель оказывает Услуги лично или с привлечением квалифицированных исполнителей.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">3. Порядок оказания услуг</h3>
+<p>3.1. Для заказа Услуги Заказчик:<br>
+- Выбирает тип услуги на сайте<br>
+- Указывает данные своего аккаунта (логин, пароль, тег)<br>
+- Производит оплату<br>
+- Предоставляет доступ к аккаунту<br>
+3.2. Исполнитель оказывает Услуги с использованием VPN для обеспечения безопасности аккаунта.<br>
+3.3. Срок оказания услуг зависит от выбранного тарифа и составляет от 1 до 7 дней.<br>
+3.4. Исполнитель обязуется:<br>
+- Оказать Услуги качественно и в срок<br>
+- Сохранять конфиденциальность данных аккаунта<br>
+- Использовать только ручную игру без стороннего ПО<br>
+- Играть в оффлайн-режиме (друзья не увидят активность)</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">4. Стоимость и порядок расчетов</h3>
+<p>4.1. Стоимость Услуг определяется согласно прайс-листу на сайте.<br>
+4.2. Оплата производится путем 100% предоплаты.<br>
+4.3. Способы оплаты:<br>
+- Банковские карты (Visa, MasterCard, МИР)<br>
+- СБП (Система быстрых платежей)<br>
+- Криптовалюты (USDT, BTC, ETH)<br>
+- Платежные системы Playerok, FunPay<br>
+4.4. Исполнитель применяет специальный налоговый режим «Налог на профессиональный доход» (самозанятость).</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">5. Права и обязанности сторон</h3>
+<p>5.1. Заказчик обязуется:<br>
+- Предоставить достоверные данные аккаунта<br>
+- Не изменять пароль во время оказания услуг<br>
+- Не вмешиваться в процесс оказания услуг<br>
+- Не использовать аккаунт во время буста<br>
+5.2. Исполнитель имеет право:<br>
+- Отказать в оказании Услуги без объяснения причин<br>
+- Приостановить оказание Услуги при нарушении Заказчиком условий Оферты</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">6. Ответственность сторон</h3>
+<p>6.1. В случае невыполнения Услуг в срок Исполнитель возвращает полную стоимость заказа.<br>
+6.2. Исполнитель не несет ответственности за блокировку аккаунта, если она произошла:<br>
+- По вине Заказчика (изменение пароля, вход во время буста)<br>
+- По причинам, не зависящим от Исполнителя<br>
+6.3. Максимальная ответственность Исполнителя ограничена стоимостью Услуг.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">7. Реквизиты исполнителя</h3>
+<p><strong>Самозанятый:</strong> Гриценко Данила<br>
+<strong>ИНН:</strong> 366225166806<br>
+<strong>Email:</strong> <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a><br>
+<strong>Телефон:</strong> <a href="tel:+79065828364" style="color: var(--accent);">+7 (906) 582-83-64</a><br>
+<strong>Сайт:</strong> <a href="https://destructiv-shop.vercel.app" style="color: var(--accent);">destructiv-shop.vercel.app</a></p>
+</div>
+</div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div id="privacyModal" class="modal">
+<div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+<span class="close" onclick="closeModal('privacyModal')">&times;</span>
+<h2>🔒 Политика конфиденциальности</h2>
+<div style="padding: 20px; color: #aaa; line-height: 1.6; font-size: 0.95rem;">
+<h3 style="color: var(--gold); margin: 20px 0 10px;">1. Общие положения</h3>
+<p>1.1. Настоящая Политика конфиденциальности (далее — «Политика») описывает, как самозанятый Гриценко Данила (ИНН: 366225166806, далее — «Оператор») собирает, использует и защищает персональные данные пользователей сайта DESTRUCTIV Shop.<br>
+1.2. Используя сайт, вы соглашаетесь с условиями настоящей Политики.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">2. Какие данные мы собираем</h3>
+<p>2.1. При регистрации и оформлении заказа мы собираем:<br>
+- Адрес электронной почты<br>
+- Никнейм в игре<br>
+- Данные аккаунта (логин, пароль, тег)<br>
+- Информацию об оплате<br>
+2.2. Автоматически собираемые данные:<br>
+- IP-адрес<br>
+- Информация о браузере<br>
+- Время посещения</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">3. Цели обработки данных</h3>
+<p>3.1. Мы используем ваши данные для:<br>
+- Оказания услуг по бустингу<br>
+- Обработки платежей<br>
+- Связи с вами<br>
+- Улучшения качества услуг<br>
+- Выполнения требований законодательства</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">4. Защита данных</h3>
+<p>4.1. Мы принимаем необходимые меры для защиты ваших данных:<br>
+- Шифрование данных при передаче<br>
+- Ограничение доступа к данным<br>
+- Регулярное резервное копирование<br>
+4.2. Мы не передаем ваши данные третьим лицам, за исключением:<br>
+- Платежных систем (для обработки платежей)<br>
+- Государственных органов (по требованию закона)</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">5. Ваши права</h3>
+<p>5.1. Вы имеете право:<br>
+- Получить доступ к своим данным<br>
+- Исправить неточные данные<br>
+- Удалить свои данные<br>
+- Отозвать согласие на обработку данных<br>
+5.2. Для реализации прав свяжитесь с нами: <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a></p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">6. Контакты</h3>
+<p><strong>Email:</strong> <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a><br>
+<strong>Телефон:</strong> <a href="tel:+79065828364" style="color: var(--accent);">+7 (906) 582-83-64</a></p>
+</div>
+</div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="paymentModal" class="modal">
+<div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+<span class="close" onclick="closeModal('paymentModal')">&times;</span>
+<h2>💳 Способы оплаты</h2>
+<div style="padding: 20px; color: #aaa; line-height: 1.6; font-size: 0.95rem;">
+<h3 style="color: var(--gold); margin: 20px 0 10px;">1. Банковские карты</h3>
+<p>Принимаем карты Visa, MasterCard, МИР. Оплата происходит через защищенное соединение.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">2. СБП (Система быстрых платежей)</h3>
+<p>Быстрая оплата по QR-коду или номеру телефона. Комиссия 0%.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">3. Криптовалюты</h3>
+<p>Принимаем USDT (TRC20), Bitcoin, Ethereum. Реквизиты предоставляются после оформления заказа.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">4. Playerok и FunPay</h3>
+<p>Безопасная сделка через популярные игровые площадки. Гарантия защиты.</p>
+
+<h3 style="color: var(--gold); margin: 20px 0 10px;">5. Реквизиты для оплаты</h3>
+<p><strong>Самозанятый:</strong> Гриценко Данила<br>
+<strong>ИНН:</strong> 366225166806<br>
+<strong>Email:</strong> <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a></p>
+</div>
+</div>
 </div>
 
 <div class="trustpilot-bar">
@@ -432,17 +547,22 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <a href="https://playerok.com/profile/destructiv/products" target="_blank">🛒 Playerok</a>
 <a href="https://funpay.com/users/18952177/" target="_blank">🎮 Funpay</a>
 </div>
+
+<!-- РЕКВИЗИТЫ И ССЫЛКИ -->
 <div class="requisites">
 <h3>📋 Реквизиты исполнителя</h3>
-<p><strong>Самозанятый:</strong> Гриценко Данила</p>
-<p><strong>ИНН:</strong> 366225166806</p>
-<p><strong>Email:</strong> <a href="mailto:destructivshop@gmail.com">destructivshop@gmail.com</a></p>
-<p><strong>Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
-<p style="margin-top: 15px;">
-<a href="#" onclick="openModal('offerModal'); return false;" style="color: var(--gold); margin: 0 10px;">📄 Публичная оферта</a> | 
-<a href="#" onclick="openModal('offerModal'); return false;" style="color: var(--gold); margin: 0 10px;">Политика конфиденциальности</a>
-</p>
+<p><strong>Самозанятый:</strong> Гриценко Данила<br>
+<strong>ИНН:</strong> 366225166806<br>
+<strong>Email:</strong> <a href="mailto:destructivshop@gmail.com">destructivshop@gmail.com</a><br>
+<strong>Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
+
+<div class="legal-links">
+<a href="#" onclick="openModal('offerModal'); return false;">📄 Публичная оферта</a>
+<a href="#" onclick="openModal('privacyModal'); return false;">🔒 Политика конфиденциальности</a>
+<a href="#" onclick="openModal('paymentModal'); return false;">💳 Способы оплаты</a>
 </div>
+</div>
+
 <div class="copyright">© 2024 Destructiv Shop. Не связано с Supercell.</div>
 </footer>
 
@@ -489,168 +609,17 @@ function selectBooster(el, name) { document.querySelectorAll('.booster-option').
 function updatePriceDisplay() { const convertedPrice = Math.round(basePrice * exchangeRates[currency]); document.getElementById('finalPrice').innerText = convertedPrice; document.getElementById('priceCurrency').innerText = currencySymbols[currency]; }
 function updateCurrency() { currency = document.getElementById('currencySelect').value; updatePriceDisplay(); if(currentUser) updateProfileUI(); }
 function switchTab(tab) { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); showNotification(`📋 Категория: ${event.target.innerText}`, 'info'); }
-
-// ===== PAYMENT FUNCTIONS =====
-function orderNow() {
-    if(!currentUser) { showNotification('⚠️ Войдите для заказа!', 'error'); openModal('loginModal'); return; }
-    const service = document.querySelector('.tab-btn.active').innerText;
-    const price = Math.round(basePrice * exchangeRates[currency]);
-    showPaymentModal(service, price);
-}
-
-function showPaymentModal(service, price) {
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.id = 'paymentModal';
-    modal.innerHTML = `
-        <div class="modal-content" style="max-width: 550px;">
-            <span class="close" onclick="closeModal('paymentModal')">&times;</span>
-            <h2>💳 Оплата заказа</h2>
-            <div style="text-align: center; margin: 25px 0;">
-                <p style="color: var(--gold); font-size: 1.3rem; margin-bottom: 10px;">${service}</p>
-                <p style="font-size: 2.5rem; font-weight: bold; color: var(--success); margin: 15px 0;">${price}${currencySymbols[currency]}</p>
-            </div>
-            <div style="background: rgba(112,0,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <h3 style="color: var(--accent); margin-bottom: 15px; text-align: center;">📲 Выберите способ оплаты:</h3>
-                <div style="margin: 15px 0;">
-                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">1️⃣ СБП (Система быстрых платежей)</p>
-                    <div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--success);">
-                        <p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">📱 Номер: <strong style="color: #fff;">+7 (906) 582-83-64</strong><br>🏦 Банк: Тинькофф/Сбербанк<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p>
-                    </div>
-                    <button onclick="payViaSBP(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--success); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💰 Оплатить через СБП</button>
-                </div>
-                <div style="margin: 15px 0;">
-                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">2️⃣ Банковская карта</p>
-                    <div style="background: rgba(255,0,60,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);">
-                        <p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">💳 Карта: <strong style="color: #fff;">2202 20XX XXXX XXXX</strong><br>🏦 Банк: Сбербанк/Тинькофф<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p>
-                    </div>
-                    <button onclick="payViaCard(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💳 Оплатить картой</button>
-                </div>
-                <div style="margin: 15px 0;">
-                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">3️⃣ Playerok (Гарантия)</p>
-                    <a href="https://playerok.com/profile/destructiv/products" target="_blank" style="display: block; padding: 12px; background: var(--cr-gem); color: #000; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🛒 Перейти на Playerok</a>
-                </div>
-                <div style="margin: 15px 0;">
-                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">4️⃣ FunPay</p>
-                    <a href="https://funpay.com/users/18952177/" target="_blank" style="display: block; padding: 12px; background: #2a5c9a; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🎮 Перейти на FunPay</a>
-                </div>
-            </div>
-            <div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid var(--success);">
-                <p style="color: var(--success); font-size: 0.9rem; margin: 0;">⚡ После оплаты напишите нам в Telegram: <strong style="color: #fff;">@destructiv_admin</strong></p>
-            </div>
-        </div>`;
-    document.body.appendChild(modal);
-    openModal('paymentModal');
-}
-
-function payViaSBP(price) {
-    const sbpModal = document.createElement('div');
-    sbpModal.className = 'modal';
-    sbpModal.id = 'sbpModal';
-    sbpModal.innerHTML = `
-        <div class="modal-content" style="max-width: 450px;">
-            <span class="close" onclick="closeModal('sbpModal')">&times;</span>
-            <h2>📱 Оплата через СБП</h2>
-            <div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div>
-            <div style="background: rgba(0,230,118,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p>
-                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">📱 <strong>Номер:</strong><br><span style="color: var(--success); font-size: 1.3rem;">+7 (906) 582-83-64</span></p>
-                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--success);">Тинькофф / Сбербанк</span></p>
-                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--success);">Гриценко Д.</span></p>
-            </div>
-            <div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;">
-                <p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Платежи через СБП"<br>2. Введите номер: +7 (906) 582-83-64<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p>
-            </div>
-            <a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a>
-            <button onclick="copySBPInfo(${price})" style="width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button>
-        </div>`;
-    document.body.appendChild(sbpModal);
-    openModal('sbpModal');
-}
-
-function payViaCard(price) {
-    const cardModal = document.createElement('div');
-    cardModal.className = 'modal';
-    cardModal.id = 'cardModal';
-    cardModal.innerHTML = `
-        <div class="modal-content" style="max-width: 450px;">
-            <span class="close" onclick="closeModal('cardModal')">&times;</span>
-            <h2>💳 Оплата картой</h2>
-            <div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div>
-            <div style="background: rgba(255,0,60,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p>
-                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">💳 <strong>Номер карты:</strong><br><span style="color: var(--primary); font-size: 1.3rem;">2202 20XX XXXX XXXX</span></p>
-                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--primary);">Сбербанк / Тинькофф</span></p>
-                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--primary);">Гриценко Д.</span></p>
-            </div>
-            <div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;">
-                <p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Перевод по номеру карты"<br>2. Введите номер карты: 2202 20XX XXXX XXXX<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p>
-            </div>
-            <a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a>
-            <button onclick="copyCardInfo(${price})" style="width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button>
-        </div>`;
-    document.body.appendChild(cardModal);
-    openModal('cardModal');
-}
-
-function copySBPInfo(price) {
-    const text = `Оплата через СБП\nСумма: ${price}₽\nНомер: +7 (906) 582-83-64\nБанк: Тинькофф/Сбербанк\nПолучатель: Гриценко Д.`;
-    navigator.clipboard.writeText(text);
-    showNotification('📋 Реквизиты скопированы!', 'success');
-}
-
-function copyCardInfo(price) {
-    const text = `Оплата картой\nСумма: ${price}₽\nКарта: 2202 20XX XXXX XXXX\nБанк: Сбербанк/Тинькофф\nПолучатель: Гриценко Д.`;
-    navigator.clipboard.writeText(text);
-    showNotification('📋 Реквизиты скопированы!', 'success');
-}
-
-// ===== ADMIN FUNCTIONS =====
-function checkAdminPassword() {
-    const password = document.getElementById('adminPassword').value;
-    if (password === 'destructivshop123CEO') {
-        localStorage.setItem('admin_logged', 'true');
-        closeModal('adminLoginModal');
-        openAdminPanel();
-        showNotification('✅ Добро пожаловать, админ!', 'success');
-    } else {
-        showNotification('❌ Неверный пароль', 'error');
-    }
-    document.getElementById('adminPassword').value = '';
-}
-
-function openAdminPanel() {
-    const isAdmin = localStorage.getItem('admin_logged');
-    if (!isAdmin) { openModal('adminLoginModal'); return; }
-    document.getElementById('homeSection').style.display = 'none';
-    document.getElementById('profileSection').classList.remove('active');
-    const adminPanel = document.querySelector('.admin-panel');
-    if (!adminPanel) { createAdminPanel(); }
-    document.querySelector('.admin-panel').classList.add('active');
-    updateAdminStats();
-}
-
-function createAdminPanel() {
-    const adminHTML = `<section class="admin-panel"><h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2><div class="admin-stats"><div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div><div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div><div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div></div><div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div></section>`;
-    document.body.insertAdjacentHTML('beforeend', adminHTML);
-}
-
-function updateAdminStats() {
-    // Заглушка - здесь можно подключить реальную статистику из базы
-    document.getElementById('adminOrders').innerText = '0';
-    document.getElementById('adminRevenue').innerText = '0₽';
-    document.getElementById('adminUsers').innerText = '0';
-}
-
-function logoutAdmin() {
-    localStorage.removeItem('admin_logged');
-    document.querySelector('.admin-panel')?.remove();
-    showSection('home');
-    showNotification('👋 Вы вышли из админки', 'info');
-}
-
-// ===== OTHER FUNCTIONS =====
-function logout() { currentUser = null; localStorage.removeItem('destructiv_user'); localStorage.removeItem('destructiv_token'); updateAuthUI(); showSection('home'); showNotification('👋 Вы вышли', 'info'); }
+function orderNow() { if(!currentUser) { showNotification('⚠️ Войдите для заказа!', 'error'); openModal('loginModal'); return; } const service = document.querySelector('.tab-btn.active').innerText; const price = Math.round(basePrice * exchangeRates[currency]); showPaymentModal(service, price); }
+function showPaymentModal(service, price) { const modal = document.createElement('div'); modal.className = 'modal'; modal.id = 'paymentModal'; modal.innerHTML = `<div class="modal-content" style="max-width: 550px;"><span class="close" onclick="closeModal('paymentModal')">&times;</span><h2>💳 Оплата заказа</h2><div style="text-align: center; margin: 25px 0;"><p style="color: var(--gold); font-size: 1.3rem; margin-bottom: 10px;">${service}</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success); margin: 15px 0;">${price}${currencySymbols[currency]}</p></div><div style="background: rgba(112,0,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><h3 style="color: var(--accent); margin-bottom: 15px; text-align: center;">📲 Выберите способ оплаты:</h3><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">1️⃣ СБП (Система быстрых платежей)</p><div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--success);"><p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">📱 Номер: <strong style="color: #fff;">+7 (906) 582-83-64</strong><br>🏦 Банк: Тинькофф/Сбербанк<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p></div><button onclick="payViaSBP(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--success); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💰 Оплатить через СБП</button></div><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">2️⃣ Банковская карта</p><div style="background: rgba(255,0,60,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);"><p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">💳 Карта: <strong style="color: #fff;">2202 20XX XXXX XXXX</strong><br>🏦 Банк: Сбербанк/Тинькофф<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p></div><button onclick="payViaCard(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💳 Оплатить картой</button></div><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">3️⃣ Playerok (Гарантия)</p><a href="https://playerok.com/profile/destructiv/products" target="_blank" style="display: block; padding: 12px; background: var(--cr-gem); color: #000; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🛒 Перейти на Playerok</a></div><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">4️⃣ FunPay</p><a href="https://funpay.com/users/18952177/" target="_blank" style="display: block; padding: 12px; background: #2a5c9a; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🎮 Перейти на FunPay</a></div></div><div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid var(--success);"><p style="color: var(--success); font-size: 0.9rem; margin: 0;">⚡ После оплаты напишите нам в Telegram: <strong style="color: #fff;">@destructiv_admin</strong></p></div></div>`; document.body.appendChild(modal); openModal('paymentModal'); }
+function payViaSBP(price) { const sbpModal = document.createElement('div'); sbpModal.className = 'modal'; sbpModal.id = 'sbpModal'; sbpModal.innerHTML = `<div class="modal-content" style="max-width: 450px;"><span class="close" onclick="closeModal('sbpModal')">&times;</span><h2>📱 Оплата через СБП</h2><div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div><div style="background: rgba(0,230,118,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">📱 <strong>Номер:</strong><br><span style="color: var(--success); font-size: 1.3rem;">+7 (906) 582-83-64</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--success);">Тинькофф / Сбербанк</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--success);">Гриценко Д.</span></p></div><div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;"><p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Платежи через СБП"<br>2. Введите номер: +7 (906) 582-83-64<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p></div><a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a><button onclick="copySBPInfo(${price})" style="width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button></div>`; document.body.appendChild(sbpModal); openModal('sbpModal'); }
+function payViaCard(price) { const cardModal = document.createElement('div'); cardModal.className = 'modal'; cardModal.id = 'cardModal'; cardModal.innerHTML = `<div class="modal-content" style="max-width: 450px;"><span class="close" onclick="closeModal('cardModal')">&times;</span><h2>💳 Оплата картой</h2><div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div><div style="background: rgba(255,0,60,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">💳 <strong>Номер карты:</strong><br><span style="color: var(--primary); font-size: 1.3rem;">2202 20XX XXXX XXXX</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--primary);">Сбербанк / Тинькофф</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--primary);">Гриценко Д.</span></p></div><div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;"><p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Перевод по номеру карты"<br>2. Введите номер карты: 2202 20XX XXXX XXXX<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p></div><a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a><button onclick="copyCardInfo(${price})" style="width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button></div>`; document.body.appendChild(cardModal); openModal('cardModal'); }
+function copySBPInfo(price) { const text = `Оплата через СБП\nСумма: ${price}₽\nНомер: +7 (906) 582-83-64\nБанк: Тинькофф/Сбербанк\nПолучатель: Гриценко Д.`; navigator.clipboard.writeText(text); showNotification('📋 Реквизиты скопированы!', 'success'); }
+function copyCardInfo(price) { const text = `Оплата картой\nСумма: ${price}₽\nКарта: 2202 20XX XXXX XXXX\nБанк: Сбербанк/Тинькофф\nПолучатель: Гриценко Д.`; navigator.clipboard.writeText(text); showNotification('📋 Реквизиты скопированы!', 'success'); }
+function checkAdminPassword() { const password = document.getElementById('adminPassword').value; if (password === 'destructivshop123CEO') { localStorage.setItem('admin_logged', 'true'); closeModal('adminLoginModal'); openAdminPanel(); showNotification('✅ Добро пожаловать, админ!', 'success'); } else { showNotification('❌ Неверный пароль', 'error'); } document.getElementById('adminPassword').value = ''; }
+function openAdminPanel() { const isAdmin = localStorage.getItem('admin_logged'); if (!isAdmin) { openModal('adminLoginModal'); return; } document.getElementById('homeSection').style.display = 'none'; document.getElementById('profileSection').classList.remove('active'); const adminPanel = document.querySelector('.admin-panel'); if (!adminPanel) { createAdminPanel(); } document.querySelector('.admin-panel').classList.add('active'); updateAdminStats(); }
+function createAdminPanel() { const adminHTML = `<section class="admin-panel"><h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2><div class="admin-stats"><div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div><div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div><div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div></div><div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div></section>`; document.body.insertAdjacentHTML('beforeend', adminHTML); }
+function updateAdminStats() { document.getElementById('adminOrders').innerText = '0'; document.getElementById('adminRevenue').innerText = '0₽'; document.getElementById('adminUsers').innerText = '0'; }
+function logoutAdmin() { localStorage.removeItem('admin_logged'); document.querySelector('.admin-panel')?.remove(); showSection('home'); showNotification('👋 Вы вышли из админки', 'info'); }
 function generateLiveReviews() { const track = document.getElementById('reviewsTrack'); const doubled = [...reviewData, ...reviewData]; track.innerHTML = doubled.map(r => `<div class="review-item"><div class="review-header"><div style="display:flex; align-items:center; gap:10px;"><div class="review-avatar">${r.avatar}</div><span class="review-user">@${r.user}</span></div><span class="review-stars">★★★★★</span></div><div class="review-text">${r.text}</div><div class="review-time">${r.time}</div></div>`).join(''); }
 function startFloatingReviews() { setInterval(() => { const r = reviewData[Math.floor(Math.random() * reviewData.length)]; const el = document.createElement('div'); el.className = 'float-review'; el.innerHTML = `<div class="float-close" onclick="this.parentElement.remove()">&times;</div><div class="float-header"><span class="float-user"><span class="float-avatar">${r.avatar}</span>@${r.user}</span><span class="float-stars">★★★★★</span></div><div class="float-text">${r.text}</div>`; document.getElementById('floatingReviews').appendChild(el); setTimeout(() => el.classList.add('show'), 100); setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000); }, 6000); }
 function updateReviewCount() { const countEl = document.getElementById('reviewCount'); let count = 9780; setInterval(() => { count += Math.floor(Math.random()*3)+1; countEl.innerText = count.toLocaleString('ru-RU'); }, 8000); }
