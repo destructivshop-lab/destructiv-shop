@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<!-- 4-Я СТРОКА: Google Search Console Verification -->
-<meta name="google-site-verification" content="hlGfeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
+<meta name="google-site-verification" content="hlGFeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTRUCTIV | Clash Royale Boosting</title>
-<!-- SEO Meta Tags -->
 <meta name="description" content="DESTRUCTIV Shop — профессиональный буст Clash Royale. Быстро, безопасно, анонимно.">
 <meta name="keywords" content="clash royale boost, буст клеш рояль, купить гемы, поднять кубки, destructiv shop">
 <meta name="author" content="DESTRUCTIV Shop">
 <link rel="canonical" href="https://destructiv-shop.vercel.app">
-
-<!-- Open Graph for Social Media -->
 <meta property="og:title" content="DESTRUCTIV Shop | Clash Royale Boosting">
 <meta property="og:description" content="Лучший сервис буста в Clash Royale. Закажи сейчас!">
 <meta property="og:image" content="https://destructiv-shop.vercel.app/logo.png">
 <meta property="og:url" content="https://destructiv-shop.vercel.app">
 <meta property="og:type" content="website">
-
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root { --bg: #0a0a12; --card: #151525; --primary: #ff003c; --accent: #7000ff; --text: #fff; --gold: #ffd700; --success: #00e676; --cr-elixir: #ff4081; --cr-gem: #00e5ff; }
@@ -139,8 +134,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .newsletter-input { flex: 1; padding: 14px 18px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 1rem; }
 .newsletter-input:focus { outline: none; border-color: var(--accent); }
 .newsletter-btn { padding: 14px 25px; background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; font-weight: 700; border-radius: 10px; text-transform: uppercase; }
-.profile-section { display: none; padding-top: 120px; min-height: 100vh; }
-.profile-section.active { display: block; animation: fadeIn 0.5s; }
+.profile-section, .admin-panel { display: none; padding-top: 120px; min-height: 100vh; }
+.profile-section.active, .admin-panel.active { display: block; animation: fadeIn 0.5s; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .profile-dashboard { display: grid; grid-template-columns: 320px 1fr; gap: 35px; max-width: 1100px; margin: 0 auto; padding: 0 5%; }
 .profile-sidebar { background: var(--card); padding: 35px; border-radius: 20px; border: 1px solid #333; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: sticky; top: 100px; }
@@ -177,6 +172,11 @@ footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-
 .socials a { padding: 11px 24px; border: 2px solid var(--accent); color: #fff; border-radius: 50px; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; display: flex; align-items: center; gap: 7px; }
 .socials a:hover { background: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(112,0,255,0.4); }
 .copyright { color: #444; font-size: 0.8rem; padding-top: 20px; border-top: 1px solid #1a1a2a; }
+.requisites { background: rgba(0,0,0,0.3); padding: 20px; margin-top: 30px; border-radius: 10px; }
+.requisites h3 { color: var(--gold); margin-bottom: 15px; }
+.requisites p { color: #aaa; font-size: 0.9rem; margin: 8px 0; }
+.requisites strong { color: var(--text); }
+.requisites a { color: var(--accent); }
 .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); justify-content: center; align-items: center; animation: fadeIn 0.3s; }
 .modal-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--primary); width: 100%; max-width: 460px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(255,0,60,0.35); transform: scale(0.95); transition: 0.3s ease; }
 .modal.show .modal-content { transform: scale(1); }
@@ -234,6 +234,16 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 .verify-resend { color: var(--accent); cursor: pointer; font-size: 0.9rem; margin-top: 15px; display: inline-block; }
 .verify-resend:hover { text-decoration: underline; }
 .verify-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--primary)); border: none; color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 10px; margin-top: 10px; cursor: pointer; }
+.offer-section { padding: 60px 5%; background: rgba(15,15,28,0.9); }
+.offer-container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 40px; border-radius: 15px; border: 1px solid #333; }
+.offer-container h2 { color: var(--gold); margin-bottom: 20px; }
+.offer-container h3 { color: var(--accent); margin: 20px 0 10px; }
+.offer-container p, .offer-container li { color: #aaa; line-height: 1.6; margin: 10px 0; }
+.offer-container ul { margin-left: 20px; }
+.admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
+.admin-stat-card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #333; }
+.admin-stat-card h3 { color: var(--gold); font-size: 2rem; margin-bottom: 5px; }
+.admin-stat-card p { color: #aaa; }
 @media (max-width: 768px) {
 .hero h1 { font-size: 3.2rem; }
 .hero h1 span { font-size: 3.8rem; }
@@ -255,10 +265,60 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <div class="particles" id="particles"></div>
 <div class="notification-container" id="notifContainer"></div>
 <div class="floating-reviews" id="floatingReviews"></div>
+
+<!-- ADMIN LOGIN MODAL -->
+<div id="adminLoginModal" class="modal">
+    <div class="modal-content">
+        <h2>🔐 Админ панель</h2>
+        <div class="form-group">
+            <label>Пароль администратора</label>
+            <input type="password" id="adminPassword" placeholder="Введите пароль">
+        </div>
+        <button class="submit-btn" onclick="checkAdminPassword()">Войти</button>
+        <button class="btn btn-login" style="width: 100%; margin-top: 10px;" onclick="closeModal('adminLoginModal')">Отмена</button>
+    </div>
+</div>
+
+<!-- OFFER MODAL -->
+<div id="offerModal" class="modal">
+    <div class="modal-content" style="max-width: 800px; max-height: 80vh; overflow-y: auto;">
+        <span class="close" onclick="closeModal('offerModal')">&times;</span>
+        <h2>📋 Публичная оферта</h2>
+        <div class="offer-container" style="padding: 20px; border: none;">
+            <h3>1. Общие положения</h3>
+            <p>1.1. Настоящая публичная оферта является официальным предложением самозанятого Гриценко Данила (ИНН: 366225166806) заключить договор на оказание услуг по бустингу в игре Clash Royale.</p>
+            <p>1.2. Акцептом условий настоящей Оферты считается оформление и оплата заказа на сайте DESTRUCTIV Shop.</p>
+            <h3>2. Предмет договора</h3>
+            <p>2.1. Исполнитель обязуется оказать услуги по повышению рейтинга, прокачке аккаунта в Clash Royale, а Заказчик обязуется оплатить эти Услуги.</p>
+            <p>2.2. Услуги оказываются дистанционно с использованием аккаунта Заказчика.</p>
+            <h3>3. Порядок оказания услуг</h3>
+            <p>3.1. Для заказа Услуги Заказчик выбирает тип услуги, указывает данные аккаунта, производит оплату и предоставляет доступ.</p>
+            <p>3.2. Исполнитель оказывает Услуги с использованием VPN для обеспечения безопасности аккаунта.</p>
+            <p>3.3. Срок оказания услуг зависит от выбранного тарифа и составляет от 1 до 7 дней.</p>
+            <h3>4. Стоимость и порядок расчетов</h3>
+            <p>4.1. Стоимость Услуг определяется согласно прайс-листу на сайте.</p>
+            <p>4.2. Оплата производится путем 100% предоплаты.</p>
+            <p>4.3. Способы оплаты: банковские карты, СБП, криптовалюты, платежные системы Playerok, FunPay.</p>
+            <h3>5. Права и обязанности сторон</h3>
+            <p>5.1. Исполнитель обязуется оказать Услуги качественно и в срок, сохранять конфиденциальность данных аккаунта, использовать только ручную игру.</p>
+            <p>5.2. Заказчик обязуется предоставить достоверные данные, не изменять пароль во время оказания услуг, не вмешиваться в процесс.</p>
+            <h3>6. Ответственность сторон</h3>
+            <p>6.1. В случае невыполнения Услуг в срок Исполнитель возвращает полную стоимость заказа.</p>
+            <p>6.2. Исполнитель не несет ответственности за блокировку аккаунта, если она произошла по вине Заказчика.</p>
+            <h3>7. Реквизиты исполнителя</h3>
+            <p><strong>Самозанятый:</strong> Гриценко Данила<br>
+            <strong>ИНН:</strong> 366225166806<br>
+            <strong>Email:</strong> <a href="mailto:destructivshop@gmail.com">destructivshop@gmail.com</a><br>
+            <strong>Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
+        </div>
+    </div>
+</div>
+
 <div class="trustpilot-bar">
 <span class="trustpilot-stars">★★★★★</span>
 <span class="trustpilot-text">Rated <b class="trustpilot-count">4.92/5</b> on Trustpilot • <span id="reviewCount">9,780</span> reviews</span>
 </div>
+
 <nav>
 <div class="logo">DESTRUCTIV <span>SHOP</span></div>
 <div class="nav-links">
@@ -268,6 +328,7 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <a href="#reviews">Отзывы</a>
 <a href="#faq">FAQ</a>
 <button onclick="handleProfile()">👤 Профиль</button>
+<button onclick="openAdminPanel()" style="margin-left: 10px; background: rgba(255,0,60,0.2); border: 1px solid var(--primary);">⚙️ Админ</button>
 </div>
 <div class="nav-top">
 <select class="currency-select" id="currencySelect" onchange="updateCurrency()">
@@ -284,6 +345,7 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 </div>
 </div>
 </nav>
+
 <section class="hero" id="homeSection">
 <div class="hero-content">
 <h1>CLASH <br><span>ROYALE BOOST</span></h1>
@@ -291,6 +353,7 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <a href="#calculator" class="cta">🚀 НАЧАТЬ БУСТ</a>
 </div>
 </section>
+
 <div class="service-tabs">
 <button class="tab-btn active" onclick="switchTab('trophies')">🏆 Трофеи</button>
 <button class="tab-btn" onclick="switchTab('arena')">🏟️ Арена</button>
@@ -298,164 +361,70 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <button class="tab-btn" onclick="switchTab('accounts')">👤 Аккаунты</button>
 <button class="tab-btn" onclick="switchTab('gems')">💎 Гемы</button>
 </div>
+
 <section id="calculator" class="calculator-section">
 <div class="calc-container">
-<div class="calc-header">
-<h3>🧮 Рассчитать стоимость</h3>
-<p>Выберите текущие и желаемые кубки для мгновенного расчёта</p>
-</div>
-<div class="slider-group">
-<div class="slider-label">
-<span>Текущие кубки</span>
-<span class="slider-value" id="currentValue">5000</span>
-</div>
-<input type="range" class="custom-slider" id="currentSlider" min="0" max="15000" step="100" value="5000" oninput="calculatePrice()">
-</div>
-<div class="slider-group">
-<div class="slider-label">
-<span>Желаемые кубки</span>
-<span class="slider-value" id="targetValue">7000</span>
-</div>
-<input type="range" class="custom-slider" id="targetSlider" min="0" max="15000" step="100" value="7000" oninput="calculatePrice()">
-</div>
-<div class="price-display">
-<div class="price-label">Итоговая стоимость</div>
-<div><span class="price-amount" id="finalPrice">3000</span> <span class="price-currency" id="priceCurrency">₽</span></div>
-</div>
+<div class="calc-header"><h3>🧮 Рассчитать стоимость</h3><p>Выберите текущие и желаемые кубки для мгновенного расчёта</p></div>
+<div class="slider-group"><div class="slider-label"><span>Текущие кубки</span><span class="slider-value" id="currentValue">5000</span></div><input type="range" class="custom-slider" id="currentSlider" min="0" max="15000" step="100" value="5000" oninput="calculatePrice()"></div>
+<div class="slider-group"><div class="slider-label"><span>Желаемые кубки</span><span class="slider-value" id="targetValue">7000</span></div><input type="range" class="custom-slider" id="targetSlider" min="0" max="15000" step="100" value="7000" oninput="calculatePrice()"></div>
+<div class="price-display"><div class="price-label">Итоговая стоимость</div><div><span class="price-amount" id="finalPrice">3000</span> <span class="price-currency" id="priceCurrency">₽</span></div></div>
 <div style="margin: 25px 0; font-weight: 600; color: var(--gold);">⚙️ Дополнительные опции</div>
 <div class="addons-grid">
-<div class="addon-card" onclick="toggleAddon(this, 'stream', 0.2)">
-<div class="addon-checkbox"></div>
-<div class="addon-info">
-<h4>📹 Стрим игр</h4>
-<p>Запись всех боёв</p>
+<div class="addon-card" onclick="toggleAddon(this, 'stream', 0.2)"><div class="addon-checkbox"></div><div class="addon-info"><h4>📹 Стрим игр</h4><p>Запись всех боёв</p></div><div class="addon-price">+20%</div></div>
+<div class="addon-card" onclick="toggleAddon(this, 'express', 0.3)"><div class="addon-checkbox"></div><div class="addon-info"><h4>⚡ Экспресс</h4><p>Выполнение за 3-6ч</p></div><div class="addon-price">+30%</div></div>
+<div class="addon-card" onclick="toggleAddon(this, 'offline', 0)"><div class="addon-checkbox"></div><div class="addon-info"><h4>👻 Оффлайн</h4><p>Невидимость в друзьях</p></div><div class="addon-price">Бесплатно</div></div>
 </div>
-<div class="addon-price">+20%</div>
-</div>
-<div class="addon-card" onclick="toggleAddon(this, 'express', 0.3)">
-<div class="addon-checkbox"></div>
-<div class="addon-info">
-<h4>⚡ Экспресс</h4>
-<p>Выполнение за 3-6ч</p>
-</div>
-<div class="addon-price">+30%</div>
-</div>
-<div class="addon-card" onclick="toggleAddon(this, 'offline', 0)">
-<div class="addon-checkbox"></div>
-<div class="addon-info">
-<h4>👻 Оффлайн</h4>
-<p>Невидимость в друзьях</p>
-</div>
-<div class="addon-price">Бесплатно</div>
-</div>
-</div>
-<div class="booster-select">
-<label>👤 Выбрать бустера (опционально)</label>
-<div class="booster-options">
-<div class="booster-option selected" onclick="selectBooster(this, 'random')">
-<div class="booster-avatar">🎲</div>
-<div class="booster-name">Авто</div>
-<div class="booster-rating">⭐ Лучший</div>
-</div>
-<div class="booster-option" onclick="selectBooster(this, 'shadow')">
-<div class="booster-avatar">S</div>
-<div class="booster-name">Shadow</div>
-<div class="booster-rating">⭐ 4.98</div>
-</div>
-<div class="booster-option" onclick="selectBooster(this, 'pro')">
-<div class="booster-avatar">P</div>
-<div class="booster-name">ProKing</div>
-<div class="booster-rating">⭐ 4.95</div>
-</div>
-<div class="booster-option" onclick="selectBooster(this, 'fast')">
-<div class="booster-avatar">F</div>
-<div class="booster-name">FastBoost</div>
-<div class="booster-rating">⭐ 4.91</div>
-</div>
-</div>
-</div>
-<div class="order-notes">
-<label>📝 Дополнительные требования</label>
-<textarea placeholder="Например: не использовать определённые карты, играть в определённое время, и т.д."></textarea>
-</div>
+<div class="booster-select"><label>👤 Выбрать бустера (опционально)</label><div class="booster-options">
+<div class="booster-option selected" onclick="selectBooster(this, 'random')"><div class="booster-avatar">🎲</div><div class="booster-name">Авто</div><div class="booster-rating">⭐ Лучший</div></div>
+<div class="booster-option" onclick="selectBooster(this, 'shadow')"><div class="booster-avatar">S</div><div class="booster-name">Shadow</div><div class="booster-rating">⭐ 4.98</div></div>
+<div class="booster-option" onclick="selectBooster(this, 'pro')"><div class="booster-avatar">P</div><div class="booster-name">ProKing</div><div class="booster-rating">⭐ 4.95</div></div>
+<div class="booster-option" onclick="selectBooster(this, 'fast')"><div class="booster-avatar">F</div><div class="booster-name">FastBoost</div><div class="booster-rating">⭐ 4.91</div></div>
+</div></div>
+<div class="order-notes"><label>📝 Дополнительные требования</label><textarea placeholder="Например: не использовать определённые карты, играть в определённое время, и т.д."></textarea></div>
 <button class="order-btn" onclick="orderNow()">🛒 ОФОРМИТЬ ЗАКАЗ</button>
 </div>
 </section>
-<section id="guarantees" class="guarantees">
-<h2 class="title" style="margin-bottom:40px">🛡️ НАШИ ГАРАНТИИ</h2>
-<div class="guarantees-grid">
-<div class="guarantee-card">
-<div class="guarantee-icon">🔐</div>
-<h4>VPN Защита</h4>
-<p>Все бустеры используют VPN ваших регионов для полной анонимности</p>
-</div>
-<div class="guarantee-card">
-<div class="guarantee-icon">👻</div>
-<h4>Оффлайн Режим</h4>
-<p>Бустер играет в оффлайне — ваши друзья не увидят активность</p>
-</div>
-<div class="guarantee-card">
-<div class="guarantee-icon">✋</div>
-<h4>100% Ручная Игра</h4>
-<p>Никаких ботов и скриптов. Только профессиональные игроки</p>
-</div>
-<div class="guarantee-card">
-<div class="guarantee-icon">💰</div>
-<h4>Гарант Возврата</h4>
-<p>Если заказ не выполнен в срок — полный возврат средств</p>
-</div>
-</div>
-</section>
-<section id="reviews" class="live-reviews">
-<h2 class="title" style="margin-bottom:30px">💬 ЖИВЫЕ ОТЗЫВЫ</h2>
-<div class="reviews-track" id="reviewsTrack"></div>
-</section>
-<section id="faq" class="faq-section">
-<h2 class="title">❓ ЧАСТЫЕ ВОПРОСЫ</h2>
-<div class="faq-container">
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">Безопасно ли передавать аккаунт?</div>
-<div class="faq-answer">Да! Мы используем только ручную игру без стороннего ПО. Все бустеры работают через VPN вашего региона, а аккаунт играет в оффлайн-режиме — никто не увидит активность.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">Как быстро выполняется заказ?</div>
-<div class="faq-answer">Стандартный буст занимает 1-2 дня. При выборе опции "Экспресс" — от 3 до 6 часов.</div>
-</div>
-<div class="faq-item">
-<div class="faq-question" onclick="toggleFaq(this)">Что если я передумаю во время буста?</div>
-<div class="faq-answer">Вы можете отменить заказ в любой момент. Возвращается пропорциональная часть суммы за невыполненную часть.</div>
-</div>
-</div>
-</section>
-<section class="newsletter">
-<h3>🎁 Join the Club</h3>
-<p>Подпишитесь на рассылку и получите <b>500₽ бонус</b> на первый заказ + эксклюзивные скидки</p>
-<form class="newsletter-form" onsubmit="subscribe(event)">
-<input type="email" class="newsletter-input" placeholder="Ваш email" required>
-<button type="submit" class="newsletter-btn">Подписаться</button>
-</form>
-</section>
-<section id="profileSection" class="profile-section">
-<h2 class="title">👤 ЛИЧНЫЙ КАБИНЕТ</h2>
-<div class="profile-dashboard">
+
+<section id="guarantees" class="guarantees"><h2 class="title" style="margin-bottom:40px">🛡️ НАШИ ГАРАНТИИ</h2><div class="guarantees-grid">
+<div class="guarantee-card"><div class="guarantee-icon">🔐</div><h4>VPN Защита</h4><p>Все бустеры используют VPN ваших регионов для полной анонимности</p></div>
+<div class="guarantee-card"><div class="guarantee-icon">👻</div><h4>Оффлайн Режим</h4><p>Бустер играет в оффлайне — ваши друзья не увидят активность</p></div>
+<div class="guarantee-card"><div class="guarantee-icon">✋</div><h4>100% Ручная Игра</h4><p>Никаких ботов и скриптов. Только профессиональные игроки</p></div>
+<div class="guarantee-card"><div class="guarantee-icon">💰</div><h4>Гарант Возврата</h4><p>Если заказ не выполнен в срок — полный возврат средств</p></div>
+</div></section>
+
+<section id="reviews" class="live-reviews"><h2 class="title" style="margin-bottom:30px">💬 ЖИВЫЕ ОТЗЫВЫ</h2><div class="reviews-track" id="reviewsTrack"></div></section>
+
+<section id="faq" class="faq-section"><h2 class="title">❓ ЧАСТЫЕ ВОПРОСЫ</h2><div class="faq-container">
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Безопасно ли передавать аккаунт?</div><div class="faq-answer">Да! Мы используем только ручную игру без стороннего ПО. Все бустеры работают через VPN вашего региона, а аккаунт играет в оффлайн-режиме — никто не увидит активность.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Как быстро выполняется заказ?</div><div class="faq-answer">Стандартный буст занимает 1-2 дня. При выборе опции "Экспресс" — от 3 до 6 часов.</div></div>
+<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Что если я передумаю во время буста?</div><div class="faq-answer">Вы можете отменить заказ в любой момент. Возвращается пропорциональная часть суммы за невыполненную часть.</div></div>
+</div></section>
+
+<section class="newsletter"><h3>🎁 Join the Club</h3><p>Подпишитесь на рассылку и получите <b>500₽ бонус</b> на первый заказ + эксклюзивные скидки</p><form class="newsletter-form" onsubmit="subscribe(event)"><input type="email" class="newsletter-input" placeholder="Ваш email" required><button type="submit" class="newsletter-btn">Подписаться</button></form></section>
+
+<section id="profileSection" class="profile-section"><h2 class="title">👤 ЛИЧНЫЙ КАБИНЕТ</h2><div class="profile-dashboard">
 <div class="profile-sidebar">
-<div class="profile-avatar-container" onclick="changeAvatar()">
-<div class="profile-avatar" id="profileAvatar">👤</div>
-<div class="avatar-hint">Нажми для смены</div>
-</div>
-<div class="profile-name" id="profileName">User123</div>
-<div class="profile-email" id="profileEmail">user@example.com</div>
+<div class="profile-avatar-container" onclick="changeAvatar()"><div class="profile-avatar" id="profileAvatar">👤</div><div class="avatar-hint">Нажми для смены</div></div>
+<div class="profile-name" id="profileName">User123</div><div class="profile-email" id="profileEmail">user@example.com</div>
 <div class="balance" id="profileBalance">Баланс: 0₽</div>
-<div style="text-align:left; font-size:0.85rem; color:#aaa; margin-top:15px;">🔗 Реферальная ссылка:</div>
-<div class="ref-box" id="refLink">destructiv.shop/ref/user123</div>
+<div style="text-align:left; font-size:0.85rem; color:#aaa; margin-top:15px;">🔗 Реферальная ссылка:</div><div class="ref-box" id="refLink">destructiv.shop/ref/user123</div>
 <button class="btn btn-login" style="width:100%; font-size:0.8rem;" onclick="copyRef()">📋 Копировать</button>
 <button class="edit-btn" onclick="editProfile()">✏️ Редактировать профиль</button>
 </div>
-<div class="order-list" id="orderList">
-<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">У вас пока нет активных заказов</div>
+<div class="order-list" id="orderList"><div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">У вас пока нет активных заказов</div></div>
+</div></section>
+
+<!-- ADMIN PANEL -->
+<section class="admin-panel">
+<h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2>
+<div class="admin-stats">
+<div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div>
+<div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div>
+<div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div>
 </div>
-</div>
+<div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div>
 </section>
+
 <footer>
 <div class="footer-logo">DESTRUCTIV</div>
 <div class="socials">
@@ -463,562 +432,235 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <a href="https://playerok.com/profile/destructiv/products" target="_blank">🛒 Playerok</a>
 <a href="https://funpay.com/users/18952177/" target="_blank">🎮 Funpay</a>
 </div>
+<div class="requisites">
+<h3>📋 Реквизиты исполнителя</h3>
+<p><strong>Самозанятый:</strong> Гриценко Данила</p>
+<p><strong>ИНН:</strong> 366225166806</p>
+<p><strong>Email:</strong> <a href="mailto:destructivshop@gmail.com">destructivshop@gmail.com</a></p>
+<p><strong>Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
+<p style="margin-top: 15px;">
+<a href="#" onclick="openModal('offerModal'); return false;" style="color: var(--gold); margin: 0 10px;">📄 Публичная оферта</a> | 
+<a href="#" onclick="openModal('offerModal'); return false;" style="color: var(--gold); margin: 0 10px;">Политика конфиденциальности</a>
+</p>
+</div>
 <div class="copyright">© 2024 Destructiv Shop. Не связано с Supercell.</div>
 </footer>
-<div id="loginModal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal('loginModal')">&times;</span>
-<h2>🔐 ВХОД</h2>
-<form onsubmit="handleAuth(event, 'login')">
-<div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div>
-<div class="form-group"><label>Пароль</label><input type="password" id="loginPass" required></div>
-<div class="captcha-box">
-<div class="captcha-question" id="qLogin">2 + 2 = ?</div>
-<input type="number" class="captcha-input" id="aLogin" placeholder="?">
-</div>
-<button type="submit" class="submit-btn">Войти</button>
-</form>
-</div>
-</div>
-<div id="registerModal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal('registerModal')">&times;</span>
-<h2>✨ РЕГИСТРАЦИЯ</h2>
-<form id="registerForm" onsubmit="startEmailVerification(event)">
-<div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div>
-<div class="form-group"><label>Пароль</label><input type="password" id="regPass" minlength="6" required></div>
-<div class="form-group"><label>Никнейм</label><input type="text" id="regNick" placeholder="Player123" required></div>
-<div class="captcha-box">
-<div class="captcha-question" id="qReg">3 + 3 = ?</div>
-<input type="number" class="captcha-input" id="aReg" placeholder="?">
-</div>
-<button type="submit" class="submit-btn">Зарегистрироваться</button>
-</form>
-</div>
-</div>
-<div id="verifyModal" class="modal verify-modal">
-<div class="verify-content">
-<span class="close" onclick="closeModal('verifyModal')">&times;</span>
-<h2>📧 Подтверждение</h2>
-<p class="verify-hint">Код подтверждения отправлен на:</p>
-<div class="verify-email" id="verifyEmailDisplay">user@example.com</div>
-<div class="verify-code-inputs">
-<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
-</div>
-<button class="verify-btn" onclick="verifyCode()">Подтвердить</button>
-<div class="verify-resend" onclick="resendCode()">🔄 Отправить код снова</div>
-</div>
-</div>
-<section class="wheel-section">
-<h2 class="title">🎡 КОЛЕСО ФОРТУНЫ</h2>
-<div class="wheel-container">
-<div class="wheel-pointer"></div>
-<canvas id="wheelCanvas" width="400" height="400"></canvas>
-</div>
-<button class="wheel-btn" id="spinBtn" onclick="spinWheel()">КРУТИТЬ!</button>
-<div class="wheel-result" id="wheelResult"></div>
-<p style="text-align:center; color:#666; font-size:0.8rem; margin-top:15px;">Одна попытка каждые 24 часа</p>
-</section>
+
+<!-- MODALS -->
+<div id="loginModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('loginModal')">&times;</span><h2>🔐 ВХОД</h2><form onsubmit="handleAuth(event, 'login')"><div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div><div class="form-group"><label>Пароль</label><input type="password" id="loginPass" required></div><div class="captcha-box"><div class="captcha-question" id="qLogin">2 + 2 = ?</div><input type="number" class="captcha-input" id="aLogin" placeholder="?"></div><button type="submit" class="submit-btn">Войти</button></form></div></div>
+
+<div id="registerModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('registerModal')">&times;</span><h2>✨ РЕГИСТРАЦИЯ</h2><form id="registerForm" onsubmit="startEmailVerification(event)"><div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div><div class="form-group"><label>Пароль</label><input type="password" id="regPass" minlength="6" required></div><div class="form-group"><label>Никнейм</label><input type="text" id="regNick" placeholder="Player123" required></div><div class="captcha-box"><div class="captcha-question" id="qReg">3 + 3 = ?</div><input type="number" class="captcha-input" id="aReg" placeholder="?"></div><button type="submit" class="submit-btn">Зарегистрироваться</button></form></div></div>
+
+<div id="verifyModal" class="modal verify-modal"><div class="verify-content"><span class="close" onclick="closeModal('verifyModal')">&times;</span><h2>📧 Подтверждение</h2><p class="verify-hint">Код подтверждения отправлен на:</p><div class="verify-email" id="verifyEmailDisplay">user@example.com</div><div class="verify-code-inputs"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"></div><button class="verify-btn" onclick="verifyCode()">Подтвердить</button><div class="verify-resend" onclick="resendCode()">🔄 Отправить код снова</div></div></div>
+
+<section class="wheel-section"><h2 class="title">🎡 КОЛЕСО ФОРТУНЫ</h2><div class="wheel-container"><div class="wheel-pointer"></div><canvas id="wheelCanvas" width="400" height="400"></canvas></div><button class="wheel-btn" id="spinBtn" onclick="spinWheel()">КРУТИТЬ!</button><div class="wheel-result" id="wheelResult"></div><p style="text-align:center; color:#666; font-size:0.8rem; margin-top:15px;">Одна попытка каждые 24 часа</p></section>
+
 <script>
 const particlesContainer = document.getElementById('particles');
-for(let i=0; i<35; i++){
-let p = document.createElement('div');
-p.className = 'particle';
-p.style.left = Math.random()*100+'%';
-p.style.animationDelay = Math.random()*15+'s';
-p.style.animationDuration = (15 + Math.random()*10)+'s';
-particlesContainer.appendChild(p);
-}
-let currentUser = null;
-let captchaAnswer = 0;
-let wheelRotation = 0;
-let isSpinning = false;
-let basePrice = 3000;
-let addons = { stream: false, express: false, offline: false };
-let selectedBooster = 'random';
-let currency = 'RUB';
-let pendingRegistration = null;
-const exchangeRates = { RUB: 1, USD: 0.011, EUR: 0.01 };
-const currencySymbols = { RUB: '₽', USD: '$', EUR: '€' };
-const reviewData = [
-{ user: 'ShadowKing', avatar: 'S', text: 'Подняли с 5к до 7.5к за ночь! Бустер играл аккуратно. 🔥', time: '2ч назад' },
-{ user: 'ProGamer24', avatar: 'P', text: 'Лучший сервис, уже 4 раз заказываю. Всегда качественно.', time: '5ч назад' },
-{ user: 'NightWolf', avatar: 'N', text: 'Боялся бана, но всё чисто. VPN + оффлайн режим = идеально.', time: '8ч назад' },
-{ user: 'DragonSlayer', avatar: 'D', text: 'Выиграл 500₽ в колесе, спасибо! Буст тоже на высоте.', time: '12ч назад' },
-{ user: 'CyberNinja', avatar: 'C', text: 'Быстро и качественно. 5 звезд ⭐ Менеджер всегда на связи.', time: '1д назад' }
-];
-const prizes = [
-{ text: '500₽', color: '#ff003c' },
-{ text: 'Скидка 15%', color: '#7000ff' },
-{ text: '+150 кубков', color: '#ffd700' },
-{ text: 'Пусто', color: '#2a2a4a' },
-{ text: 'VIP статус', color: '#00e676' },
-{ text: '100 гемов', color: '#00bcd4' }
-];
-document.addEventListener('DOMContentLoaded', () => {
-const urlParams = new URLSearchParams(window.location.search);
-const referrer = urlParams.get('ref');
-if(referrer) {
-localStorage.setItem('pending_ref', referrer);
-showNotification(`🤝 Вас пригласил ${referrer}! +500₽ бонус`, 'success');
-}
-const saved = localStorage.getItem('destructiv_user');
-if(saved) { currentUser = JSON.parse(saved); updateAuthUI(); }
-generateCaptcha('login');
-generateCaptcha('register');
-calculatePrice();
-drawWheel();
-generateLiveReviews();
-startFloatingReviews();
-updateReviewCount();
-setupVerifyInputs();
-});
-function openModal(id){
-document.getElementById(id).style.display = 'flex';
-setTimeout(() => document.getElementById(id).classList.add('show'), 10);
-}
-function closeModal(id){
-document.getElementById(id).classList.remove('show');
-setTimeout(() => document.getElementById(id).style.display = 'none', 300);
-}
+for(let i=0; i<35; i++){ let p = document.createElement('div'); p.className = 'particle'; p.style.left = Math.random()*100+'%'; p.style.animationDelay = Math.random()*15+'s'; p.style.animationDuration = (15 + Math.random()*10)+'s'; particlesContainer.appendChild(p); }
+let currentUser = null; let captchaAnswer = 0; let wheelRotation = 0; let isSpinning = false; let basePrice = 3000; let addons = { stream: false, express: false, offline: false }; let selectedBooster = 'random'; let currency = 'RUB'; let pendingRegistration = null;
+const exchangeRates = { RUB: 1, USD: 0.011, EUR: 0.01 }; const currencySymbols = { RUB: '₽', USD: '$', EUR: '€' };
+const reviewData = [{ user: 'ShadowKing', avatar: 'S', text: 'Подняли с 5к до 7.5к за ночь! Бустер играл аккуратно. 🔥', time: '2ч назад' },{ user: 'ProGamer24', avatar: 'P', text: 'Лучший сервис, уже 4 раз заказываю. Всегда качественно.', time: '5ч назад' },{ user: 'NightWolf', avatar: 'N', text: 'Боялся бана, но всё чисто. VPN + оффлайн режим = идеально.', time: '8ч назад' },{ user: 'DragonSlayer', avatar: 'D', text: 'Выиграл 500₽ в колесе, спасибо! Буст тоже на высоте.', time: '12ч назад' },{ user: 'CyberNinja', avatar: 'C', text: 'Быстро и качественно. 5 звезд ⭐ Менеджер всегда на связи.', time: '1д назад' }];
+const prizes = [{ text: '500₽', color: '#ff003c' },{ text: 'Скидка 15%', color: '#7000ff' },{ text: '+150 кубков', color: '#ffd700' },{ text: 'Пусто', color: '#2a2a4a' },{ text: 'VIP статус', color: '#00e676' },{ text: '100 гемов', color: '#00bcd4' }];
+document.addEventListener('DOMContentLoaded', () => { const urlParams = new URLSearchParams(window.location.search); const referrer = urlParams.get('ref'); if(referrer) { localStorage.setItem('pending_ref', referrer); showNotification(`🤝 Вас пригласил ${referrer}! +500₽ бонус`, 'success'); } const saved = localStorage.getItem('destructiv_user'); if(saved) { currentUser = JSON.parse(saved); updateAuthUI(); } generateCaptcha('login'); generateCaptcha('register'); calculatePrice(); drawWheel(); generateLiveReviews(); startFloatingReviews(); updateReviewCount(); setupVerifyInputs(); });
+function openModal(id){ document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).classList.add('show'), 10); }
+function closeModal(id){ document.getElementById(id).classList.remove('show'); setTimeout(() => document.getElementById(id).style.display = 'none', 300); }
 window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
-function generateCaptcha(type) {
-const n1 = Math.floor(Math.random() * 5) + 1, n2 = Math.floor(Math.random() * 5) + 1;
-captchaAnswer = n1 + n2;
-document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`;
-}
+function generateCaptcha(type) { const n1 = Math.floor(Math.random() * 5) + 1, n2 = Math.floor(Math.random() * 5) + 1; captchaAnswer = n1 + n2; document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`; }
 
-// ==========================================
-// УНИВЕРСАЛЬНЫЕ ФУНКЦИИ С ПРОВЕРКОЙ URL
-// ==========================================
+async function startEmailVerification(e) { e.preventDefault(); const email = document.getElementById('regEmail').value; const password = document.getElementById('regPass').value; const nick = document.getElementById('regNick').value; const captchaInput = parseInt(document.getElementById('aReg').value); if(captchaInput !== captchaAnswer) { showNotification('❌ Неверная капча!', 'error'); generateCaptcha('register'); return; } if(password.length < 6) { showNotification('❌ Пароль минимум 6 символов!', 'error'); return; } try { const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : ''; const response = await fetch(`${apiUrl}/api/auth/send-verification`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) }); const result = await response.json(); if(result.success) { pendingRegistration = { email, password, nick }; document.getElementById('verifyEmailDisplay').innerText = email; document.querySelectorAll('.verify-digit').forEach(input => input.value = ''); document.querySelectorAll('.verify-digit')[0].focus(); closeModal('registerModal'); openModal('verifyModal'); showNotification('📧 Код отправлен на email!', 'success'); } else { showNotification(`❌ ${result.error}`, 'error'); } } catch (error) { console.error(error); showNotification('❌ Ошибка соединения с сервером', 'error'); } }
+function setupVerifyInputs() { const inputs = document.querySelectorAll('.verify-digit'); inputs.forEach((input, index) => { input.addEventListener('input', (e) => { if(e.target.value && index < inputs.length - 1) inputs[index + 1].focus(); }); input.addEventListener('keydown', (e) => { if(e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus(); }); }); }
+function getVerificationInput() { return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join(''); }
+async function verifyCode() { const enteredCode = getVerificationInput(); if(enteredCode.length !== 6) { showNotification('❌ Введите 6-значный код', 'error'); return; } if(!pendingRegistration) return; try { const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : ''; const response = await fetch(`${apiUrl}/api/auth/verify-code`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: pendingRegistration.email, code: enteredCode, password: pendingRegistration.password, nick: pendingRegistration.nick }) }); const result = await response.json(); if(result.success) { localStorage.setItem('destructiv_token', result.token); localStorage.setItem('destructiv_user', JSON.stringify(result.user)); currentUser = result.user; updateAuthUI(); updateProfileUI(); closeModal('verifyModal'); showNotification('✅ Аккаунт создан и подтверждён!', 'success'); createConfetti(); pendingRegistration = null; document.getElementById('registerForm')?.reset(); generateCaptcha('register'); } else { showNotification(`❌ ${result.error}`, 'error'); document.querySelectorAll('.verify-digit').forEach(input => input.value = ''); document.querySelectorAll('.verify-digit')[0].focus(); } } catch (error) { console.error(error); showNotification('❌ Ошибка соединения с сервером', 'error'); } }
+function resendCode() { if(!pendingRegistration) return; showNotification('📧 Код отправлен повторно', 'info'); document.querySelectorAll('.verify-digit').forEach(input => input.value = ''); document.querySelectorAll('.verify-digit')[0].focus(); }
+async function handleAuth(e, type) { e.preventDefault(); if (type === 'login') { const email = document.getElementById('loginEmail').value; const password = document.getElementById('loginPass').value; const captchaInput = parseInt(document.getElementById('aLogin').value); if(captchaInput !== captchaAnswer) { showNotification('❌ Неверная капча!', 'error'); generateCaptcha('login'); return; } try { const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : ''; const response = await fetch(`${apiUrl}/api/auth/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) }); const result = await response.json(); if(result.success) { localStorage.setItem('destructiv_token', result.token); localStorage.setItem('destructiv_user', JSON.stringify(result.user)); currentUser = result.user; updateAuthUI(); updateProfileUI(); closeModal('loginModal'); showNotification('✅ ' + result.message, 'success'); createConfetti(); e.target.reset(); generateCaptcha('login'); } else { showNotification(`❌ ${result.error}`, 'error'); } } catch (error) { console.error(error); showNotification('❌ Ошибка соединения с сервером', 'error'); } } }
+function logout() { currentUser = null; localStorage.removeItem('destructiv_user'); localStorage.removeItem('destructiv_token'); updateAuthUI(); showSection('home'); showNotification('👋 Вы вышли', 'info'); }
+function updateAuthUI() { document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex'; document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none'; }
+function handleProfile() { if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; } updateProfileUI(); showSection('profile'); }
+function showSection(section) { document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none'; document.getElementById('profileSection').classList.toggle('active', section === 'profile'); if(section !== 'profile') document.getElementById('profileSection').classList.remove('active'); document.querySelector('.admin-panel')?.classList.remove('active'); window.scrollTo(0, 0); }
+function updateProfileUI() { if(!currentUser) return; document.getElementById('profileName').innerText = currentUser.name; document.getElementById('profileEmail').innerText = currentUser.email; document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`; document.getElementById('profileAvatar').innerText = currentUser.avatar; document.getElementById('refLink').innerText = `${window.location.origin}${window.location.pathname}?ref=${currentUser.name}`; const orderList = document.getElementById('orderList'); if(currentUser.orders?.length > 0) { orderList.innerHTML = currentUser.orders.map(o => `<div class="order-card status-active"><div><div style="font-weight:bold;">${o.service}</div><div style="font-size:0.85rem; color:#aaa;">Тег: ${o.tag}</div></div><div style="text-align:right;"><div style="color:var(--gold); font-weight:bold;">${o.price}${currencySymbols[currency]}</div><span class="status-badge">В работе</span></div></div>`).join(''); } else { orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>'; } }
+function changeAvatar() { if(!currentUser) return; const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽']; currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length]; saveUser(); updateProfileUI(); showNotification('🎨 Аватарка изменена!', 'success'); }
+function editProfile() { if(!currentUser) return; const newName = prompt('Новый никнейм:', currentUser.name); if(newName?.trim()) { currentUser.name = newName.trim(); saveUser(); updateProfileUI(); showNotification('✏️ Профиль обновлён!', 'success'); } }
+function copyRef() { navigator.clipboard.writeText(document.getElementById('refLink').innerText); showNotification('📋 Ссылка скопирована!', 'success'); }
+function saveUser() { localStorage.setItem('destructiv_user', JSON.stringify(currentUser)); }
+function calculatePrice() { const current = parseInt(document.getElementById('currentSlider').value), target = parseInt(document.getElementById('targetSlider').value); document.getElementById('currentValue').innerText = current; document.getElementById('targetValue').innerText = target; const diff = Math.max(0, target - current); let price = diff * 1.5; if(addons.stream) price *= 1.2; if(addons.express) price *= 1.3; basePrice = price; updatePriceDisplay(); }
+function toggleAddon(el, name, multiplier) { el.classList.toggle('active'); addons[name] = el.classList.contains('active'); calculatePrice(); }
+function selectBooster(el, name) { document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected')); el.classList.add('selected'); selectedBooster = name; }
+function updatePriceDisplay() { const convertedPrice = Math.round(basePrice * exchangeRates[currency]); document.getElementById('finalPrice').innerText = convertedPrice; document.getElementById('priceCurrency').innerText = currencySymbols[currency]; }
+function updateCurrency() { currency = document.getElementById('currencySelect').value; updatePriceDisplay(); if(currentUser) updateProfileUI(); }
+function switchTab(tab) { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); showNotification(`📋 Категория: ${event.target.innerText}`, 'info'); }
 
-async function startEmailVerification(e) {
-    e.preventDefault();
-    const email = document.getElementById('regEmail').value;
-    const password = document.getElementById('regPass').value;
-    const nick = document.getElementById('regNick').value;
-    const captchaInput = parseInt(document.getElementById('aReg').value);
-    if(captchaInput !== captchaAnswer) {
-        showNotification('❌ Неверная капча!', 'error');
-        generateCaptcha('register');
-        return;
-    }
-    if(password.length < 6) {
-        showNotification('❌ Пароль минимум 6 символов!', 'error');
-        return;
-    }
-    try {
-        // УНИВЕРСАЛЬНЫЙ URL: localhost или production
-        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-            ? 'http://localhost:3000' 
-            : '';
-        const response = await fetch(`${apiUrl}/api/auth/send-verification`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email })
-        });
-        const result = await response.json();
-        if(result.success) {
-            pendingRegistration = { email, password, nick };
-            document.getElementById('verifyEmailDisplay').innerText = email;
-            document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
-            document.querySelectorAll('.verify-digit')[0].focus();
-            closeModal('registerModal');
-            openModal('verifyModal');
-            showNotification('📧 Код отправлен на email!', 'success');
-        } else {
-            showNotification(`❌ ${result.error}`, 'error');
-        }
-    } catch (error) {
-        console.error(error);
-        showNotification('❌ Ошибка соединения с сервером', 'error');
-    }
-}
-
-function setupVerifyInputs() {
-    const inputs = document.querySelectorAll('.verify-digit');
-    inputs.forEach((input, index) => {
-        input.addEventListener('input', (e) => {
-            if(e.target.value && index < inputs.length - 1) inputs[index + 1].focus();
-        });
-        input.addEventListener('keydown', (e) => {
-            if(e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus();
-        });
-    });
-}
-
-function getVerificationInput() {
-    return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join('');
-}
-
-async function verifyCode() {
-    const enteredCode = getVerificationInput();
-    if(enteredCode.length !== 6) {
-        showNotification('❌ Введите 6-значный код', 'error');
-        return;
-    }
-    if(!pendingRegistration) return;
-    try {
-        // УНИВЕРСАЛЬНЫЙ URL: localhost или production
-        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-            ? 'http://localhost:3000' 
-            : '';
-        const response = await fetch(`${apiUrl}/api/auth/verify-code`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                email: pendingRegistration.email,
-                code: enteredCode,
-                password: pendingRegistration.password,
-                nick: pendingRegistration.nick
-            })
-        });
-        const result = await response.json();
-        if(result.success) {
-            localStorage.setItem('destructiv_token', result.token);
-            localStorage.setItem('destructiv_user', JSON.stringify(result.user));
-            currentUser = result.user;
-            updateAuthUI();
-            updateProfileUI();
-            closeModal('verifyModal');
-            showNotification('✅ Аккаунт создан и подтверждён!', 'success');
-            createConfetti();
-            pendingRegistration = null;
-            document.getElementById('registerForm')?.reset();
-            generateCaptcha('register');
-        } else {
-            showNotification(`❌ ${result.error}`, 'error');
-            document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
-            document.querySelectorAll('.verify-digit')[0].focus();
-        }
-    } catch (error) {
-        console.error(error);
-        showNotification('❌ Ошибка соединения с сервером', 'error');
-    }
-}
-
-function resendCode() {
-    if(!pendingRegistration) return;
-    showNotification('📧 Код отправлен повторно', 'info');
-    document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
-    document.querySelectorAll('.verify-digit')[0].focus();
-}
-
-async function handleAuth(e, type) {
-    e.preventDefault();
-    if (type === 'login') {
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPass').value;
-        const captchaInput = parseInt(document.getElementById('aLogin').value);
-        if(captchaInput !== captchaAnswer) {
-            showNotification('❌ Неверная капча!', 'error');
-            generateCaptcha('login');
-            return;
-        }
-        try {
-            // УНИВЕРСАЛЬНЫЙ URL: localhost или production
-            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-                ? 'http://localhost:3000' 
-                : '';
-            const response = await fetch(`${apiUrl}/api/auth/login`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
-            const result = await response.json();
-            if(result.success) {
-                localStorage.setItem('destructiv_token', result.token);
-                localStorage.setItem('destructiv_user', JSON.stringify(result.user));
-                currentUser = result.user;
-                updateAuthUI();
-                updateProfileUI();
-                closeModal('loginModal');
-                showNotification('✅ ' + result.message, 'success');
-                createConfetti();
-                e.target.reset();
-                generateCaptcha('login');
-            } else {
-                showNotification(`❌ ${result.error}`, 'error');
-            }
-        } catch (error) {
-            console.error(error);
-            showNotification('❌ Ошибка соединения с сервером', 'error');
-        }
-    }
-}
-
-// ==========================================
-// ОСТАЛЬНЫЕ ФУНКЦИИ (без изменений)
-// ==========================================
-
-function logout() {
-    currentUser = null;
-    localStorage.removeItem('destructiv_user');
-    localStorage.removeItem('destructiv_token');
-    updateAuthUI();
-    showSection('home');
-    showNotification('👋 Вы вышли', 'info');
-}
-
-function updateAuthUI() {
-    document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex';
-    document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none';
-}
-
-function handleProfile() {
-    if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; }
-    updateProfileUI();
-    showSection('profile');
-}
-
-function showSection(section) {
-    document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none';
-    document.getElementById('profileSection').classList.toggle('active', section === 'profile');
-    if(section !== 'profile') document.getElementById('profileSection').classList.remove('active');
-    window.scrollTo(0, 0);
-}
-
-function updateProfileUI() {
-    if(!currentUser) return;
-    document.getElementById('profileName').innerText = currentUser.name;
-    document.getElementById('profileEmail').innerText = currentUser.email;
-    document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`;
-    document.getElementById('profileAvatar').innerText = currentUser.avatar;
-    document.getElementById('refLink').innerText = `${window.location.origin}${window.location.pathname}?ref=${currentUser.name}`;
-    const orderList = document.getElementById('orderList');
-    if(currentUser.orders?.length > 0) {
-        orderList.innerHTML = currentUser.orders.map(o => `
-        <div class="order-card status-active">
-        <div><div style="font-weight:bold;">${o.service}</div><div style="font-size:0.85rem; color:#aaa;">Тег: ${o.tag}</div></div>
-        <div style="text-align:right;"><div style="color:var(--gold); font-weight:bold;">${o.price}${currencySymbols[currency]}</div><span class="status-badge">В работе</span></div>
-        </div>`).join('');
-    } else {
-        orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>';
-    }
-}
-
-function changeAvatar() {
-    if(!currentUser) return;
-    const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽'];
-    currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length];
-    saveUser();
-    updateProfileUI();
-    showNotification('🎨 Аватарка изменена!', 'success');
-}
-
-function editProfile() {
-    if(!currentUser) return;
-    const newName = prompt('Новый никнейм:', currentUser.name);
-    if(newName?.trim()) {
-        currentUser.name = newName.trim();
-        saveUser();
-        updateProfileUI();
-        showNotification('✏️ Профиль обновлён!', 'success');
-    }
-}
-
-function copyRef() {
-    navigator.clipboard.writeText(document.getElementById('refLink').innerText);
-    showNotification('📋 Ссылка скопирована!', 'success');
-}
-
-function saveUser() {
-    localStorage.setItem('destructiv_user', JSON.stringify(currentUser));
-}
-
-function calculatePrice() {
-    const current = parseInt(document.getElementById('currentSlider').value),
-    target = parseInt(document.getElementById('targetSlider').value);
-    document.getElementById('currentValue').innerText = current;
-    document.getElementById('targetValue').innerText = target;
-    const diff = Math.max(0, target - current);
-    let price = diff * 1.5;
-    if(addons.stream) price *= 1.2;
-    if(addons.express) price *= 1.3;
-    basePrice = price;
-    updatePriceDisplay();
-}
-
-function toggleAddon(el, name, multiplier) {
-    el.classList.toggle('active');
-    addons[name] = el.classList.contains('active');
-    calculatePrice();
-}
-
-function selectBooster(el, name) {
-    document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected'));
-    el.classList.add('selected');
-    selectedBooster = name;
-}
-
-function updatePriceDisplay() {
-    const convertedPrice = Math.round(basePrice * exchangeRates[currency]);
-    document.getElementById('finalPrice').innerText = convertedPrice;
-    document.getElementById('priceCurrency').innerText = currencySymbols[currency];
-}
-
-function updateCurrency() {
-    currency = document.getElementById('currencySelect').value;
-    updatePriceDisplay();
-    if(currentUser) updateProfileUI();
-}
-
-function switchTab(tab) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-    showNotification(`📋 Категория: ${event.target.innerText}`, 'info');
-}
-
+// ===== PAYMENT FUNCTIONS =====
 function orderNow() {
-    if(!currentUser) {
-        showNotification('⚠️ Войдите для заказа!', 'error');
-        openModal('loginModal');
-        return;
-    }
+    if(!currentUser) { showNotification('⚠️ Войдите для заказа!', 'error'); openModal('loginModal'); return; }
     const service = document.querySelector('.tab-btn.active').innerText;
-    showNotification('📝 Заказ оформлен! (демо)', 'success');
+    const price = Math.round(basePrice * exchangeRates[currency]);
+    showPaymentModal(service, price);
 }
 
-const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d');
-const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10;
-const segmentAngle = (2 * Math.PI) / prizes.length;
-
-function drawWheel() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    prizes.forEach((prize, i) => {
-        const angle = i * segmentAngle;
-        ctx.beginPath(); ctx.moveTo(centerX, centerY);
-        ctx.arc(centerX, centerY, radius, angle, angle + segmentAngle);
-        ctx.fillStyle = prize.color; ctx.fill(); ctx.stroke();
-        ctx.save(); ctx.translate(centerX, centerY); ctx.rotate(angle + segmentAngle/2);
-        ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "bold 15px Rajdhani";
-        ctx.fillText(prize.text, radius - 22, 5); ctx.restore();
-    });
+function showPaymentModal(service, price) {
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.id = 'paymentModal';
+    modal.innerHTML = `
+        <div class="modal-content" style="max-width: 550px;">
+            <span class="close" onclick="closeModal('paymentModal')">&times;</span>
+            <h2>💳 Оплата заказа</h2>
+            <div style="text-align: center; margin: 25px 0;">
+                <p style="color: var(--gold); font-size: 1.3rem; margin-bottom: 10px;">${service}</p>
+                <p style="font-size: 2.5rem; font-weight: bold; color: var(--success); margin: 15px 0;">${price}${currencySymbols[currency]}</p>
+            </div>
+            <div style="background: rgba(112,0,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <h3 style="color: var(--accent); margin-bottom: 15px; text-align: center;">📲 Выберите способ оплаты:</h3>
+                <div style="margin: 15px 0;">
+                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">1️⃣ СБП (Система быстрых платежей)</p>
+                    <div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--success);">
+                        <p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">📱 Номер: <strong style="color: #fff;">+7 (906) 582-83-64</strong><br>🏦 Банк: Тинькофф/Сбербанк<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p>
+                    </div>
+                    <button onclick="payViaSBP(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--success); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💰 Оплатить через СБП</button>
+                </div>
+                <div style="margin: 15px 0;">
+                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">2️⃣ Банковская карта</p>
+                    <div style="background: rgba(255,0,60,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);">
+                        <p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">💳 Карта: <strong style="color: #fff;">2202 20XX XXXX XXXX</strong><br>🏦 Банк: Сбербанк/Тинькофф<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p>
+                    </div>
+                    <button onclick="payViaCard(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💳 Оплатить картой</button>
+                </div>
+                <div style="margin: 15px 0;">
+                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">3️⃣ Playerok (Гарантия)</p>
+                    <a href="https://playerok.com/profile/destructiv/products" target="_blank" style="display: block; padding: 12px; background: var(--cr-gem); color: #000; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🛒 Перейти на Playerok</a>
+                </div>
+                <div style="margin: 15px 0;">
+                    <p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">4️⃣ FunPay</p>
+                    <a href="https://funpay.com/users/18952177/" target="_blank" style="display: block; padding: 12px; background: #2a5c9a; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🎮 Перейти на FunPay</a>
+                </div>
+            </div>
+            <div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid var(--success);">
+                <p style="color: var(--success); font-size: 0.9rem; margin: 0;">⚡ После оплаты напишите нам в Telegram: <strong style="color: #fff;">@destructiv_admin</strong></p>
+            </div>
+        </div>`;
+    document.body.appendChild(modal);
+    openModal('paymentModal');
 }
 
-function spinWheel() {
-    if(isSpinning || !currentUser) {
-        if(!currentUser) {
-            showNotification('⚠️ Войдите чтобы крутить!', 'error');
-            openModal('loginModal');
-        }
-        return;
+function payViaSBP(price) {
+    const sbpModal = document.createElement('div');
+    sbpModal.className = 'modal';
+    sbpModal.id = 'sbpModal';
+    sbpModal.innerHTML = `
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close" onclick="closeModal('sbpModal')">&times;</span>
+            <h2>📱 Оплата через СБП</h2>
+            <div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div>
+            <div style="background: rgba(0,230,118,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p>
+                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">📱 <strong>Номер:</strong><br><span style="color: var(--success); font-size: 1.3rem;">+7 (906) 582-83-64</span></p>
+                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--success);">Тинькофф / Сбербанк</span></p>
+                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--success);">Гриценко Д.</span></p>
+            </div>
+            <div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Платежи через СБП"<br>2. Введите номер: +7 (906) 582-83-64<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p>
+            </div>
+            <a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a>
+            <button onclick="copySBPInfo(${price})" style="width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button>
+        </div>`;
+    document.body.appendChild(sbpModal);
+    openModal('sbpModal');
+}
+
+function payViaCard(price) {
+    const cardModal = document.createElement('div');
+    cardModal.className = 'modal';
+    cardModal.id = 'cardModal';
+    cardModal.innerHTML = `
+        <div class="modal-content" style="max-width: 450px;">
+            <span class="close" onclick="closeModal('cardModal')">&times;</span>
+            <h2>💳 Оплата картой</h2>
+            <div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div>
+            <div style="background: rgba(255,0,60,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p>
+                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">💳 <strong>Номер карты:</strong><br><span style="color: var(--primary); font-size: 1.3rem;">2202 20XX XXXX XXXX</span></p>
+                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--primary);">Сбербанк / Тинькофф</span></p>
+                <p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--primary);">Гриценко Д.</span></p>
+            </div>
+            <div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Перевод по номеру карты"<br>2. Введите номер карты: 2202 20XX XXXX XXXX<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p>
+            </div>
+            <a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a>
+            <button onclick="copyCardInfo(${price})" style="width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button>
+        </div>`;
+    document.body.appendChild(cardModal);
+    openModal('cardModal');
+}
+
+function copySBPInfo(price) {
+    const text = `Оплата через СБП\nСумма: ${price}₽\nНомер: +7 (906) 582-83-64\nБанк: Тинькофф/Сбербанк\nПолучатель: Гриценко Д.`;
+    navigator.clipboard.writeText(text);
+    showNotification('📋 Реквизиты скопированы!', 'success');
+}
+
+function copyCardInfo(price) {
+    const text = `Оплата картой\nСумма: ${price}₽\nКарта: 2202 20XX XXXX XXXX\nБанк: Сбербанк/Тинькофф\nПолучатель: Гриценко Д.`;
+    navigator.clipboard.writeText(text);
+    showNotification('📋 Реквизиты скопированы!', 'success');
+}
+
+// ===== ADMIN FUNCTIONS =====
+function checkAdminPassword() {
+    const password = document.getElementById('adminPassword').value;
+    if (password === 'destructivshop123CEO') {
+        localStorage.setItem('admin_logged', 'true');
+        closeModal('adminLoginModal');
+        openAdminPanel();
+        showNotification('✅ Добро пожаловать, админ!', 'success');
+    } else {
+        showNotification('❌ Неверный пароль', 'error');
     }
-    const now = Date.now();
-    if(currentUser.lastSpin && now - currentUser.lastSpin < 86400000) {
-        showNotification('⏳ Попробуйте через 24 часа!', 'error');
-        return;
-    }
-    isSpinning = true; document.getElementById('spinBtn').disabled = true;
-    document.getElementById('wheelResult').classList.remove('show');
-    const winningIndex = Math.floor(Math.random() * prizes.length);
-    const extraSpins = 5 * 2 * Math.PI;
-    const targetAngle = extraSpins + (2*Math.PI - (winningIndex*segmentAngle)) - (segmentAngle/2);
-    wheelRotation += targetAngle;
-    canvas.style.transform = `rotate(${wheelRotation}rad)`;
-    setTimeout(() => {
-        isSpinning = false;
-        const prize = prizes[winningIndex];
-        const resultEl = document.getElementById('wheelResult');
-        resultEl.innerText = `🎉 Выигрыш: ${prize.text}!`; resultEl.classList.add('show');
-        if(prize.text !== 'Пусто') {
-            showNotification(`🎁 Вы выиграли: ${prize.text}`, 'success');
-            createConfetti();
-        }
-        currentUser.lastSpin = Date.now(); saveUser();
-    }, 5000);
+    document.getElementById('adminPassword').value = '';
 }
 
-function generateLiveReviews() {
-    const track = document.getElementById('reviewsTrack');
-    const doubled = [...reviewData, ...reviewData];
-    track.innerHTML = doubled.map(r => `
-    <div class="review-item">
-    <div class="review-header">
-    <div style="display:flex; align-items:center; gap:10px;">
-    <div class="review-avatar">${r.avatar}</div>
-    <span class="review-user">@${r.user}</span>
-    </div>
-    <span class="review-stars">★★★★★</span>
-    </div>
-    <div class="review-text">${r.text}</div>
-    <div class="review-time">${r.time}</div>
-    </div>
-    `).join('');
+function openAdminPanel() {
+    const isAdmin = localStorage.getItem('admin_logged');
+    if (!isAdmin) { openModal('adminLoginModal'); return; }
+    document.getElementById('homeSection').style.display = 'none';
+    document.getElementById('profileSection').classList.remove('active');
+    const adminPanel = document.querySelector('.admin-panel');
+    if (!adminPanel) { createAdminPanel(); }
+    document.querySelector('.admin-panel').classList.add('active');
+    updateAdminStats();
 }
 
-function startFloatingReviews() {
-    setInterval(() => {
-        const r = reviewData[Math.floor(Math.random() * reviewData.length)];
-        const el = document.createElement('div');
-        el.className = 'float-review';
-        el.innerHTML = `
-        <div class="float-close" onclick="this.parentElement.remove()">&times;</div>
-        <div class="float-header">
-        <span class="float-user"><span class="float-avatar">${r.avatar}</span>@${r.user}</span>
-        <span class="float-stars">★★★★★</span>
-        </div>
-        <div class="float-text">${r.text}</div>
-        `;
-        document.getElementById('floatingReviews').appendChild(el);
-        setTimeout(() => el.classList.add('show'), 100);
-        setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000);
-    }, 6000);
+function createAdminPanel() {
+    const adminHTML = `<section class="admin-panel"><h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2><div class="admin-stats"><div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div><div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div><div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div></div><div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div></section>`;
+    document.body.insertAdjacentHTML('beforeend', adminHTML);
 }
 
-function updateReviewCount() {
-    const countEl = document.getElementById('reviewCount');
-    let count = 9780;
-    setInterval(() => {
-        count += Math.floor(Math.random()*3)+1;
-        countEl.innerText = count.toLocaleString('ru-RU');
-    }, 8000);
+function updateAdminStats() {
+    // Заглушка - здесь можно подключить реальную статистику из базы
+    document.getElementById('adminOrders').innerText = '0';
+    document.getElementById('adminRevenue').innerText = '0₽';
+    document.getElementById('adminUsers').innerText = '0';
 }
 
-function toggleFaq(el) {
-    el.parentElement.classList.toggle('active');
+function logoutAdmin() {
+    localStorage.removeItem('admin_logged');
+    document.querySelector('.admin-panel')?.remove();
+    showSection('home');
+    showNotification('👋 Вы вышли из админки', 'info');
 }
 
-function subscribe(e) {
-    e.preventDefault();
-    showNotification('✅ Подписка оформлена! +500₽', 'success');
-    if(currentUser) {
-        currentUser.balance += 500;
-        saveUser();
-        updateProfileUI();
-    }
-    e.target.reset();
-}
-
-function createConfetti() {
-    const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4'];
-    for(let i=0; i<70; i++) {
-        const c = document.createElement('div');
-        c.className = 'confetti';
-        c.style.left = Math.random()*100+'vw';
-        c.style.background = colors[Math.floor(Math.random()*colors.length)];
-        c.style.animationDelay = Math.random()*0.5+'s';
-        c.style.width = (Math.random()*8+5)+'px';
-        c.style.height = c.style.width;
-        document.body.appendChild(c);
-        setTimeout(() => c.remove(), 3200);
-    }
-}
-
-function showNotification(text, type='info') {
-    const container = document.getElementById('notifContainer');
-    const notif = document.createElement('div');
-    notif.className = `notification ${type}`;
-    notif.innerHTML = `<span>${type==='success'?'✅':type==='error'?'❌':'ℹ️'}</span><span>${text}</span>`;
-    container.appendChild(notif);
-    setTimeout(() => notif.classList.add('show'), 10);
-    setTimeout(() => { notif.classList.remove('show'); setTimeout(() => notif.remove(), 400); }, 3500);
-}
+// ===== OTHER FUNCTIONS =====
+function logout() { currentUser = null; localStorage.removeItem('destructiv_user'); localStorage.removeItem('destructiv_token'); updateAuthUI(); showSection('home'); showNotification('👋 Вы вышли', 'info'); }
+function generateLiveReviews() { const track = document.getElementById('reviewsTrack'); const doubled = [...reviewData, ...reviewData]; track.innerHTML = doubled.map(r => `<div class="review-item"><div class="review-header"><div style="display:flex; align-items:center; gap:10px;"><div class="review-avatar">${r.avatar}</div><span class="review-user">@${r.user}</span></div><span class="review-stars">★★★★★</span></div><div class="review-text">${r.text}</div><div class="review-time">${r.time}</div></div>`).join(''); }
+function startFloatingReviews() { setInterval(() => { const r = reviewData[Math.floor(Math.random() * reviewData.length)]; const el = document.createElement('div'); el.className = 'float-review'; el.innerHTML = `<div class="float-close" onclick="this.parentElement.remove()">&times;</div><div class="float-header"><span class="float-user"><span class="float-avatar">${r.avatar}</span>@${r.user}</span><span class="float-stars">★★★★★</span></div><div class="float-text">${r.text}</div>`; document.getElementById('floatingReviews').appendChild(el); setTimeout(() => el.classList.add('show'), 100); setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000); }, 6000); }
+function updateReviewCount() { const countEl = document.getElementById('reviewCount'); let count = 9780; setInterval(() => { count += Math.floor(Math.random()*3)+1; countEl.innerText = count.toLocaleString('ru-RU'); }, 8000); }
+function toggleFaq(el) { el.parentElement.classList.toggle('active'); }
+function subscribe(e) { e.preventDefault(); showNotification('✅ Подписка оформлена! +500₽', 'success'); if(currentUser) { currentUser.balance += 500; saveUser(); updateProfileUI(); } e.target.reset(); }
+function createConfetti() { const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4']; for(let i=0; i<70; i++) { const c = document.createElement('div'); c.className = 'confetti'; c.style.left = Math.random()*100+'vw'; c.style.background = colors[Math.floor(Math.random()*colors.length)]; c.style.animationDelay = Math.random()*0.5+'s'; c.style.width = (Math.random()*8+5)+'px'; c.style.height = c.style.width; document.body.appendChild(c); setTimeout(() => c.remove(), 3200); } }
+function showNotification(text, type='info') { const container = document.getElementById('notifContainer'); const notif = document.createElement('div'); notif.className = `notification ${type}`; notif.innerHTML = `<span>${type==='success'?'✅':type==='error'?'❌':'ℹ️'}</span><span>${text}</span>`; container.appendChild(notif); setTimeout(() => notif.classList.add('show'), 10); setTimeout(() => { notif.classList.remove('show'); setTimeout(() => notif.remove(), 400); }, 3500); }
+const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d'); const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10; const segmentAngle = (2 * Math.PI) / prizes.length;
+function drawWheel() { ctx.clearRect(0,0,canvas.width,canvas.height); prizes.forEach((prize, i) => { const angle = i * segmentAngle; ctx.beginPath(); ctx.moveTo(centerX, centerY); ctx.arc(centerX, centerY, radius, angle, angle + segmentAngle); ctx.fillStyle = prize.color; ctx.fill(); ctx.stroke(); ctx.save(); ctx.translate(centerX, centerY); ctx.rotate(angle + segmentAngle/2); ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "bold 15px Rajdhani"; ctx.fillText(prize.text, radius - 22, 5); ctx.restore(); }); }
+function spinWheel() { if(isSpinning || !currentUser) { if(!currentUser) { showNotification('⚠️ Войдите чтобы крутить!', 'error'); openModal('loginModal'); } return; } const now = Date.now(); if(currentUser.lastSpin && now - currentUser.lastSpin < 86400000) { showNotification('⏳ Попробуйте через 24 часа!', 'error'); return; } isSpinning = true; document.getElementById('spinBtn').disabled = true; document.getElementById('wheelResult').classList.remove('show'); const winningIndex = Math.floor(Math.random() * prizes.length); const extraSpins = 5 * 2 * Math.PI; const targetAngle = extraSpins + (2*Math.PI - (winningIndex*segmentAngle)) - (segmentAngle/2); wheelRotation += targetAngle; canvas.style.transform = `rotate(${wheelRotation}rad)`; setTimeout(() => { isSpinning = false; const prize = prizes[winningIndex]; const resultEl = document.getElementById('wheelResult'); resultEl.innerText = `🎉 Выигрыш: ${prize.text}!`; resultEl.classList.add('show'); if(prize.text !== 'Пусто') { showNotification(`🎁 Вы выиграли: ${prize.text}`, 'success'); createConfetti(); } currentUser.lastSpin = Date.now(); saveUser(); }, 5000); }
 </script>
 </body>
 </html>
