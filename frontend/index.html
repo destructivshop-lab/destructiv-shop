@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta name="google-site-verification" content="hLgFeApZG74Dzv-G_kf7Q6pKxlcFV8tY9v1CasYJSOA" />
-<meta charset="UTF-8">
+<meta name="google-site-verification" content="hlGFeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTRUCTIV | Clash Royale Boosting</title>
 <!-- SEO Meta Tags -->
@@ -592,7 +591,7 @@ captchaAnswer = n1 + n2;
 document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`;
 }
 
-// --- ИЗМЕНЕННЫЕ ФУНКЦИИ С НОВЫМ URL ---
+// --- ИСПРАВЛЕНО: ЗАМЕНА LOCALHOST НА /API ---
 async function startEmailVerification(e) {
     e.preventDefault();
     const email = document.getElementById('regEmail').value;
@@ -609,8 +608,8 @@ async function startEmailVerification(e) {
         return;
     }
     try {
-        // ИЗМЕНЕНО: http://localhost:3000 -> https://destructiv-shop.vercel.app
-        const response = await fetch('https://destructiv-shop.vercel.app/api/auth/send-verification', {
+        // ИЗМЕНЕНО: вместо http://localhost:3000 теперь /api
+        const response = await fetch('/api/auth/send-verification', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
@@ -656,8 +655,8 @@ async function verifyCode() {
     }
     if(!pendingRegistration) return;
     try {
-        // ИЗМЕНЕНО: http://localhost:3000 -> https://destructiv-shop.vercel.app
-        const response = await fetch('https://destructiv-shop.vercel.app/api/auth/verify-code', {
+        // ИЗМЕНЕНО: вместо http://localhost:3000 теперь /api
+        const response = await fetch('/api/auth/verify-code', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -710,8 +709,8 @@ async function handleAuth(e, type) {
             return;
         }
         try {
-            // ИЗМЕНЕНО: http://localhost:3000 -> https://destructiv-shop.vercel.app
-            const response = await fetch('https://destructiv-shop.vercel.app/api/auth/login', {
+            // ИЗМЕНЕНО: вместо http://localhost:3000 теперь /api
+            const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -768,8 +767,7 @@ function updateProfileUI() {
     document.getElementById('profileEmail').innerText = currentUser.email;
     document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`;
     document.getElementById('profileAvatar').innerText = currentUser.avatar;
-    // Обновляем реферальную ссылку на реальный домен
-    document.getElementById('refLink').innerText = `https://destructiv-shop.vercel.app/?ref=${currentUser.name}`;
+    document.getElementById('refLink').innerText = `${window.location.origin}${window.location.pathname}?ref=${currentUser.name}`;
     const orderList = document.getElementById('orderList');
     if(currentUser.orders?.length > 0) {
         orderList.innerHTML = currentUser.orders.map(o => `
@@ -783,7 +781,7 @@ function updateProfileUI() {
 }
 function changeAvatar() {
     if(!currentUser) return;
-    const avatars = ['👤','','👩','','🦸','','👹','','💀','','🤖',''];
+    const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽'];
     currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length];
     saveUser();
     updateProfileUI();
