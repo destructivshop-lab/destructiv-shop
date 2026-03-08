@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta name="google-site-verification" content="hlGfeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
+<meta name="google-site-verification" content="hlGFeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTRUCTIV | Clash Royale Boosting</title>
@@ -33,20 +33,24 @@ body::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; heigh
 @keyframes float { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(-100px) rotate(720deg); opacity: 0; } }
 .confetti { position: fixed; width: 10px; height: 10px; animation: confettiFall 3s linear forwards; z-index: 9999; pointer-events: none; border-radius: 2px; }
 @keyframes confettiFall { 0% { transform: translateY(-10vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(110vh) rotate(720deg) scale(0); opacity: 0; } }
+
+/* ===== NAVIGATION ===== */
 nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(10,10,18,0.98); position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary); backdrop-filter: blur(12px); box-shadow: 0 5px 30px rgba(0,0,0,0.6); }
 .logo { font-size: 1.7rem; font-weight: 800; color: var(--text); letter-spacing: 2px; text-shadow: 2px 2px 0 var(--primary); }
 .logo span { color: var(--primary); }
-.nav-links { display: flex; gap: 22px; align-items: center; }
+.nav-links { display: flex; gap: 22px; align-items: center; position: absolute; left: 50%; transform: translateX(-50%); }
 .nav-links a, .nav-links button { background: none; color: var(--text); font-weight: 600; font-size: 0.95rem; padding: 8px 12px; border-radius: 6px; transition: 0.3s; }
 .nav-links a:hover, .nav-links button:hover { color: var(--primary); background: rgba(255,0,60,0.15); text-shadow: 0 0 10px var(--primary); }
 .nav-top { display: flex; gap: 15px; align-items: center; margin-left: auto; }
-.currency-select { background: #0f0f1f; border: 1px solid #333; color: var(--gold); padding: 6px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+.currency-select, .lang-select { background: #0f0f1f; border: 1px solid #333; color: var(--gold); padding: 6px 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
 .auth-btns { display: flex; gap: 8px; }
 .btn { padding: 9px 18px; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%); transition: 0.3s; border-radius: 4px; }
 .btn-login { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
 .btn-login:hover { background: var(--primary); color: #fff; box-shadow: 0 0 20px var(--primary); }
 .btn-reg { background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; }
 .btn-reg:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+
+/* ===== HERO ===== */
 .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(10,10,18,0.85), rgba(20,10,30,0.92)), url('https://wallpapers.com/images/hd/clash-royale-legendary-arena-background.jpg') center/cover; padding-top: 80px; position: relative; }
 .hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(to top, var(--bg), transparent); }
 .hero-content { z-index: 2; max-width: 950px; padding: 20px; }
@@ -56,13 +60,19 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .hero p { font-size: 1.25rem; color: #e0e0e0; margin-bottom: 35px; max-width: 650px; margin-left: auto; margin-right: auto; background: rgba(20,20,40,0.75); padding: 14px 20px; border-left: 4px solid var(--primary); border-radius: 0 10px 10px 0; backdrop-filter: blur(5px); }
 .cta { display: inline-block; padding: 16px 45px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; font-weight: 800; font-size: 1.25rem; text-transform: uppercase; clip-path: polygon(5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 0 20%); box-shadow: 0 0 35px rgba(112,0,255,0.5); transition: 0.3s; }
 .cta:hover { transform: scale(1.06); box-shadow: 0 0 60px var(--primary); }
+
+/* ===== TRUSTPILOT BAR ===== */
 .trustpilot-bar { background: rgba(20,20,35,0.95); padding: 12px 25px; display: flex; align-items: center; justify-content: center; gap: 15px; border-bottom: 1px solid #222; }
 .trustpilot-stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
 .trustpilot-text { color: #aaa; font-size: 0.9rem; }
 .trustpilot-count { color: var(--success); font-weight: 700; }
+
+/* ===== SERVICE TABS ===== */
 .service-tabs { display: flex; justify-content: center; gap: 8px; padding: 20px 5%; background: rgba(15,15,28,0.9); border-bottom: 1px solid #222; flex-wrap: wrap; }
 .tab-btn { padding: 10px 20px; background: transparent; border: 2px solid #333; color: #aaa; font-weight: 600; border-radius: 8px; transition: 0.3s; font-size: 0.9rem; }
 .tab-btn.active, .tab-btn:hover { border-color: var(--accent); color: var(--text); background: rgba(112,0,255,0.15); box-shadow: 0 0 15px rgba(112,0,255,0.3); }
+
+/* ===== CALCULATOR ===== */
 .calculator-section { padding: 60px 5%; background: linear-gradient(180deg, transparent, rgba(20,15,35,0.7), transparent); }
 .calc-container { max-width: 900px; margin: 0 auto; background: var(--card); border-radius: 20px; padding: 35px; border: 1px solid #333; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
 .calc-header { text-align: center; margin-bottom: 30px; }
@@ -101,6 +111,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .order-notes textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(255,0,60,0.3); }
 .order-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--success), #00c853); color: #000; font-weight: 800; font-size: 1.2rem; border-radius: 12px; text-transform: uppercase; margin-top: 10px; box-shadow: 0 0 30px rgba(0,230,118,0.4); transition: 0.3s; }
 .order-btn:hover { transform: scale(1.03); box-shadow: 0 0 50px var(--success); }
+
+/* ===== GUARANTEES ===== */
 .guarantees { padding: 50px 5%; background: rgba(15,15,28,0.8); }
 .guarantees-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
 .guarantee-card { text-align: center; padding: 25px 20px; background: var(--card); border-radius: 15px; border: 1px solid #333; transition: 0.3s; }
@@ -108,6 +120,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .guarantee-icon { font-size: 2.5rem; margin-bottom: 15px; }
 .guarantee-card h4 { font-size: 1.1rem; margin-bottom: 10px; color: var(--gold); }
 .guarantee-card p { color: #aaa; font-size: 0.9rem; line-height: 1.5; }
+
+/* ===== REVIEWS ===== */
 .live-reviews { padding: 40px 5%; background: linear-gradient(180deg, transparent, rgba(20,15,35,0.6), transparent); overflow: hidden; }
 .reviews-track { display: flex; gap: 20px; animation: scrollReviews 40s linear infinite; width: max-content; }
 @keyframes scrollReviews { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -118,6 +132,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .review-stars { color: var(--gold); font-size: 0.85rem; margin-left: auto; }
 .review-text { color: #ccc; font-size: 0.9rem; line-height: 1.5; }
 .review-time { color: #666; font-size: 0.8rem; margin-top: 8px; }
+
+/* ===== FAQ ===== */
 .faq-section { padding: 60px 5%; }
 .faq-container { max-width: 800px; margin: 0 auto; }
 .faq-item { background: var(--card); border-radius: 12px; margin-bottom: 12px; border: 1px solid #333; overflow: hidden; }
@@ -127,6 +143,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .faq-item.active .faq-question::after { content: '−'; transform: rotate(180deg); }
 .faq-answer { padding: 0 25px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; color: #aaa; line-height: 1.6; font-size: 0.95rem; }
 .faq-item.active .faq-answer { padding: 0 25px 20px; max-height: 500px; }
+
+/* ===== NEWSLETTER ===== */
 .newsletter { padding: 50px 5%; background: linear-gradient(135deg, rgba(112,0,255,0.2), rgba(255,0,60,0.15)); text-align: center; }
 .newsletter h3 { font-size: 1.8rem; margin-bottom: 15px; color: var(--gold); }
 .newsletter p { color: #ccc; margin-bottom: 25px; max-width: 500px; margin-left: auto; margin-right: auto; }
@@ -134,6 +152,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .newsletter-input { flex: 1; padding: 14px 18px; background: #0f0f1f; border: 2px solid #333; border-radius: 10px; color: #fff; font-size: 1rem; }
 .newsletter-input:focus { outline: none; border-color: var(--accent); }
 .newsletter-btn { padding: 14px 25px; background: linear-gradient(135deg, var(--accent), var(--primary)); color: #fff; font-weight: 700; border-radius: 10px; text-transform: uppercase; }
+
+/* ===== PROFILE ===== */
 .profile-section, .admin-panel { display: none; padding-top: 120px; min-height: 100vh; }
 .profile-section.active, .admin-panel.active { display: block; animation: fadeIn 0.5s; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -156,16 +176,8 @@ nav { display: flex; justify-content: space-between; align-items: center; paddin
 .order-card.status-active { border-left-color: var(--success); box-shadow: 0 5px 20px rgba(0,230,118,0.1); }
 .status-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
 .status-active .status-badge { background: rgba(0,230,118,0.2); color: var(--success); }
-.floating-reviews { position: fixed; bottom: 25px; right: 25px; width: 310px; z-index: 2000; display: flex; flex-direction: column; gap: 12px; pointer-events: none; }
-.float-review { background: rgba(20,20,35,0.98); backdrop-filter: blur(12px); padding: 16px 20px; border-radius: 14px; border-left: 4px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.5s cubic-bezier(0.175,0.885,0.32,1.275); pointer-events: auto; max-width: 310px; border: 1px solid #2a2a4a; }
-.float-review.show { transform: translateX(0); }
-.float-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.float-user { font-weight: 700; color: var(--primary); font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
-.float-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--accent), var(--cr-gem)); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: bold; }
-.float-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; }
-.float-text { color: #ddd; font-size: 0.9rem; line-height: 1.45; }
-.float-close { position: absolute; top: 8px; right: 12px; color: #555; cursor: pointer; font-size: 1.3rem; pointer-events: auto; transition: 0.2s; }
-.float-close:hover { color: var(--primary); }
+
+/* ===== FOOTER ===== */
 footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-top: 2px solid var(--accent); margin-top: 40px; }
 .footer-logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; display: inline-block; text-shadow: 0 0 15px rgba(255,0,60,0.5); }
 .socials { display: flex; justify-content: center; gap: 14px; margin-bottom: 25px; flex-wrap: wrap; }
@@ -180,6 +192,8 @@ footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-
 .legal-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
 .legal-links a { color: var(--gold); font-size: 0.9rem; transition: 0.3s; }
 .legal-links a:hover { color: var(--accent); }
+
+/* ===== MODALS ===== */
 .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.92); backdrop-filter: blur(10px); justify-content: center; align-items: center; animation: fadeIn 0.3s; }
 .modal-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--primary); width: 100%; max-width: 460px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(255,0,60,0.35); transform: scale(0.95); transition: 0.3s ease; max-height: 90vh; overflow-y: auto; }
 .modal.show .modal-content { transform: scale(1); }
@@ -195,38 +209,20 @@ footer { background: #080810; padding: 45px 5% 30px; text-align: center; border-
 .captcha-input { width: 110px !important; text-align: center; font-size: 1.6rem !important; display: inline-block !important; font-weight: bold; background: #1a1a2a !important; }
 .submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--primary), var(--accent)); border: none; color: #fff; font-weight: 800; text-transform: uppercase; cursor: pointer; margin-top: 12px; border-radius: 12px; font-size: 1.1rem; transition: 0.3s; letter-spacing: 1px; }
 .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(255,0,60,0.4); }
-.chat-modal { z-index: 4000; }
-.chat-window { background: #1a1a2e; width: 100%; max-width: 560px; height: 670px; border: 2px solid var(--accent); border-radius: 20px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 0 60px rgba(112,0,255,0.35); }
-.chat-header { padding: 20px 25px; background: linear-gradient(90deg, var(--primary), var(--accent)); display: flex; justify-content: space-between; align-items: center; font-weight: 700; font-size: 1.1rem; }
-.chat-messages { flex: 1; padding: 25px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; background: #131325; }
-.msg { max-width: 82%; padding: 13px 19px; border-radius: 16px; font-size: 0.98rem; line-height: 1.5; animation: popIn 0.35s cubic-bezier(0.175,0.885,0.32,1.275); }
-@keyframes popIn { from { opacity: 0; transform: scale(0.85) translateY(25px); } to { opacity: 1; transform: scale(1) translateY(0); } }
-.msg.bot { align-self: flex-start; background: #16213e; border-bottom-left-radius: 6px; border-left: 3px solid var(--accent); color: #eee; }
-.msg.user { align-self: flex-end; background: var(--primary); border-bottom-right-radius: 6px; color: #fff; box-shadow: 0 6px 18px rgba(255,0,60,0.35); }
-.msg.system { align-self: center; background: rgba(0,0,0,0.65); color: var(--gold); font-size: 0.88rem; padding: 9px 22px; border-radius: 22px; border: 1px solid var(--gold); font-weight: 500; }
-.chat-input-area { padding: 20px 25px; background: #121222; display: flex; gap: 14px; border-top: 1px solid #333; }
-.chat-input { flex: 1; padding: 16px; background: #0f0f1f; border: 2px solid #333; color: #fff; border-radius: 12px; font-size: 1rem; }
-.chat-input:focus { border-color: var(--primary); }
-.chat-send { padding: 0 26px; background: linear-gradient(135deg, var(--primary), var(--accent)); color: #fff; font-weight: 700; border-radius: 12px; font-size: 1.25rem; transition: 0.3s; }
-.chat-send:hover { transform: scale(1.08); }
-.pay-btn { display: block; width: 100%; padding: 19px; background: var(--success); color: #000; font-weight: 900; text-align: center; border-radius: 12px; margin-top: 16px; text-transform: uppercase; font-size: 1.1rem; animation: pulseBtn 1.6s infinite; box-shadow: 0 0 25px rgba(0,230,118,0.45); }
-@keyframes pulseBtn { 0% { box-shadow: 0 0 0 0 rgba(0,230,118,0.7); } 70% { box-shadow: 0 0 0 18px rgba(0,230,118,0); } 100% { box-shadow: 0 0 0 0 rgba(0,230,118,0); } }
-.notification-container { position: fixed; top: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; max-width: 350px; }
-.notification { background: #1a1a2a; color: #fff; padding: 16px 22px; border-radius: 12px; border-left: 5px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.45s cubic-bezier(0.175,0.885,0.32,1.275); display: flex; align-items: center; gap: 12px; font-size: 0.95rem; border: 1px solid #2a2a4a; }
-.notification.show { transform: translateX(0); }
-.notification.success { border-left-color: var(--success); }
-.notification.error { border-left-color: #ff003c; }
-.notification.info { border-left-color: var(--accent); }
+
+/* ===== WHEEL (IMPROVED) ===== */
 .wheel-section { padding: 60px 5%; background: radial-gradient(circle at center, rgba(20,15,40,0.9) 0%, var(--bg) 100%); }
-.wheel-container { position: relative; width: 380px; height: 380px; margin: 0 auto; }
-canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-bezier(0.17,0.67,0.12,0.99); filter: drop-shadow(0 0 25px rgba(112,0,255,0.45)); border-radius: 50%; }
-.wheel-pointer { position: absolute; top: -22px; left: 50%; transform: translateX(-50%); width: 42px; height: 52px; background: var(--primary); clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; filter: drop-shadow(0 6px 6px rgba(0,0,0,0.5)); border-radius: 0 0 8px 8px; }
-.wheel-pointer::after { content: ''; position: absolute; top: 8px; left: 50%; transform: translateX(-50%); width: 20px; height: 20px; background: #fff; border-radius: 50%; }
+.wheel-container { position: relative; width: 420px; height: 420px; margin: 0 auto; }
+canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-bezier(0.17,0.67,0.12,0.99); filter: drop-shadow(0 0 35px rgba(112,0,255,0.6)); border-radius: 50%; border: 8px solid var(--accent); }
+.wheel-pointer { position: absolute; top: -28px; left: 50%; transform: translateX(-50%); width: 50px; height: 60px; background: linear-gradient(180deg, var(--primary), var(--accent)); clip-path: polygon(50% 100%, 0 0, 100% 0); z-index: 10; filter: drop-shadow(0 8px 8px rgba(0,0,0,0.6)); border-radius: 0 0 10px 10px; }
+.wheel-pointer::after { content: ''; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); width: 24px; height: 24px; background: #fff; border-radius: 50%; border: 3px solid var(--primary); }
 .wheel-btn { display: block; margin: 32px auto 0; padding: 16px 52px; background: linear-gradient(135deg, var(--gold), #ffaa00); color: #000; font-weight: 800; font-size: 1.35rem; border-radius: 50px; text-transform: uppercase; box-shadow: 0 0 35px rgba(255,215,0,0.45); transition: 0.3s; }
 .wheel-btn:hover { transform: scale(1.08); box-shadow: 0 0 55px rgba(255,215,0,0.8); }
 .wheel-btn:disabled { opacity: 0.5; cursor: not-allowed; filter: grayscale(1); transform: none !important; }
 .wheel-result { text-align: center; font-size: 1.9rem; color: var(--gold); font-weight: 700; min-height: 55px; margin-top: 22px; text-shadow: 0 0 18px var(--gold); opacity: 0; transition: 0.5s; }
 .wheel-result.show { opacity: 1; transform: translateY(-12px); }
+
+/* ===== VERIFY MODAL ===== */
 .verify-modal { z-index: 3500; }
 .verify-content { background: #1a1a2a; padding: 40px; border: 2px solid var(--accent); width: 100%; max-width: 420px; position: relative; border-radius: 20px; box-shadow: 0 0 70px rgba(112,0,255,0.4); text-align: center; }
 .verify-code-inputs { display: flex; gap: 10px; justify-content: center; margin: 25px 0; }
@@ -237,16 +233,29 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 .verify-resend { color: var(--accent); cursor: pointer; font-size: 0.9rem; margin-top: 15px; display: inline-block; }
 .verify-resend:hover { text-decoration: underline; }
 .verify-btn { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--accent), var(--primary)); border: none; color: #fff; font-weight: 700; text-transform: uppercase; border-radius: 10px; margin-top: 10px; cursor: pointer; }
-.offer-section { padding: 60px 5%; background: rgba(15,15,28,0.9); }
+
+/* ===== OFFER & PRIVACY MODALS ===== */
 .offer-container { max-width: 900px; margin: 0 auto; background: var(--card); padding: 40px; border-radius: 15px; border: 1px solid #333; }
 .offer-container h2 { color: var(--gold); margin-bottom: 20px; }
 .offer-container h3 { color: var(--accent); margin: 20px 0 10px; }
 .offer-container p, .offer-container li { color: #aaa; line-height: 1.6; margin: 10px 0; }
 .offer-container ul { margin-left: 20px; }
+
+/* ===== ADMIN PANEL ===== */
 .admin-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px; }
 .admin-stat-card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #333; }
 .admin-stat-card h3 { color: var(--gold); font-size: 2rem; margin-bottom: 5px; }
 .admin-stat-card p { color: #aaa; }
+
+/* ===== NOTIFICATIONS ===== */
+.notification-container { position: fixed; top: 100px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 12px; max-width: 350px; }
+.notification { background: #1a1a2a; color: #fff; padding: 16px 22px; border-radius: 12px; border-left: 5px solid var(--primary); box-shadow: 0 12px 35px rgba(0,0,0,0.6); transform: translateX(120%); transition: transform 0.45s cubic-bezier(0.175,0.885,0.32,1.275); display: flex; align-items: center; gap: 12px; font-size: 0.95rem; border: 1px solid #2a2a4a; }
+.notification.show { transform: translateX(0); }
+.notification.success { border-left-color: var(--success); }
+.notification.error { border-left-color: #ff003c; }
+.notification.info { border-left-color: var(--accent); }
+
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
 .hero h1 { font-size: 3.2rem; }
 .hero h1 span { font-size: 3.8rem; }
@@ -254,8 +263,7 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 .logo { font-size: 1.5rem; }
 .profile-dashboard { grid-template-columns: 1fr; }
 .profile-sidebar { position: static; }
-.wheel-container { width: 300px; height: 300px; }
-.floating-reviews { display: none; }
+.wheel-container { width: 320px; height: 320px; }
 .newsletter-form { flex-direction: column; }
 .calc-container { padding: 25px; }
 .price-amount { font-size: 2.5rem; }
@@ -268,18 +276,17 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <body>
 <div class="particles" id="particles"></div>
 <div class="notification-container" id="notifContainer"></div>
-<div class="floating-reviews" id="floatingReviews"></div>
 
 <!-- ADMIN LOGIN MODAL -->
 <div id="adminLoginModal" class="modal">
 <div class="modal-content">
-<h2>🔐 Админ панель</h2>
+<h2 data-en="🔐 Admin Panel">🔐 Админ панель</h2>
 <div class="form-group">
-<label>Пароль администратора</label>
+<label data-en="Admin Password">Пароль администратора</label>
 <input type="password" id="adminPassword" placeholder="Введите пароль">
 </div>
-<button class="submit-btn" onclick="checkAdminPassword()">Войти</button>
-<button class="btn btn-login" style="width: 100%; margin-top: 10px;" onclick="closeModal('adminLoginModal')">Отмена</button>
+<button class="submit-btn" onclick="checkAdminPassword()" data-en="Login">Войти</button>
+<button class="btn btn-login" style="width: 100%; margin-top: 10px;" onclick="closeModal('adminLoginModal')" data-en="Cancel">Отмена</button>
 </div>
 </div>
 
@@ -287,65 +294,16 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <div id="offerModal" class="modal">
 <div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
 <span class="close" onclick="closeModal('offerModal')">&times;</span>
-<h2>📋 Публичная оферта</h2>
+<h2 data-en="📋 Public Offer">📋 Публичная оферта</h2>
 <div style="padding: 20px; color: #aaa; line-height: 1.6; font-size: 0.95rem;">
-<h3 style="color: var(--gold); margin: 20px 0 10px;">1. Общие положения</h3>
-<p>1.1. Настоящая публичная оферта (далее — «Оферта») является официальным предложением самозанятого Гриценко Данила (ИНН: 366225166806, далее — «Исполнитель») заключить договор на оказание услуг по бустингу в игре Clash Royale (далее — «Услуги»).<br>
-1.2. Акцептом (принятием) условий настоящей Оферты считается оформление и оплата заказа на сайте DESTRUCTIV Shop (https://destructiv-shop.vercel.app).<br>
-1.3. Дата вступления Оферты в силу: 01.01.2024</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">2. Предмет договора</h3>
-<p>2.1. Исполнитель обязуется оказать услуги по повышению рейтинга (кубков), прокачке аккаунта, выполнению заданий сезона в игре Clash Royale (далее — «Услуги»), а Заказчик обязуется оплатить эти Услуги.<br>
-2.2. Услуги оказываются дистанционно с использованием аккаунта Заказчика.<br>
-2.3. Исполнитель оказывает Услуги лично или с привлечением квалифицированных исполнителей.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">3. Порядок оказания услуг</h3>
-<p>3.1. Для заказа Услуги Заказчик:<br>
-- Выбирает тип услуги на сайте<br>
-- Указывает данные своего аккаунта (логин, пароль, тег)<br>
-- Производит оплату<br>
-- Предоставляет доступ к аккаунту<br>
-3.2. Исполнитель оказывает Услуги с использованием VPN для обеспечения безопасности аккаунта.<br>
-3.3. Срок оказания услуг зависит от выбранного тарифа и составляет от 1 до 7 дней.<br>
-3.4. Исполнитель обязуется:<br>
-- Оказать Услуги качественно и в срок<br>
-- Сохранять конфиденциальность данных аккаунта<br>
-- Использовать только ручную игру без стороннего ПО<br>
-- Играть в оффлайн-режиме (друзья не увидят активность)</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">4. Стоимость и порядок расчетов</h3>
-<p>4.1. Стоимость Услуг определяется согласно прайс-листу на сайте.<br>
-4.2. Оплата производится путем 100% предоплаты.<br>
-4.3. Способы оплаты:<br>
-- Банковские карты (Visa, MasterCard, МИР)<br>
-- СБП (Система быстрых платежей)<br>
-- Криптовалюты (USDT, BTC, ETH)<br>
-- Платежные системы Playerok, FunPay<br>
-4.4. Исполнитель применяет специальный налоговый режим «Налог на профессиональный доход» (самозанятость).</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">5. Права и обязанности сторон</h3>
-<p>5.1. Заказчик обязуется:<br>
-- Предоставить достоверные данные аккаунта<br>
-- Не изменять пароль во время оказания услуг<br>
-- Не вмешиваться в процесс оказания услуг<br>
-- Не использовать аккаунт во время буста<br>
-5.2. Исполнитель имеет право:<br>
-- Отказать в оказании Услуги без объяснения причин<br>
-- Приостановить оказание Услуги при нарушении Заказчиком условий Оферты</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">6. Ответственность сторон</h3>
-<p>6.1. В случае невыполнения Услуг в срок Исполнитель возвращает полную стоимость заказа.<br>
-6.2. Исполнитель не несет ответственности за блокировку аккаунта, если она произошла:<br>
-- По вине Заказчика (изменение пароля, вход во время буста)<br>
-- По причинам, не зависящим от Исполнителя<br>
-6.3. Максимальная ответственность Исполнителя ограничена стоимостью Услуг.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">7. Реквизиты исполнителя</h3>
-<p><strong>Самозанятый:</strong> Гриценко Данила<br>
+<h3 style="color: var(--gold); margin: 20px 0 10px;" data-en="1. General Provisions">1. Общие положения</h3>
+<p data-en="1.1. This public offer is an official proposal from self-employed Gritsenko Danila (INN: 366225166806) to conclude a contract for boosting services in Clash Royale.">1.1. Настоящая публичная оферта является официальным предложением самозанятого Гриценко Данила (ИНН: 366225166806) заключить договор на оказание услуг по бустингу в игре Clash Royale.</p>
+<p data-en="1.2. Acceptance of this Offer is considered to be the placement and payment of an order on the DESTRUCTIV Shop website.">1.2. Акцептом условий настоящей Оферты считается оформление и оплата заказа на сайте DESTRUCTIV Shop.</p>
+<h3 style="color: var(--gold); margin: 20px 0 10px;" data-en="7. Contractor Details">7. Реквизиты исполнителя</h3>
+<p><strong data-en="Self-employed:">Самозанятый:</strong> Гриценко Данила<br>
 <strong>ИНН:</strong> 366225166806<br>
 <strong>Email:</strong> <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a><br>
-<strong>Телефон:</strong> <a href="tel:+79065828364" style="color: var(--accent);">+7 (906) 582-83-64</a><br>
-<strong>Сайт:</strong> <a href="https://destructiv-shop.vercel.app" style="color: var(--accent);">destructiv-shop.vercel.app</a></p>
+<strong data-en="Phone:">Телефон:</strong> <a href="tel:+79065828364" style="color: var(--accent);">+7 (906) 582-83-64</a></p>
 </div>
 </div>
 </div>
@@ -354,77 +312,10 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <div id="privacyModal" class="modal">
 <div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
 <span class="close" onclick="closeModal('privacyModal')">&times;</span>
-<h2>🔒 Политика конфиденциальности</h2>
+<h2 data-en="🔒 Privacy Policy">🔒 Политика конфиденциальности</h2>
 <div style="padding: 20px; color: #aaa; line-height: 1.6; font-size: 0.95rem;">
-<h3 style="color: var(--gold); margin: 20px 0 10px;">1. Общие положения</h3>
-<p>1.1. Настоящая Политика конфиденциальности (далее — «Политика») описывает, как самозанятый Гриценко Данила (ИНН: 366225166806, далее — «Оператор») собирает, использует и защищает персональные данные пользователей сайта DESTRUCTIV Shop.<br>
-1.2. Используя сайт, вы соглашаетесь с условиями настоящей Политики.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">2. Какие данные мы собираем</h3>
-<p>2.1. При регистрации и оформлении заказа мы собираем:<br>
-- Адрес электронной почты<br>
-- Никнейм в игре<br>
-- Данные аккаунта (логин, пароль, тег)<br>
-- Информацию об оплате<br>
-2.2. Автоматически собираемые данные:<br>
-- IP-адрес<br>
-- Информация о браузере<br>
-- Время посещения</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">3. Цели обработки данных</h3>
-<p>3.1. Мы используем ваши данные для:<br>
-- Оказания услуг по бустингу<br>
-- Обработки платежей<br>
-- Связи с вами<br>
-- Улучшения качества услуг<br>
-- Выполнения требований законодательства</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">4. Защита данных</h3>
-<p>4.1. Мы принимаем необходимые меры для защиты ваших данных:<br>
-- Шифрование данных при передаче<br>
-- Ограничение доступа к данным<br>
-- Регулярное резервное копирование<br>
-4.2. Мы не передаем ваши данные третьим лицам, за исключением:<br>
-- Платежных систем (для обработки платежей)<br>
-- Государственных органов (по требованию закона)</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">5. Ваши права</h3>
-<p>5.1. Вы имеете право:<br>
-- Получить доступ к своим данным<br>
-- Исправить неточные данные<br>
-- Удалить свои данные<br>
-- Отозвать согласие на обработку данных<br>
-5.2. Для реализации прав свяжитесь с нами: <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a></p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">6. Контакты</h3>
-<p><strong>Email:</strong> <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a><br>
-<strong>Телефон:</strong> <a href="tel:+79065828364" style="color: var(--accent);">+7 (906) 582-83-64</a></p>
-</div>
-</div>
-</div>
-
-<!-- PAYMENT MODAL -->
-<div id="paymentModal" class="modal">
-<div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
-<span class="close" onclick="closeModal('paymentModal')">&times;</span>
-<h2>💳 Способы оплаты</h2>
-<div style="padding: 20px; color: #aaa; line-height: 1.6; font-size: 0.95rem;">
-<h3 style="color: var(--gold); margin: 20px 0 10px;">1. Банковские карты</h3>
-<p>Принимаем карты Visa, MasterCard, МИР. Оплата происходит через защищенное соединение.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">2. СБП (Система быстрых платежей)</h3>
-<p>Быстрая оплата по QR-коду или номеру телефона. Комиссия 0%.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">3. Криптовалюты</h3>
-<p>Принимаем USDT (TRC20), Bitcoin, Ethereum. Реквизиты предоставляются после оформления заказа.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">4. Playerok и FunPay</h3>
-<p>Безопасная сделка через популярные игровые площадки. Гарантия защиты.</p>
-
-<h3 style="color: var(--gold); margin: 20px 0 10px;">5. Реквизиты для оплаты</h3>
-<p><strong>Самозанятый:</strong> Гриценко Данила<br>
-<strong>ИНН:</strong> 366225166806<br>
-<strong>Email:</strong> <a href="mailto:destructivshop@gmail.com" style="color: var(--accent);">destructivshop@gmail.com</a></p>
+<h3 style="color: var(--gold); margin: 20px 0 10px;" data-en="1. General Provisions">1. Общие положения</h3>
+<p data-en="1.1. This Privacy Policy describes how self-employed Gritsenko Danila (INN: 366225166806) collects, uses and protects user data.">1.1. Настоящая Политика конфиденциальности описывает, как самозанятый Гриценко Данила (ИНН: 366225166806) собирает, использует и защищает данные пользователей.</p>
 </div>
 </div>
 </div>
@@ -437,13 +328,13 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <nav>
 <div class="logo">DESTRUCTIV <span>SHOP</span></div>
 <div class="nav-links">
-<a href="#" onclick="showSection('home')">Главная</a>
-<a href="#calculator">Калькулятор</a>
-<a href="#guarantees">Гарантии</a>
-<a href="#reviews">Отзывы</a>
-<a href="#faq">FAQ</a>
-<button onclick="handleProfile()">👤 Профиль</button>
-<button onclick="openAdminPanel()" style="margin-left: 10px; background: rgba(255,0,60,0.2); border: 1px solid var(--primary);">⚙️ Админ</button>
+<a href="#" onclick="showSection('home')" data-en="Home">Главная</a>
+<a href="#calculator" data-en="Calculator">Калькулятор</a>
+<a href="#guarantees" data-en="Guarantees">Гарантии</a>
+<a href="#reviews" data-en="Reviews">Отзывы</a>
+<a href="#faq" data-en="FAQ">FAQ</a>
+<button onclick="handleProfile()">👤 <span data-en="Profile">Профиль</span></button>
+<button onclick="openAdminPanel()" style="margin-left: 10px; background: rgba(255,0,60,0.2); border: 1px solid var(--primary);">⚙️ <span data-en="Admin">Админ</span></button>
 </div>
 <div class="nav-top">
 <select class="currency-select" id="currencySelect" onchange="updateCurrency()">
@@ -451,93 +342,209 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <option value="USD">$ USD</option>
 <option value="EUR">€ EUR</option>
 </select>
+<select class="lang-select" id="langSelect" onchange="changeLanguage()">
+<option value="ru">🇷🇺 RU</option>
+<option value="en">🇬🇧 EN</option>
+</select>
 <div class="auth-btns" id="authBtns">
-<button class="btn btn-login" onclick="openModal('loginModal')">Войти</button>
-<button class="btn btn-reg" onclick="openModal('registerModal')">Регистрация</button>
+<button class="btn btn-login" onclick="openModal('loginModal')" data-en="Login">Войти</button>
+<button class="btn btn-reg" onclick="openModal('registerModal')" data-en="Register">Регистрация</button>
 </div>
 <div class="auth-btns" id="userBtns" style="display:none;">
-<button class="btn btn-reg" onclick="logout()">Выйти</button>
+<button class="btn btn-reg" onclick="logout()" data-en="Logout">Выйти</button>
 </div>
 </div>
 </nav>
 
 <section class="hero" id="homeSection">
 <div class="hero-content">
-<h1>CLASH <br><span>ROYALE BOOST</span></h1>
-<p>Профессиональный буст кубков, аккаунтов и наград. 100% ручная игра • VPN защита • Гарант возврата</p>
-<a href="#calculator" class="cta">🚀 НАЧАТЬ БУСТ</a>
+<h1>CLASH <br><span data-en="ROYALE BOOST">ROYALE BOOST</span></h1>
+<p data-en="Professional boost of trophies, accounts and rewards. 100% manual play • VPN protection • Money back guarantee">Профессиональный буст кубков, аккаунтов и наград. 100% ручная игра • VPN защита • Гарант возврата</p>
+<a href="#calculator" class="cta" data-en="🚀 START BOOST">🚀 НАЧАТЬ БУСТ</a>
 </div>
 </section>
 
 <div class="service-tabs">
-<button class="tab-btn active" onclick="switchTab('trophies')">🏆 Трофеи</button>
-<button class="tab-btn" onclick="switchTab('arena')">🏟️ Арена</button>
-<button class="tab-btn" onclick="switchTab('pass')">⚔️ Батл Пасс</button>
-<button class="tab-btn" onclick="switchTab('accounts')">👤 Аккаунты</button>
-<button class="tab-btn" onclick="switchTab('gems')">💎 Гемы</button>
+<button class="tab-btn active" onclick="switchTab('trophies')">🏆 <span data-en="Trophies">Трофеи</span></button>
+<button class="tab-btn" onclick="switchTab('arena')">🏟️ <span data-en="Arena">Арена</span></button>
+<button class="tab-btn" onclick="switchTab('pass')">⚔️ <span data-en="Battle Pass">Батл Пасс</span></button>
+<button class="tab-btn" onclick="switchTab('accounts')">👤 <span data-en="Accounts">Аккаунты</span></button>
+<button class="tab-btn" onclick="switchTab('gems')">💎 <span data-en="Gems">Гемы</span></button>
 </div>
 
 <section id="calculator" class="calculator-section">
 <div class="calc-container">
-<div class="calc-header"><h3>🧮 Рассчитать стоимость</h3><p>Выберите текущие и желаемые кубки для мгновенного расчёта</p></div>
-<div class="slider-group"><div class="slider-label"><span>Текущие кубки</span><span class="slider-value" id="currentValue">5000</span></div><input type="range" class="custom-slider" id="currentSlider" min="0" max="15000" step="100" value="5000" oninput="calculatePrice()"></div>
-<div class="slider-group"><div class="slider-label"><span>Желаемые кубки</span><span class="slider-value" id="targetValue">7000</span></div><input type="range" class="custom-slider" id="targetSlider" min="0" max="15000" step="100" value="7000" oninput="calculatePrice()"></div>
-<div class="price-display"><div class="price-label">Итоговая стоимость</div><div><span class="price-amount" id="finalPrice">3000</span> <span class="price-currency" id="priceCurrency">₽</span></div></div>
-<div style="margin: 25px 0; font-weight: 600; color: var(--gold);">⚙️ Дополнительные опции</div>
-<div class="addons-grid">
-<div class="addon-card" onclick="toggleAddon(this, 'stream', 0.2)"><div class="addon-checkbox"></div><div class="addon-info"><h4>📹 Стрим игр</h4><p>Запись всех боёв</p></div><div class="addon-price">+20%</div></div>
-<div class="addon-card" onclick="toggleAddon(this, 'express', 0.3)"><div class="addon-checkbox"></div><div class="addon-info"><h4>⚡ Экспресс</h4><p>Выполнение за 3-6ч</p></div><div class="addon-price">+30%</div></div>
-<div class="addon-card" onclick="toggleAddon(this, 'offline', 0)"><div class="addon-checkbox"></div><div class="addon-info"><h4>👻 Оффлайн</h4><p>Невидимость в друзьях</p></div><div class="addon-price">Бесплатно</div></div>
+<div class="calc-header">
+<h3 data-en="🧮 Calculate Cost">🧮 Рассчитать стоимость</h3>
+<p data-en="Select current and desired trophies for instant calculation">Выберите текущие и желаемые кубки для мгновенного расчёта</p>
 </div>
-<div class="booster-select"><label>👤 Выбрать бустера (опционально)</label><div class="booster-options">
-<div class="booster-option selected" onclick="selectBooster(this, 'random')"><div class="booster-avatar">🎲</div><div class="booster-name">Авто</div><div class="booster-rating">⭐ Лучший</div></div>
-<div class="booster-option" onclick="selectBooster(this, 'shadow')"><div class="booster-avatar">S</div><div class="booster-name">Shadow</div><div class="booster-rating">⭐ 4.98</div></div>
-<div class="booster-option" onclick="selectBooster(this, 'pro')"><div class="booster-avatar">P</div><div class="booster-name">ProKing</div><div class="booster-rating">⭐ 4.95</div></div>
-<div class="booster-option" onclick="selectBooster(this, 'fast')"><div class="booster-avatar">F</div><div class="booster-name">FastBoost</div><div class="booster-rating">⭐ 4.91</div></div>
-</div></div>
-<div class="order-notes"><label>📝 Дополнительные требования</label><textarea placeholder="Например: не использовать определённые карты, играть в определённое время, и т.д."></textarea></div>
-<button class="order-btn" onclick="orderNow()">🛒 ОФОРМИТЬ ЗАКАЗ</button>
+<div class="slider-group">
+<div class="slider-label">
+<span data-en="Current Trophies">Текущие кубки</span>
+<span class="slider-value" id="currentValue">5000</span>
+</div>
+<input type="range" class="custom-slider" id="currentSlider" min="0" max="15000" step="100" value="5000" oninput="calculatePrice()">
+</div>
+<div class="slider-group">
+<div class="slider-label">
+<span data-en="Desired Trophies">Желаемые кубки</span>
+<span class="slider-value" id="targetValue">7000</span>
+</div>
+<input type="range" class="custom-slider" id="targetSlider" min="0" max="15000" step="100" value="7000" oninput="calculatePrice()">
+</div>
+<div class="price-display">
+<div class="price-label" data-en="Total Cost">Итоговая стоимость</div>
+<div><span class="price-amount" id="finalPrice">3000</span> <span class="price-currency" id="priceCurrency">₽</span></div>
+</div>
+<div style="margin: 25px 0; font-weight: 600; color: var(--gold);" data-en="⚙️ Additional Options">⚙️ Дополнительные опции</div>
+<div class="addons-grid">
+<div class="addon-card" onclick="toggleAddon(this, 'stream', 0.2)">
+<div class="addon-checkbox"></div>
+<div class="addon-info">
+<h4 data-en="📹 Game Stream">📹 Стрим игр</h4>
+<p data-en="Recording of all battles">Запись всех боёв</p>
+</div>
+<div class="addon-price">+20%</div>
+</div>
+<div class="addon-card" onclick="toggleAddon(this, 'express', 0.3)">
+<div class="addon-checkbox"></div>
+<div class="addon-info">
+<h4 data-en="⚡ Express">⚡ Экспресс</h4>
+<p data-en="Completion in 3-6h">Выполнение за 3-6ч</p>
+</div>
+<div class="addon-price">+30%</div>
+</div>
+<div class="addon-card" onclick="toggleAddon(this, 'offline', 0)">
+<div class="addon-checkbox"></div>
+<div class="addon-info">
+<h4 data-en="👻 Offline">👻 Оффлайн</h4>
+<p data-en="Invisibility in friends">Невидимость в друзьях</p>
+</div>
+<div class="addon-price" data-en="Free">Бесплатно</div>
+</div>
+</div>
+<div class="booster-select">
+<label data-en="👤 Choose Booster (optional)">👤 Выбрать бустера (опционально)</label>
+<div class="booster-options">
+<div class="booster-option selected" onclick="selectBooster(this, 'random')">
+<div class="booster-avatar">🎲</div>
+<div class="booster-name" data-en="Auto">Авто</div>
+<div class="booster-rating" data-en="⭐ Best">⭐ Лучший</div>
+</div>
+<div class="booster-option" onclick="selectBooster(this, 'shadow')">
+<div class="booster-avatar">S</div>
+<div class="booster-name">Shadow</div>
+<div class="booster-rating">⭐ 4.98</div>
+</div>
+<div class="booster-option" onclick="selectBooster(this, 'pro')">
+<div class="booster-avatar">P</div>
+<div class="booster-name">ProKing</div>
+<div class="booster-rating">⭐ 4.95</div>
+</div>
+<div class="booster-option" onclick="selectBooster(this, 'fast')">
+<div class="booster-avatar">F</div>
+<div class="booster-name">FastBoost</div>
+<div class="booster-rating">⭐ 4.91</div>
+</div>
+</div>
+</div>
+<div class="order-notes">
+<label data-en="📝 Additional Requirements">📝 Дополнительные требования</label>
+<textarea placeholder="Например: не использовать определённые карты, играть в определённое время, и т.д."></textarea>
+</div>
+<button class="order-btn" onclick="orderNow()">🛒 <span data-en="PLACE ORDER">ОФОРМИТЬ ЗАКАЗ</span></button>
 </div>
 </section>
 
-<section id="guarantees" class="guarantees"><h2 class="title" style="margin-bottom:40px">🛡️ НАШИ ГАРАНТИИ</h2><div class="guarantees-grid">
-<div class="guarantee-card"><div class="guarantee-icon">🔐</div><h4>VPN Защита</h4><p>Все бустеры используют VPN ваших регионов для полной анонимности</p></div>
-<div class="guarantee-card"><div class="guarantee-icon">👻</div><h4>Оффлайн Режим</h4><p>Бустер играет в оффлайне — ваши друзья не увидят активность</p></div>
-<div class="guarantee-card"><div class="guarantee-icon">✋</div><h4>100% Ручная Игра</h4><p>Никаких ботов и скриптов. Только профессиональные игроки</p></div>
-<div class="guarantee-card"><div class="guarantee-icon">💰</div><h4>Гарант Возврата</h4><p>Если заказ не выполнен в срок — полный возврат средств</p></div>
-</div></section>
-
-<section id="reviews" class="live-reviews"><h2 class="title" style="margin-bottom:30px">💬 ЖИВЫЕ ОТЗЫВЫ</h2><div class="reviews-track" id="reviewsTrack"></div></section>
-
-<section id="faq" class="faq-section"><h2 class="title">❓ ЧАСТЫЕ ВОПРОСЫ</h2><div class="faq-container">
-<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Безопасно ли передавать аккаунт?</div><div class="faq-answer">Да! Мы используем только ручную игру без стороннего ПО. Все бустеры работают через VPN вашего региона, а аккаунт играет в оффлайн-режиме — никто не увидит активность.</div></div>
-<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Как быстро выполняется заказ?</div><div class="faq-answer">Стандартный буст занимает 1-2 дня. При выборе опции "Экспресс" — от 3 до 6 часов.</div></div>
-<div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Что если я передумаю во время буста?</div><div class="faq-answer">Вы можете отменить заказ в любой момент. Возвращается пропорциональная часть суммы за невыполненную часть.</div></div>
-</div></section>
-
-<section class="newsletter"><h3>🎁 Join the Club</h3><p>Подпишитесь на рассылку и получите <b>500₽ бонус</b> на первый заказ + эксклюзивные скидки</p><form class="newsletter-form" onsubmit="subscribe(event)"><input type="email" class="newsletter-input" placeholder="Ваш email" required><button type="submit" class="newsletter-btn">Подписаться</button></form></section>
-
-<section id="profileSection" class="profile-section"><h2 class="title">👤 ЛИЧНЫЙ КАБИНЕТ</h2><div class="profile-dashboard">
-<div class="profile-sidebar">
-<div class="profile-avatar-container" onclick="changeAvatar()"><div class="profile-avatar" id="profileAvatar">👤</div><div class="avatar-hint">Нажми для смены</div></div>
-<div class="profile-name" id="profileName">User123</div><div class="profile-email" id="profileEmail">user@example.com</div>
-<div class="balance" id="profileBalance">Баланс: 0₽</div>
-<div style="text-align:left; font-size:0.85rem; color:#aaa; margin-top:15px;">🔗 Реферальная ссылка:</div><div class="ref-box" id="refLink">destructiv.shop/ref/user123</div>
-<button class="btn btn-login" style="width:100%; font-size:0.8rem;" onclick="copyRef()">📋 Копировать</button>
-<button class="edit-btn" onclick="editProfile()">✏️ Редактировать профиль</button>
+<section id="guarantees" class="guarantees">
+<h2 class="title" style="margin-bottom:40px" data-en="🛡️ OUR GUARANTEES">🛡️ НАШИ ГАРАНТИИ</h2>
+<div class="guarantees-grid">
+<div class="guarantee-card">
+<div class="guarantee-icon">🔐</div>
+<h4 data-en="VPN Protection">VPN Защита</h4>
+<p data-en="All boosters use VPN of your regions for complete anonymity">Все бустеры используют VPN ваших регионов для полной анонимности</p>
 </div>
-<div class="order-list" id="orderList"><div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">У вас пока нет активных заказов</div></div>
-</div></section>
+<div class="guarantee-card">
+<div class="guarantee-icon">👻</div>
+<h4 data-en="Offline Mode">Оффлайн Режим</h4>
+<p data-en="Booster plays offline — your friends won't see activity">Бустер играет в оффлайне — ваши друзья не увидят активность</p>
+</div>
+<div class="guarantee-card">
+<div class="guarantee-icon">✋</div>
+<h4 data-en="100% Manual Play">100% Ручная Игра</h4>
+<p data-en="No bots or scripts. Only professional players">Никаких ботов и скриптов. Только профессиональные игроки</p>
+</div>
+<div class="guarantee-card">
+<div class="guarantee-icon">💰</div>
+<h4 data-en="Money Back Guarantee">Гарант Возврата</h4>
+<p data-en="If order is not completed on time — full refund">Если заказ не выполнен в срок — полный возврат средств</p>
+</div>
+</div>
+</section>
+
+<section id="reviews" class="live-reviews">
+<h2 class="title" style="margin-bottom:30px" data-en="💬 LIVE REVIEWS">💬 ЖИВЫЕ ОТЗЫВЫ</h2>
+<div class="reviews-track" id="reviewsTrack"></div>
+</section>
+
+<section id="faq" class="faq-section">
+<h2 class="title" data-en="❓ FREQUENTLY ASKED QUESTIONS">❓ ЧАСТЫЕ ВОПРОСЫ</h2>
+<div class="faq-container">
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)" data-en="Is it safe to transfer account?">Безопасно ли передавать аккаунт?</div>
+<div class="faq-answer" data-en="Yes! We use only manual play without third-party software. All boosters work through VPN of your region, and the account plays in offline mode — no one will see activity.">Да! Мы используем только ручную игру без стороннего ПО. Все бустеры работают через VPN вашего региона, а аккаунт играет в оффлайн-режиме — никто не увидит активность.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)" data-en="How fast is the order completed?">Как быстро выполняется заказ?</div>
+<div class="faq-answer" data-en="Standard boost takes 1-2 days. With 'Express' option — from 3 to 6 hours.">Стандартный буст занимает 1-2 дня. При выборе опции "Экспресс" — от 3 до 6 часов.</div>
+</div>
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFaq(this)" data-en="What if I change my mind during boost?">Что если я передумаю во время буста?</div>
+<div class="faq-answer" data-en="You can cancel order at any time. Proportional part of amount for uncompleted part is returned.">Вы можете отменить заказ в любой момент. Возвращается пропорциональная часть суммы за невыполненную часть.</div>
+</div>
+</div>
+</section>
+
+<section class="newsletter">
+<h3 data-en="🎁 Join the Club">🎁 Join the Club</h3>
+<p data-en="Subscribe to newsletter and get 500₽ bonus on first order + exclusive discounts">Подпишитесь на рассылку и получите <b>500₽ бонус</b> на первый заказ + эксклюзивные скидки</p>
+<form class="newsletter-form" onsubmit="subscribe(event)">
+<input type="email" class="newsletter-input" placeholder="Ваш email" required>
+<button type="submit" class="newsletter-btn" data-en="Subscribe">Подписаться</button>
+</form>
+</section>
+
+<section id="profileSection" class="profile-section">
+<h2 class="title" data-en="👤 PERSONAL ACCOUNT">👤 ЛИЧНЫЙ КАБИНЕТ</h2>
+<div class="profile-dashboard">
+<div class="profile-sidebar">
+<div class="profile-avatar-container" onclick="changeAvatar()">
+<div class="profile-avatar" id="profileAvatar">👤</div>
+<div class="avatar-hint" data-en="Click to change">Нажми для смены</div>
+</div>
+<div class="profile-name" id="profileName">User123</div>
+<div class="profile-email" id="profileEmail">user@example.com</div>
+<div class="balance" id="profileBalance">Баланс: 0₽</div>
+<div style="text-align:left; font-size:0.85rem; color:#aaa; margin-top:15px;" data-en="🔗 Referral link:">🔗 Реферальная ссылка:</div>
+<div class="ref-box" id="refLink">destructiv.shop/ref/user123</div>
+<button class="btn btn-login" style="width:100%; font-size:0.8rem;" onclick="copyRef()" data-en="📋 Copy">📋 Копировать</button>
+<button class="edit-btn" onclick="editProfile()" data-en="✏️ Edit Profile">✏️ Редактировать профиль</button>
+</div>
+<div class="order-list" id="orderList">
+<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;" data-en="No active orders yet">У вас пока нет активных заказов</div>
+</div>
+</div>
+</section>
 
 <!-- ADMIN PANEL -->
 <section class="admin-panel">
-<h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2>
+<h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;" data-en="⚙️ Admin Panel">⚙️ Админ панель</h2>
 <div class="admin-stats">
-<div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div>
-<div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div>
-<div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div>
+<div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p data-en="Active Orders">Активных заказов</p></div>
+<div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p data-en="Revenue Today">Выручка за сегодня</p></div>
+<div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p data-en="Registered Users">Зарегистрированных пользователей</p></div>
 </div>
-<div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div>
+<div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()" data-en="🚪 Logout from Admin">🚪 Выйти из админки</button></div>
 </section>
 
 <footer>
@@ -547,89 +554,940 @@ canvas#wheelCanvas { width: 100%; height: 100%; transition: transform 5s cubic-b
 <a href="https://playerok.com/profile/destructiv/products" target="_blank">🛒 Playerok</a>
 <a href="https://funpay.com/users/18952177/" target="_blank">🎮 Funpay</a>
 </div>
-
-<!-- РЕКВИЗИТЫ И ССЫЛКИ -->
 <div class="requisites">
-<h3>📋 Реквизиты исполнителя</h3>
-<p><strong>Самозанятый:</strong> Гриценко Данила<br>
+<h3 data-en="📋 Contractor Details">📋 Реквизиты исполнителя</h3>
+<p><strong data-en="Self-employed:">Самозанятый:</strong> Гриценко Данила<br>
 <strong>ИНН:</strong> 366225166806<br>
 <strong>Email:</strong> <a href="mailto:destructivshop@gmail.com">destructivshop@gmail.com</a><br>
-<strong>Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
-
+<strong data-en="Phone:">Телефон:</strong> <a href="tel:+79065828364">+7 (906) 582-83-64</a></p>
 <div class="legal-links">
-<a href="#" onclick="openModal('offerModal'); return false;">📄 Публичная оферта</a>
-<a href="#" onclick="openModal('privacyModal'); return false;">🔒 Политика конфиденциальности</a>
-<a href="#" onclick="openModal('paymentModal'); return false;">💳 Способы оплаты</a>
+<a href="#" onclick="openModal('offerModal'); return false;" data-en="📄 Public Offer">📄 Публичная оферта</a>
+<a href="#" onclick="openModal('privacyModal'); return false;" data-en="🔒 Privacy Policy">🔒 Политика конфиденциальности</a>
 </div>
 </div>
-
-<div class="copyright">© 2024 Destructiv Shop. Не связано с Supercell.</div>
+<div class="copyright">© 2026 Destructiv Shop. Not affiliated with Supercell.</div>
 </footer>
 
 <!-- MODALS -->
-<div id="loginModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('loginModal')">&times;</span><h2>🔐 ВХОД</h2><form onsubmit="handleAuth(event, 'login')"><div class="form-group"><label>Email</label><input type="email" id="loginEmail" required></div><div class="form-group"><label>Пароль</label><input type="password" id="loginPass" required></div><div class="captcha-box"><div class="captcha-question" id="qLogin">2 + 2 = ?</div><input type="number" class="captcha-input" id="aLogin" placeholder="?"></div><button type="submit" class="submit-btn">Войти</button></form></div></div>
+<div id="loginModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('loginModal')">&times;</span>
+<h2 data-en="🔐 LOGIN">🔐 ВХОД</h2>
+<form onsubmit="handleAuth(event, 'login')">
+<div class="form-group"><label data-en="Email">Email</label><input type="email" id="loginEmail" required></div>
+<div class="form-group"><label data-en="Password">Пароль</label><input type="password" id="loginPass" required></div>
+<div class="captcha-box">
+<div class="captcha-question" id="qLogin">2 + 2 = ?</div>
+<input type="number" class="captcha-input" id="aLogin" placeholder="?">
+</div>
+<button type="submit" class="submit-btn" data-en="Login">Войти</button>
+</form>
+</div>
+</div>
 
-<div id="registerModal" class="modal"><div class="modal-content"><span class="close" onclick="closeModal('registerModal')">&times;</span><h2>✨ РЕГИСТРАЦИЯ</h2><form id="registerForm" onsubmit="startEmailVerification(event)"><div class="form-group"><label>Email</label><input type="email" id="regEmail" required></div><div class="form-group"><label>Пароль</label><input type="password" id="regPass" minlength="6" required></div><div class="form-group"><label>Никнейм</label><input type="text" id="regNick" placeholder="Player123" required></div><div class="captcha-box"><div class="captcha-question" id="qReg">3 + 3 = ?</div><input type="number" class="captcha-input" id="aReg" placeholder="?"></div><button type="submit" class="submit-btn">Зарегистрироваться</button></form></div></div>
+<div id="registerModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('registerModal')">&times;</span>
+<h2 data-en="✨ REGISTRATION">✨ РЕГИСТРАЦИЯ</h2>
+<form id="registerForm" onsubmit="startEmailVerification(event)">
+<div class="form-group"><label data-en="Email">Email</label><input type="email" id="regEmail" required></div>
+<div class="form-group"><label data-en="Password">Пароль</label><input type="password" id="regPass" minlength="6" required></div>
+<div class="form-group"><label data-en="Nickname">Никнейм</label><input type="text" id="regNick" placeholder="Player123" required></div>
+<div class="captcha-box">
+<div class="captcha-question" id="qReg">3 + 3 = ?</div>
+<input type="number" class="captcha-input" id="aReg" placeholder="?">
+</div>
+<button type="submit" class="submit-btn" data-en="Register">Зарегистрироваться</button>
+</form>
+</div>
+</div>
 
-<div id="verifyModal" class="modal verify-modal"><div class="verify-content"><span class="close" onclick="closeModal('verifyModal')">&times;</span><h2>📧 Подтверждение</h2><p class="verify-hint">Код подтверждения отправлен на:</p><div class="verify-email" id="verifyEmailDisplay">user@example.com</div><div class="verify-code-inputs"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"><input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric"></div><button class="verify-btn" onclick="verifyCode()">Подтвердить</button><div class="verify-resend" onclick="resendCode()">🔄 Отправить код снова</div></div></div>
+<div id="verifyModal" class="modal verify-modal">
+<div class="verify-content">
+<span class="close" onclick="closeModal('verifyModal')">&times;</span>
+<h2 data-en="📧 Verification">📧 Подтверждение</h2>
+<p class="verify-hint" data-en="Verification code sent to:">Код подтверждения отправлен на:</p>
+<div class="verify-email" id="verifyEmailDisplay">user@example.com</div>
+<div class="verify-code-inputs">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+<input type="text" class="verify-digit" maxlength="1" pattern="[0-9]" inputmode="numeric">
+</div>
+<button class="verify-btn" onclick="verifyCode()" data-en="Verify">Подтвердить</button>
+<div class="verify-resend" onclick="resendCode()" data-en="🔄 Resend code">🔄 Отправить код снова</div>
+</div>
+</div>
 
-<section class="wheel-section"><h2 class="title">🎡 КОЛЕСО ФОРТУНЫ</h2><div class="wheel-container"><div class="wheel-pointer"></div><canvas id="wheelCanvas" width="400" height="400"></canvas></div><button class="wheel-btn" id="spinBtn" onclick="spinWheel()">КРУТИТЬ!</button><div class="wheel-result" id="wheelResult"></div><p style="text-align:center; color:#666; font-size:0.8rem; margin-top:15px;">Одна попытка каждые 24 часа</p></section>
+<section class="wheel-section">
+<h2 class="title" data-en="🎡 FORTUNE WHEEL">🎡 КОЛЕСО ФОРТУНЫ</h2>
+<div class="wheel-container">
+<div class="wheel-pointer"></div>
+<canvas id="wheelCanvas" width="400" height="400"></canvas>
+</div>
+<button class="wheel-btn" id="spinBtn" onclick="spinWheel()" data-en="SPIN!">КРУТИТЬ!</button>
+<div class="wheel-result" id="wheelResult"></div>
+<p style="text-align:center; color:#666; font-size:0.8rem; margin-top:15px;" data-en="One attempt every 24 hours">Одна попытка каждые 24 часа</p>
+</section>
 
 <script>
+// ===== PARTICLES =====
 const particlesContainer = document.getElementById('particles');
-for(let i=0; i<35; i++){ let p = document.createElement('div'); p.className = 'particle'; p.style.left = Math.random()*100+'%'; p.style.animationDelay = Math.random()*15+'s'; p.style.animationDuration = (15 + Math.random()*10)+'s'; particlesContainer.appendChild(p); }
-let currentUser = null; let captchaAnswer = 0; let wheelRotation = 0; let isSpinning = false; let basePrice = 3000; let addons = { stream: false, express: false, offline: false }; let selectedBooster = 'random'; let currency = 'RUB'; let pendingRegistration = null;
-const exchangeRates = { RUB: 1, USD: 0.011, EUR: 0.01 }; const currencySymbols = { RUB: '₽', USD: '$', EUR: '€' };
-const reviewData = [{ user: 'ShadowKing', avatar: 'S', text: 'Подняли с 5к до 7.5к за ночь! Бустер играл аккуратно. 🔥', time: '2ч назад' },{ user: 'ProGamer24', avatar: 'P', text: 'Лучший сервис, уже 4 раз заказываю. Всегда качественно.', time: '5ч назад' },{ user: 'NightWolf', avatar: 'N', text: 'Боялся бана, но всё чисто. VPN + оффлайн режим = идеально.', time: '8ч назад' },{ user: 'DragonSlayer', avatar: 'D', text: 'Выиграл 500₽ в колесе, спасибо! Буст тоже на высоте.', time: '12ч назад' },{ user: 'CyberNinja', avatar: 'C', text: 'Быстро и качественно. 5 звезд ⭐ Менеджер всегда на связи.', time: '1д назад' }];
-const prizes = [{ text: '500₽', color: '#ff003c' },{ text: 'Скидка 15%', color: '#7000ff' },{ text: '+150 кубков', color: '#ffd700' },{ text: 'Пусто', color: '#2a2a4a' },{ text: 'VIP статус', color: '#00e676' },{ text: '100 гемов', color: '#00bcd4' }];
-document.addEventListener('DOMContentLoaded', () => { const urlParams = new URLSearchParams(window.location.search); const referrer = urlParams.get('ref'); if(referrer) { localStorage.setItem('pending_ref', referrer); showNotification(`🤝 Вас пригласил ${referrer}! +500₽ бонус`, 'success'); } const saved = localStorage.getItem('destructiv_user'); if(saved) { currentUser = JSON.parse(saved); updateAuthUI(); } generateCaptcha('login'); generateCaptcha('register'); calculatePrice(); drawWheel(); generateLiveReviews(); startFloatingReviews(); updateReviewCount(); setupVerifyInputs(); });
-function openModal(id){ document.getElementById(id).style.display = 'flex'; setTimeout(() => document.getElementById(id).classList.add('show'), 10); }
-function closeModal(id){ document.getElementById(id).classList.remove('show'); setTimeout(() => document.getElementById(id).style.display = 'none', 300); }
-window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
-function generateCaptcha(type) { const n1 = Math.floor(Math.random() * 5) + 1, n2 = Math.floor(Math.random() * 5) + 1; captchaAnswer = n1 + n2; document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`; }
+for(let i=0; i<35; i++){
+let p = document.createElement('div');
+p.className = 'particle';
+p.style.left = Math.random()*100+'%';
+p.style.animationDelay = Math.random()*15+'s';
+p.style.animationDuration = (15 + Math.random()*10)+'s';
+particlesContainer.appendChild(p);
+}
 
-async function startEmailVerification(e) { e.preventDefault(); const email = document.getElementById('regEmail').value; const password = document.getElementById('regPass').value; const nick = document.getElementById('regNick').value; const captchaInput = parseInt(document.getElementById('aReg').value); if(captchaInput !== captchaAnswer) { showNotification('❌ Неверная капча!', 'error'); generateCaptcha('register'); return; } if(password.length < 6) { showNotification('❌ Пароль минимум 6 символов!', 'error'); return; } try { const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : ''; const response = await fetch(`${apiUrl}/api/auth/send-verification`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) }); const result = await response.json(); if(result.success) { pendingRegistration = { email, password, nick }; document.getElementById('verifyEmailDisplay').innerText = email; document.querySelectorAll('.verify-digit').forEach(input => input.value = ''); document.querySelectorAll('.verify-digit')[0].focus(); closeModal('registerModal'); openModal('verifyModal'); showNotification('📧 Код отправлен на email!', 'success'); } else { showNotification(`❌ ${result.error}`, 'error'); } } catch (error) { console.error(error); showNotification('❌ Ошибка соединения с сервером', 'error'); } }
-function setupVerifyInputs() { const inputs = document.querySelectorAll('.verify-digit'); inputs.forEach((input, index) => { input.addEventListener('input', (e) => { if(e.target.value && index < inputs.length - 1) inputs[index + 1].focus(); }); input.addEventListener('keydown', (e) => { if(e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus(); }); }); }
-function getVerificationInput() { return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join(''); }
-async function verifyCode() { const enteredCode = getVerificationInput(); if(enteredCode.length !== 6) { showNotification('❌ Введите 6-значный код', 'error'); return; } if(!pendingRegistration) return; try { const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : ''; const response = await fetch(`${apiUrl}/api/auth/verify-code`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: pendingRegistration.email, code: enteredCode, password: pendingRegistration.password, nick: pendingRegistration.nick }) }); const result = await response.json(); if(result.success) { localStorage.setItem('destructiv_token', result.token); localStorage.setItem('destructiv_user', JSON.stringify(result.user)); currentUser = result.user; updateAuthUI(); updateProfileUI(); closeModal('verifyModal'); showNotification('✅ Аккаунт создан и подтверждён!', 'success'); createConfetti(); pendingRegistration = null; document.getElementById('registerForm')?.reset(); generateCaptcha('register'); } else { showNotification(`❌ ${result.error}`, 'error'); document.querySelectorAll('.verify-digit').forEach(input => input.value = ''); document.querySelectorAll('.verify-digit')[0].focus(); } } catch (error) { console.error(error); showNotification('❌ Ошибка соединения с сервером', 'error'); } }
-function resendCode() { if(!pendingRegistration) return; showNotification('📧 Код отправлен повторно', 'info'); document.querySelectorAll('.verify-digit').forEach(input => input.value = ''); document.querySelectorAll('.verify-digit')[0].focus(); }
-async function handleAuth(e, type) { e.preventDefault(); if (type === 'login') { const email = document.getElementById('loginEmail').value; const password = document.getElementById('loginPass').value; const captchaInput = parseInt(document.getElementById('aLogin').value); if(captchaInput !== captchaAnswer) { showNotification('❌ Неверная капча!', 'error'); generateCaptcha('login'); return; } try { const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : ''; const response = await fetch(`${apiUrl}/api/auth/login`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) }); const result = await response.json(); if(result.success) { localStorage.setItem('destructiv_token', result.token); localStorage.setItem('destructiv_user', JSON.stringify(result.user)); currentUser = result.user; updateAuthUI(); updateProfileUI(); closeModal('loginModal'); showNotification('✅ ' + result.message, 'success'); createConfetti(); e.target.reset(); generateCaptcha('login'); } else { showNotification(`❌ ${result.error}`, 'error'); } } catch (error) { console.error(error); showNotification('❌ Ошибка соединения с сервером', 'error'); } } }
-function logout() { currentUser = null; localStorage.removeItem('destructiv_user'); localStorage.removeItem('destructiv_token'); updateAuthUI(); showSection('home'); showNotification('👋 Вы вышли', 'info'); }
-function updateAuthUI() { document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex'; document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none'; }
-function handleProfile() { if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; } updateProfileUI(); showSection('profile'); }
-function showSection(section) { document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none'; document.getElementById('profileSection').classList.toggle('active', section === 'profile'); if(section !== 'profile') document.getElementById('profileSection').classList.remove('active'); document.querySelector('.admin-panel')?.classList.remove('active'); window.scrollTo(0, 0); }
-function updateProfileUI() { if(!currentUser) return; document.getElementById('profileName').innerText = currentUser.name; document.getElementById('profileEmail').innerText = currentUser.email; document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`; document.getElementById('profileAvatar').innerText = currentUser.avatar; document.getElementById('refLink').innerText = `${window.location.origin}${window.location.pathname}?ref=${currentUser.name}`; const orderList = document.getElementById('orderList'); if(currentUser.orders?.length > 0) { orderList.innerHTML = currentUser.orders.map(o => `<div class="order-card status-active"><div><div style="font-weight:bold;">${o.service}</div><div style="font-size:0.85rem; color:#aaa;">Тег: ${o.tag}</div></div><div style="text-align:right;"><div style="color:var(--gold); font-weight:bold;">${o.price}${currencySymbols[currency]}</div><span class="status-badge">В работе</span></div></div>`).join(''); } else { orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>'; } }
-function changeAvatar() { if(!currentUser) return; const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽']; currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length]; saveUser(); updateProfileUI(); showNotification('🎨 Аватарка изменена!', 'success'); }
-function editProfile() { if(!currentUser) return; const newName = prompt('Новый никнейм:', currentUser.name); if(newName?.trim()) { currentUser.name = newName.trim(); saveUser(); updateProfileUI(); showNotification('✏️ Профиль обновлён!', 'success'); } }
-function copyRef() { navigator.clipboard.writeText(document.getElementById('refLink').innerText); showNotification('📋 Ссылка скопирована!', 'success'); }
-function saveUser() { localStorage.setItem('destructiv_user', JSON.stringify(currentUser)); }
-function calculatePrice() { const current = parseInt(document.getElementById('currentSlider').value), target = parseInt(document.getElementById('targetSlider').value); document.getElementById('currentValue').innerText = current; document.getElementById('targetValue').innerText = target; const diff = Math.max(0, target - current); let price = diff * 1.5; if(addons.stream) price *= 1.2; if(addons.express) price *= 1.3; basePrice = price; updatePriceDisplay(); }
-function toggleAddon(el, name, multiplier) { el.classList.toggle('active'); addons[name] = el.classList.contains('active'); calculatePrice(); }
-function selectBooster(el, name) { document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected')); el.classList.add('selected'); selectedBooster = name; }
-function updatePriceDisplay() { const convertedPrice = Math.round(basePrice * exchangeRates[currency]); document.getElementById('finalPrice').innerText = convertedPrice; document.getElementById('priceCurrency').innerText = currencySymbols[currency]; }
-function updateCurrency() { currency = document.getElementById('currencySelect').value; updatePriceDisplay(); if(currentUser) updateProfileUI(); }
-function switchTab(tab) { document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); event.target.classList.add('active'); showNotification(`📋 Категория: ${event.target.innerText}`, 'info'); }
-function orderNow() { if(!currentUser) { showNotification('⚠️ Войдите для заказа!', 'error'); openModal('loginModal'); return; } const service = document.querySelector('.tab-btn.active').innerText; const price = Math.round(basePrice * exchangeRates[currency]); showPaymentModal(service, price); }
-function showPaymentModal(service, price) { const modal = document.createElement('div'); modal.className = 'modal'; modal.id = 'paymentModal'; modal.innerHTML = `<div class="modal-content" style="max-width: 550px;"><span class="close" onclick="closeModal('paymentModal')">&times;</span><h2>💳 Оплата заказа</h2><div style="text-align: center; margin: 25px 0;"><p style="color: var(--gold); font-size: 1.3rem; margin-bottom: 10px;">${service}</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success); margin: 15px 0;">${price}${currencySymbols[currency]}</p></div><div style="background: rgba(112,0,255,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><h3 style="color: var(--accent); margin-bottom: 15px; text-align: center;">📲 Выберите способ оплаты:</h3><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">1️⃣ СБП (Система быстрых платежей)</p><div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--success);"><p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">📱 Номер: <strong style="color: #fff;">+7 (906) 582-83-64</strong><br>🏦 Банк: Тинькофф/Сбербанк<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p></div><button onclick="payViaSBP(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--success); color: #000; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💰 Оплатить через СБП</button></div><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">2️⃣ Банковская карта</p><div style="background: rgba(255,0,60,0.1); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary);"><p style="color: #aaa; font-size: 0.9rem; margin: 5px 0;">💳 Карта: <strong style="color: #fff;">2202 20XX XXXX XXXX</strong><br>🏦 Банк: Сбербанк/Тинькофф<br>⚡ Комиссия: <strong style="color: #00e676;">0%</strong></p></div><button onclick="payViaCard(${price})" style="margin-top: 10px; width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">💳 Оплатить картой</button></div><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">3️⃣ Playerok (Гарантия)</p><a href="https://playerok.com/profile/destructiv/products" target="_blank" style="display: block; padding: 12px; background: var(--cr-gem); color: #000; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🛒 Перейти на Playerok</a></div><div style="margin: 15px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 10px;">4️⃣ FunPay</p><a href="https://funpay.com/users/18952177/" target="_blank" style="display: block; padding: 12px; background: #2a5c9a; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold;">🎮 Перейти на FunPay</a></div></div><div style="background: rgba(0,230,118,0.1); padding: 15px; border-radius: 10px; margin-top: 20px; border-left: 4px solid var(--success);"><p style="color: var(--success); font-size: 0.9rem; margin: 0;">⚡ После оплаты напишите нам в Telegram: <strong style="color: #fff;">@destructiv_admin</strong></p></div></div>`; document.body.appendChild(modal); openModal('paymentModal'); }
-function payViaSBP(price) { const sbpModal = document.createElement('div'); sbpModal.className = 'modal'; sbpModal.id = 'sbpModal'; sbpModal.innerHTML = `<div class="modal-content" style="max-width: 450px;"><span class="close" onclick="closeModal('sbpModal')">&times;</span><h2>📱 Оплата через СБП</h2><div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div><div style="background: rgba(0,230,118,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">📱 <strong>Номер:</strong><br><span style="color: var(--success); font-size: 1.3rem;">+7 (906) 582-83-64</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--success);">Тинькофф / Сбербанк</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--success);">Гриценко Д.</span></p></div><div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;"><p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Платежи через СБП"<br>2. Введите номер: +7 (906) 582-83-64<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p></div><a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a><button onclick="copySBPInfo(${price})" style="width: 100%; padding: 12px; background: var(--accent); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button></div>`; document.body.appendChild(sbpModal); openModal('sbpModal'); }
-function payViaCard(price) { const cardModal = document.createElement('div'); cardModal.className = 'modal'; cardModal.id = 'cardModal'; cardModal.innerHTML = `<div class="modal-content" style="max-width: 450px;"><span class="close" onclick="closeModal('cardModal')">&times;</span><h2>💳 Оплата картой</h2><div style="text-align: center; margin: 20px 0;"><p style="color: #aaa; margin-bottom: 15px;">Сумма к оплате:</p><p style="font-size: 2.5rem; font-weight: bold; color: var(--success);">${price}₽</p></div><div style="background: rgba(255,0,60,0.1); padding: 20px; border-radius: 10px; margin: 20px 0;"><p style="color: var(--gold); font-weight: bold; margin-bottom: 15px; text-align: center;">Реквизиты:</p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">💳 <strong>Номер карты:</strong><br><span style="color: var(--primary); font-size: 1.3rem;">2202 20XX XXXX XXXX</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">🏦 <strong>Банк:</strong><br><span style="color: var(--primary);">Сбербанк / Тинькофф</span></p><p style="color: #fff; font-size: 1.1rem; margin: 10px 0;">👤 <strong>Получатель:</strong><br><span style="color: var(--primary);">Гриценко Д.</span></p></div><div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin: 20px 0;"><p style="color: #aaa; font-size: 0.9rem;"><strong style="color: var(--accent);">📋 Инструкция:</strong><br>1. Откройте приложение банка → "Перевод по номеру карты"<br>2. Введите номер карты: 2202 20XX XXXX XXXX<br>3. Укажите сумму: <strong style="color: #fff;">${price}₽</strong><br>4. Оплатите и сделайте скриншот<br>5. Отправьте скриншот в Telegram</p></div><a href="https://t.me/destructiv_admin" target="_blank" style="display: block; padding: 15px; background: #0088cc; color: #fff; text-align: center; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 15px;">✈️ Написать в Telegram</a><button onclick="copyCardInfo(${price})" style="width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; margin-top: 10px;">📋 Скопировать реквизиты</button></div>`; document.body.appendChild(cardModal); openModal('cardModal'); }
-function copySBPInfo(price) { const text = `Оплата через СБП\nСумма: ${price}₽\nНомер: +7 (906) 582-83-64\nБанк: Тинькофф/Сбербанк\nПолучатель: Гриценко Д.`; navigator.clipboard.writeText(text); showNotification('📋 Реквизиты скопированы!', 'success'); }
-function copyCardInfo(price) { const text = `Оплата картой\nСумма: ${price}₽\nКарта: 2202 20XX XXXX XXXX\nБанк: Сбербанк/Тинькофф\nПолучатель: Гриценко Д.`; navigator.clipboard.writeText(text); showNotification('📋 Реквизиты скопированы!', 'success'); }
-function checkAdminPassword() { const password = document.getElementById('adminPassword').value; if (password === 'destructivshop123CEO') { localStorage.setItem('admin_logged', 'true'); closeModal('adminLoginModal'); openAdminPanel(); showNotification('✅ Добро пожаловать, админ!', 'success'); } else { showNotification('❌ Неверный пароль', 'error'); } document.getElementById('adminPassword').value = ''; }
-function openAdminPanel() { const isAdmin = localStorage.getItem('admin_logged'); if (!isAdmin) { openModal('adminLoginModal'); return; } document.getElementById('homeSection').style.display = 'none'; document.getElementById('profileSection').classList.remove('active'); const adminPanel = document.querySelector('.admin-panel'); if (!adminPanel) { createAdminPanel(); } document.querySelector('.admin-panel').classList.add('active'); updateAdminStats(); }
-function createAdminPanel() { const adminHTML = `<section class="admin-panel"><h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2><div class="admin-stats"><div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div><div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div><div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div></div><div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div></section>`; document.body.insertAdjacentHTML('beforeend', adminHTML); }
-function updateAdminStats() { document.getElementById('adminOrders').innerText = '0'; document.getElementById('adminRevenue').innerText = '0₽'; document.getElementById('adminUsers').innerText = '0'; }
-function logoutAdmin() { localStorage.removeItem('admin_logged'); document.querySelector('.admin-panel')?.remove(); showSection('home'); showNotification('👋 Вы вышли из админки', 'info'); }
-function generateLiveReviews() { const track = document.getElementById('reviewsTrack'); const doubled = [...reviewData, ...reviewData]; track.innerHTML = doubled.map(r => `<div class="review-item"><div class="review-header"><div style="display:flex; align-items:center; gap:10px;"><div class="review-avatar">${r.avatar}</div><span class="review-user">@${r.user}</span></div><span class="review-stars">★★★★★</span></div><div class="review-text">${r.text}</div><div class="review-time">${r.time}</div></div>`).join(''); }
-function startFloatingReviews() { setInterval(() => { const r = reviewData[Math.floor(Math.random() * reviewData.length)]; const el = document.createElement('div'); el.className = 'float-review'; el.innerHTML = `<div class="float-close" onclick="this.parentElement.remove()">&times;</div><div class="float-header"><span class="float-user"><span class="float-avatar">${r.avatar}</span>@${r.user}</span><span class="float-stars">★★★★★</span></div><div class="float-text">${r.text}</div>`; document.getElementById('floatingReviews').appendChild(el); setTimeout(() => el.classList.add('show'), 100); setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000); }, 6000); }
-function updateReviewCount() { const countEl = document.getElementById('reviewCount'); let count = 9780; setInterval(() => { count += Math.floor(Math.random()*3)+1; countEl.innerText = count.toLocaleString('ru-RU'); }, 8000); }
-function toggleFaq(el) { el.parentElement.classList.toggle('active'); }
-function subscribe(e) { e.preventDefault(); showNotification('✅ Подписка оформлена! +500₽', 'success'); if(currentUser) { currentUser.balance += 500; saveUser(); updateProfileUI(); } e.target.reset(); }
-function createConfetti() { const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4']; for(let i=0; i<70; i++) { const c = document.createElement('div'); c.className = 'confetti'; c.style.left = Math.random()*100+'vw'; c.style.background = colors[Math.floor(Math.random()*colors.length)]; c.style.animationDelay = Math.random()*0.5+'s'; c.style.width = (Math.random()*8+5)+'px'; c.style.height = c.style.width; document.body.appendChild(c); setTimeout(() => c.remove(), 3200); } }
-function showNotification(text, type='info') { const container = document.getElementById('notifContainer'); const notif = document.createElement('div'); notif.className = `notification ${type}`; notif.innerHTML = `<span>${type==='success'?'✅':type==='error'?'❌':'ℹ️'}</span><span>${text}</span>`; container.appendChild(notif); setTimeout(() => notif.classList.add('show'), 10); setTimeout(() => { notif.classList.remove('show'); setTimeout(() => notif.remove(), 400); }, 3500); }
-const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d'); const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10; const segmentAngle = (2 * Math.PI) / prizes.length;
-function drawWheel() { ctx.clearRect(0,0,canvas.width,canvas.height); prizes.forEach((prize, i) => { const angle = i * segmentAngle; ctx.beginPath(); ctx.moveTo(centerX, centerY); ctx.arc(centerX, centerY, radius, angle, angle + segmentAngle); ctx.fillStyle = prize.color; ctx.fill(); ctx.stroke(); ctx.save(); ctx.translate(centerX, centerY); ctx.rotate(angle + segmentAngle/2); ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = "bold 15px Rajdhani"; ctx.fillText(prize.text, radius - 22, 5); ctx.restore(); }); }
-function spinWheel() { if(isSpinning || !currentUser) { if(!currentUser) { showNotification('⚠️ Войдите чтобы крутить!', 'error'); openModal('loginModal'); } return; } const now = Date.now(); if(currentUser.lastSpin && now - currentUser.lastSpin < 86400000) { showNotification('⏳ Попробуйте через 24 часа!', 'error'); return; } isSpinning = true; document.getElementById('spinBtn').disabled = true; document.getElementById('wheelResult').classList.remove('show'); const winningIndex = Math.floor(Math.random() * prizes.length); const extraSpins = 5 * 2 * Math.PI; const targetAngle = extraSpins + (2*Math.PI - (winningIndex*segmentAngle)) - (segmentAngle/2); wheelRotation += targetAngle; canvas.style.transform = `rotate(${wheelRotation}rad)`; setTimeout(() => { isSpinning = false; const prize = prizes[winningIndex]; const resultEl = document.getElementById('wheelResult'); resultEl.innerText = `🎉 Выигрыш: ${prize.text}!`; resultEl.classList.add('show'); if(prize.text !== 'Пусто') { showNotification(`🎁 Вы выиграли: ${prize.text}`, 'success'); createConfetti(); } currentUser.lastSpin = Date.now(); saveUser(); }, 5000); }
+// ===== GLOBAL VARIABLES =====
+let currentUser = null;
+let captchaAnswer = 0;
+let wheelRotation = 0;
+let isSpinning = false;
+let basePrice = 3000;
+let addons = { stream: false, express: false, offline: false };
+let selectedBooster = 'random';
+let currency = 'RUB';
+let pendingRegistration = null;
+let currentLanguage = 'ru';
+
+const exchangeRates = { RUB: 1, USD: 0.011, EUR: 0.01 };
+const currencySymbols = { RUB: '₽', USD: '$', EUR: '€' };
+
+// ===== TRANSLATIONS =====
+const translations = {
+ru: {
+home: 'Главная',
+calculator: 'Калькулятор',
+guarantees: 'Гарантии',
+reviews: 'Отзывы',
+profile: 'Профиль',
+admin: 'Админ',
+login: 'Войти',
+register: 'Регистрация',
+logout: 'Выйти',
+startBoost: '🚀 НАЧАТЬ БУСТ',
+trophies: 'Трофеи',
+arena: 'Арена',
+battlePass: 'Батл Пасс',
+accounts: 'Аккаунты',
+gems: 'Гемы',
+calculateCost: '🧮 Рассчитать стоимость',
+currentTrophies: 'Текущие кубки',
+desiredTrophies: 'Желаемые кубки',
+totalCost: 'Итоговая стоимость',
+additionalOptions: '⚙️ Дополнительные опции',
+gameStream: '📹 Стрим игр',
+recordingBattles: 'Запись всех боёв',
+express: '⚡ Экспресс',
+completion36h: 'Выполнение за 3-6ч',
+offline: '👻 Оффлайн',
+invisibilityFriends: 'Невидимость в друзьях',
+free: 'Бесплатно',
+chooseBooster: '👤 Выбрать бустера (опционально)',
+auto: 'Авто',
+best: '⭐ Лучший',
+additionalRequirements: '📝 Дополнительные требования',
+placeOrder: 'ОФОРМИТЬ ЗАКАЗ',
+ourGuarantees: '🛡️ НАШИ ГАРАНТИИ',
+vpnProtection: 'VPN Защита',
+offlineMode: 'Оффлайн Режим',
+manualPlay: '100% Ручная Игра',
+moneyBack: 'Гарант Возврата',
+liveReviews: '💬 ЖИВЫЕ ОТЗЫВЫ',
+faq: '❓ ЧАСТЫЕ ВОПРОСЫ',
+safeTransfer: 'Безопасно ли передавать аккаунт?',
+orderSpeed: 'Как быстро выполняется заказ?',
+changeMind: 'Что если я передумаю во время буста?',
+joinClub: '🎁 Join the Club',
+subscribe: 'Подписаться',
+personalAccount: '👤 ЛИЧНЫЙ КАБИНЕТ',
+referralLink: '🔗 Реферальная ссылка:',
+copy: '📋 Копировать',
+editProfile: '✏️ Редактировать профиль',
+noOrders: 'У вас пока нет активных заказов',
+activeOrders: 'Активных заказов',
+revenueToday: 'Выручка за сегодня',
+registeredUsers: 'Зарегистрированных пользователей',
+logoutAdmin: '🚪 Выйти из админки',
+contractorDetails: '📋 Реквизиты исполнителя',
+selfEmployed: 'Самозанятый:',
+phone: 'Телефон:',
+publicOffer: '📄 Публичная оферта',
+privacyPolicy: '🔒 Политика конфиденциальности',
+copyright: '© 2026 Destructiv Shop. Не связано с Supercell.',
+fortuneWheel: '🎡 КОЛЕСО ФОРТУНЫ',
+spin: 'КРУТИТЬ!',
+oneAttempt24h: 'Одна попытка каждые 24 часа'
+},
+en: {
+home: 'Home',
+calculator: 'Calculator',
+guarantees: 'Guarantees',
+reviews: 'Reviews',
+profile: 'Profile',
+admin: 'Admin',
+login: 'Login',
+register: 'Register',
+logout: 'Logout',
+startBoost: '🚀 START BOOST',
+trophies: 'Trophies',
+arena: 'Arena',
+battlePass: 'Battle Pass',
+accounts: 'Accounts',
+gems: 'Gems',
+calculateCost: '🧮 Calculate Cost',
+currentTrophies: 'Current Trophies',
+desiredTrophies: 'Desired Trophies',
+totalCost: 'Total Cost',
+additionalOptions: '⚙️ Additional Options',
+gameStream: '📹 Game Stream',
+recordingBattles: 'Recording of all battles',
+express: '⚡ Express',
+completion36h: 'Completion in 3-6h',
+offline: '👻 Offline',
+invisibilityFriends: 'Invisibility in friends',
+free: 'Free',
+chooseBooster: '👤 Choose Booster (optional)',
+auto: 'Auto',
+best: '⭐ Best',
+additionalRequirements: '📝 Additional Requirements',
+placeOrder: 'PLACE ORDER',
+ourGuarantees: '🛡️ OUR GUARANTEES',
+vpnProtection: 'VPN Protection',
+offlineMode: 'Offline Mode',
+manualPlay: '100% Manual Play',
+moneyBack: 'Money Back Guarantee',
+liveReviews: '💬 LIVE REVIEWS',
+faq: '❓ FREQUENTLY ASKED QUESTIONS',
+safeTransfer: 'Is it safe to transfer account?',
+orderSpeed: 'How fast is the order completed?',
+changeMind: 'What if I change my mind during boost?',
+joinClub: '🎁 Join the Club',
+subscribe: 'Subscribe',
+personalAccount: '👤 PERSONAL ACCOUNT',
+referralLink: '🔗 Referral link:',
+copy: '📋 Copy',
+editProfile: '✏️ Edit Profile',
+noOrders: 'No active orders yet',
+activeOrders: 'Active Orders',
+revenueToday: 'Revenue Today',
+registeredUsers: 'Registered Users',
+logoutAdmin: '🚪 Logout from Admin',
+contractorDetails: '📋 Contractor Details',
+selfEmployed: 'Self-employed:',
+phone: 'Phone:',
+publicOffer: '📄 Public Offer',
+privacyPolicy: '🔒 Privacy Policy',
+copyright: '© 2026 Destructiv Shop. Not affiliated with Supercell.',
+fortuneWheel: '🎡 FORTUNE WHEEL',
+spin: 'SPIN!',
+oneAttempt24h: 'One attempt every 24 hours'
+}
+};
+
+// ===== CHANGE LANGUAGE =====
+function changeLanguage() {
+currentLanguage = document.getElementById('langSelect').value;
+const t = translations[currentLanguage];
+
+// Update all elements with data-en attribute
+document.querySelectorAll('[data-en]').forEach(el => {
+const key = el.getAttribute('data-en');
+// Simple translation mapping
+if (key.includes('Главная')) el.textContent = t.home;
+else if (key.includes('Калькулятор')) el.textContent = t.calculator;
+else if (key.includes('Гарантии')) el.textContent = t.guarantees;
+else if (key.includes('Отзывы')) el.textContent = t.reviews;
+else if (key.includes('Профиль')) el.textContent = t.profile;
+else if (key.includes('Админ')) el.textContent = t.admin;
+else if (key.includes('Войти')) el.textContent = t.login;
+else if (key.includes('Регистрация')) el.textContent = t.register;
+else if (key.includes('Выйти')) el.textContent = t.logout;
+else if (key.includes('НАЧАТЬ БУСТ')) el.textContent = t.startBoost;
+else if (key.includes('Трофеи')) el.textContent = t.trophies;
+else if (key.includes('Арена')) el.textContent = t.arena;
+else if (key.includes('Батл Пасс')) el.textContent = t.battlePass;
+else if (key.includes('Аккаунты')) el.textContent = t.accounts;
+else if (key.includes('Гемы')) el.textContent = t.gems;
+else if (key.includes('Рассчитать стоимость')) el.textContent = t.calculateCost;
+else if (key.includes('Текущие кубки')) el.textContent = t.currentTrophies;
+else if (key.includes('Желаемые кубки')) el.textContent = t.desiredTrophies;
+else if (key.includes('Итоговая стоимость')) el.textContent = t.totalCost;
+else if (key.includes('Дополнительные опции')) el.textContent = t.additionalOptions;
+else if (key.includes('Стрим игр')) el.textContent = t.gameStream;
+else if (key.includes('Экспресс')) el.textContent = t.express;
+else if (key.includes('Оффлайн')) el.textContent = t.offline;
+else if (key.includes('Бесплатно')) el.textContent = t.free;
+else if (key.includes('Выбрать бустера')) el.textContent = t.chooseBooster;
+else if (key.includes('Авто')) el.textContent = t.auto;
+else if (key.includes('Лучший')) el.textContent = t.best;
+else if (key.includes('Дополнительные требования')) el.textContent = t.additionalRequirements;
+else if (key.includes('ОФОРМИТЬ ЗАКАЗ')) el.textContent = t.placeOrder;
+else if (key.includes('НАШИ ГАРАНТИИ')) el.textContent = t.ourGuarantees;
+else if (key.includes('VPN Защита')) el.textContent = t.vpnProtection;
+else if (key.includes('Оффлайн Режим')) el.textContent = t.offlineMode;
+else if (key.includes('Ручная Игра')) el.textContent = t.manualPlay;
+else if (key.includes('Гарант Возврата')) el.textContent = t.moneyBack;
+else if (key.includes('ЖИВЫЕ ОТЗЫВЫ')) el.textContent = t.liveReviews;
+else if (key.includes('ЧАСТЫЕ ВОПРОСЫ')) el.textContent = t.faq;
+else if (key.includes('Join the Club')) el.textContent = t.joinClub;
+else if (key.includes('Подписаться')) el.textContent = t.subscribe;
+else if (key.includes('ЛИЧНЫЙ КАБИНЕТ')) el.textContent = t.personalAccount;
+else if (key.includes('Реферальная ссылка')) el.textContent = t.referralLink;
+else if (key.includes('Копировать')) el.textContent = t.copy;
+else if (key.includes('Редактировать профиль')) el.textContent = t.editProfile;
+else if (key.includes('нет активных заказов')) el.textContent = t.noOrders;
+else if (key.includes('Активных заказов')) el.textContent = t.activeOrders;
+else if (key.includes('Выручка за сегодня')) el.textContent = t.revenueToday;
+else if (key.includes('Зарегистрированных пользователей')) el.textContent = t.registeredUsers;
+else if (key.includes('Выйти из админки')) el.textContent = t.logoutAdmin;
+else if (key.includes('Реквизиты исполнителя')) el.textContent = t.contractorDetails;
+else if (key.includes('Самозанятый')) el.textContent = t.selfEmployed;
+else if (key.includes('Телефон')) el.textContent = t.phone;
+else if (key.includes('Публичная оферта')) el.textContent = t.publicOffer;
+else if (key.includes('Политика конфиденциальности')) el.textContent = t.privacyPolicy;
+else if (key.includes('КОЛЕСО ФОРТУНЫ')) el.textContent = t.fortuneWheel;
+else if (key.includes('КРУТИТЬ')) el.textContent = t.spin;
+else if (key.includes('Одна попытка')) el.textContent = t.oneAttempt24h;
+});
+
+// Update placeholders
+const textarea = document.querySelector('.order-notes textarea');
+if (textarea && currentLanguage === 'en') {
+textarea.placeholder = 'For example: do not use certain cards, play at certain times, etc.';
+} else if (textarea) {
+textarea.placeholder = 'Например: не использовать определённые карты, играть в определённое время, и т.д.';
+}
+
+showNotification(currentLanguage === 'ru' ? '🌐 Язык изменён на русский' : '🌐 Language changed to English', 'success');
+}
+
+// ===== REVIEW DATA =====
+const reviewData = [
+{ user: 'ShadowKing', avatar: 'S', text: 'Подняли с 5к до 7.5к за ночь! Бустер играл аккуратно. 🔥', time: '2ч назад' },
+{ user: 'ProGamer24', avatar: 'P', text: 'Лучший сервис, уже 4 раз заказываю. Всегда качественно.', time: '5ч назад' },
+{ user: 'NightWolf', avatar: 'N', text: 'Боялся бана, но всё чисто. VPN + оффлайн режим = идеально.', time: '8ч назад' },
+{ user: 'DragonSlayer', avatar: 'D', text: 'Выиграл 500₽ в колесе, спасибо! Буст тоже на высоте.', time: '12ч назад' },
+{ user: 'CyberNinja', avatar: 'C', text: 'Быстро и качественно. 5 звезд ⭐ Менеджер всегда на связи.', time: '1д назад' }
+];
+
+// ===== WHEEL PRIZES (75% EMPTY) =====
+const prizes = [
+{ text: 'Пусто', textEn: 'Empty', color: '#2a2a4a', weight: 75 },
+{ text: '500₽', textEn: '500₽', color: '#ff003c', weight: 5 },
+{ text: 'Скидка 15%', textEn: '15% Off', color: '#7000ff', weight: 5 },
+{ text: '+150 кубков', textEn: '+150 Trophies', color: '#ffd700', weight: 5 },
+{ text: 'VIP статус', textEn: 'VIP Status', color: '#00e676', weight: 5 },
+{ text: '100 гемов', textEn: '100 Gems', color: '#00bcd4', weight: 5 }
+];
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+const urlParams = new URLSearchParams(window.location.search);
+const referrer = urlParams.get('ref');
+if(referrer) {
+localStorage.setItem('pending_ref', referrer);
+showNotification(`🤝 Вас пригласил ${referrer}! +500₽ бонус`, 'success');
+}
+const saved = localStorage.getItem('destructiv_user');
+if(saved) { currentUser = JSON.parse(saved); updateAuthUI(); }
+generateCaptcha('login');
+generateCaptcha('register');
+calculatePrice();
+drawWheel();
+generateLiveReviews();
+updateReviewCount();
+setupVerifyInputs();
+});
+
+// ===== MODAL FUNCTIONS =====
+function openModal(id){
+document.getElementById(id).style.display = 'flex';
+setTimeout(() => document.getElementById(id).classList.add('show'), 10);
+}
+function closeModal(id){
+document.getElementById(id).classList.remove('show');
+setTimeout(() => document.getElementById(id).style.display = 'none', 300);
+}
+window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(e.target.id); };
+
+// ===== CAPTCHA =====
+function generateCaptcha(type) {
+const n1 = Math.floor(Math.random() * 5) + 1, n2 = Math.floor(Math.random() * 5) + 1;
+captchaAnswer = n1 + n2;
+document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`;
+}
+
+// ===== AUTH FUNCTIONS =====
+async function startEmailVerification(e) {
+e.preventDefault();
+const email = document.getElementById('regEmail').value;
+const password = document.getElementById('regPass').value;
+const nick = document.getElementById('regNick').value;
+const captchaInput = parseInt(document.getElementById('aReg').value);
+if(captchaInput !== captchaAnswer) {
+showNotification('❌ Неверная капча!', 'error');
+generateCaptcha('register');
+return;
+}
+if(password.length < 6) {
+showNotification('❌ Пароль минимум 6 символов!', 'error');
+return;
+}
+try {
+const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : '';
+const response = await fetch(`${apiUrl}/api/auth/send-verification`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ email })
+});
+const result = await response.json();
+if(result.success) {
+pendingRegistration = { email, password, nick };
+document.getElementById('verifyEmailDisplay').innerText = email;
+document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
+document.querySelectorAll('.verify-digit')[0].focus();
+closeModal('registerModal');
+openModal('verifyModal');
+showNotification('📧 Код отправлен на email!', 'success');
+} else {
+showNotification(`❌ ${result.error}`, 'error');
+}
+} catch (error) {
+console.error(error);
+showNotification('❌ Ошибка соединения с сервером', 'error');
+}
+}
+
+function setupVerifyInputs() {
+const inputs = document.querySelectorAll('.verify-digit');
+inputs.forEach((input, index) => {
+input.addEventListener('input', (e) => {
+if(e.target.value && index < inputs.length - 1) inputs[index + 1].focus();
+});
+input.addEventListener('keydown', (e) => {
+if(e.key === 'Backspace' && !e.target.value && index > 0) inputs[index - 1].focus();
+});
+});
+}
+
+function getVerificationInput() {
+return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join('');
+}
+
+async function verifyCode() {
+const enteredCode = getVerificationInput();
+if(enteredCode.length !== 6) {
+showNotification('❌ Введите 6-значный код', 'error');
+return;
+}
+if(!pendingRegistration) return;
+try {
+const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : '';
+const response = await fetch(`${apiUrl}/api/auth/verify-code`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({
+email: pendingRegistration.email,
+code: enteredCode,
+password: pendingRegistration.password,
+nick: pendingRegistration.nick
+})
+});
+const result = await response.json();
+if(result.success) {
+localStorage.setItem('destructiv_token', result.token);
+localStorage.setItem('destructiv_user', JSON.stringify(result.user));
+currentUser = result.user;
+updateAuthUI();
+updateProfileUI();
+closeModal('verifyModal');
+showNotification('✅ Аккаунт создан и подтверждён!', 'success');
+createConfetti();
+pendingRegistration = null;
+document.getElementById('registerForm')?.reset();
+generateCaptcha('register');
+} else {
+showNotification(`❌ ${result.error}`, 'error');
+document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
+document.querySelectorAll('.verify-digit')[0].focus();
+}
+} catch (error) {
+console.error(error);
+showNotification('❌ Ошибка соединения с сервером', 'error');
+}
+}
+
+function resendCode() {
+if(!pendingRegistration) return;
+showNotification('📧 Код отправлен повторно', 'info');
+document.querySelectorAll('.verify-digit').forEach(input => input.value = '');
+document.querySelectorAll('.verify-digit')[0].focus();
+}
+
+async function handleAuth(e, type) {
+e.preventDefault();
+if (type === 'login') {
+const email = document.getElementById('loginEmail').value;
+const password = document.getElementById('loginPass').value;
+const captchaInput = parseInt(document.getElementById('aLogin').value);
+if(captchaInput !== captchaAnswer) {
+showNotification('❌ Неверная капча!', 'error');
+generateCaptcha('login');
+return;
+}
+try {
+const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : '';
+const response = await fetch(`${apiUrl}/api/auth/login`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ email, password })
+});
+const result = await response.json();
+if(result.success) {
+localStorage.setItem('destructiv_token', result.token);
+localStorage.setItem('destructiv_user', JSON.stringify(result.user));
+currentUser = result.user;
+updateAuthUI();
+updateProfileUI();
+closeModal('loginModal');
+showNotification('✅ ' + result.message, 'success');
+createConfetti();
+e.target.reset();
+generateCaptcha('login');
+} else {
+showNotification(`❌ ${result.error}`, 'error');
+}
+} catch (error) {
+console.error(error);
+showNotification('❌ Ошибка соединения с сервером', 'error');
+}
+}
+}
+
+// ===== USER FUNCTIONS =====
+function logout() {
+currentUser = null;
+localStorage.removeItem('destructiv_user');
+localStorage.removeItem('destructiv_token');
+updateAuthUI();
+showSection('home');
+showNotification('👋 Вы вышли', 'info');
+}
+
+function updateAuthUI() {
+document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex';
+document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none';
+}
+
+function handleProfile() {
+if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; }
+updateProfileUI();
+showSection('profile');
+}
+
+function showSection(section) {
+document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none';
+document.getElementById('profileSection').classList.toggle('active', section === 'profile');
+if(section !== 'profile') document.getElementById('profileSection').classList.remove('active');
+document.querySelector('.admin-panel')?.classList.remove('active');
+window.scrollTo(0, 0);
+}
+
+function updateProfileUI() {
+if(!currentUser) return;
+document.getElementById('profileName').innerText = currentUser.name;
+document.getElementById('profileEmail').innerText = currentUser.email;
+document.getElementById('profileBalance').innerText = `Баланс: ${currentUser.balance}${currencySymbols[currency]}`;
+document.getElementById('profileAvatar').innerText = currentUser.avatar;
+document.getElementById('refLink').innerText = `${window.location.origin}${window.location.pathname}?ref=${currentUser.name}`;
+const orderList = document.getElementById('orderList');
+if(currentUser.orders?.length > 0) {
+orderList.innerHTML = currentUser.orders.map(o => `
+<div class="order-card status-active">
+<div><div style="font-weight:bold;">${o.service}</div><div style="font-size:0.85rem; color:#aaa;">Тег: ${o.tag}</div></div>
+<div style="text-align:right;"><div style="color:var(--gold); font-weight:bold;">${o.price}${currencySymbols[currency]}</div><span class="status-badge">В работе</span></div>
+</div>`).join('');
+} else {
+orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>';
+}
+}
+
+function changeAvatar() {
+if(!currentUser) return;
+const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽'];
+currentUser.avatar = avatars[(avatars.indexOf(currentUser.avatar) + 1) % avatars.length];
+saveUser();
+updateProfileUI();
+showNotification('🎨 Аватарка изменена!', 'success');
+}
+
+function editProfile() {
+if(!currentUser) return;
+const newName = prompt('Новый никнейм:', currentUser.name);
+if(newName?.trim()) {
+currentUser.name = newName.trim();
+saveUser();
+updateProfileUI();
+showNotification('✏️ Профиль обновлён!', 'success');
+}
+}
+
+function copyRef() {
+navigator.clipboard.writeText(document.getElementById('refLink').innerText);
+showNotification('📋 Ссылка скопирована!', 'success');
+}
+
+function saveUser() {
+localStorage.setItem('destructiv_user', JSON.stringify(currentUser));
+}
+
+// ===== CALCULATOR FUNCTIONS =====
+function calculatePrice() {
+const current = parseInt(document.getElementById('currentSlider').value),
+target = parseInt(document.getElementById('targetSlider').value);
+document.getElementById('currentValue').innerText = current;
+document.getElementById('targetValue').innerText = target;
+const diff = Math.max(0, target - current);
+let price = diff * 1.5;
+if(addons.stream) price *= 1.2;
+if(addons.express) price *= 1.3;
+basePrice = price;
+updatePriceDisplay();
+}
+
+function toggleAddon(el, name, multiplier) {
+el.classList.toggle('active');
+addons[name] = el.classList.contains('active');
+calculatePrice();
+}
+
+function selectBooster(el, name) {
+document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected'));
+el.classList.add('selected');
+selectedBooster = name;
+}
+
+function updatePriceDisplay() {
+const convertedPrice = Math.round(basePrice * exchangeRates[currency]);
+document.getElementById('finalPrice').innerText = convertedPrice;
+document.getElementById('priceCurrency').innerText = currencySymbols[currency];
+}
+
+function updateCurrency() {
+currency = document.getElementById('currencySelect').value;
+updatePriceDisplay();
+if(currentUser) updateProfileUI();
+}
+
+function switchTab(tab) {
+document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+event.target.classList.add('active');
+showNotification(`📋 Категория: ${event.target.innerText}`, 'info');
+}
+
+// ===== ORDER FUNCTIONS WITH TELEGRAM =====
+function orderNow() {
+if(!currentUser) {
+showNotification('⚠️ Войдите для заказа!', 'error');
+openModal('loginModal');
+return;
+}
+const service = document.querySelector('.tab-btn.active').innerText;
+const price = Math.round(basePrice * exchangeRates[currency]);
+showOrderForm(service, price);
+}
+
+function showOrderForm(service, price) {
+const modal = document.createElement('div');
+modal.className = 'modal';
+modal.id = 'orderFormModal';
+modal.innerHTML = `
+<div class="modal-content" style="max-width: 500px;">
+<span class="close" onclick="closeModal('orderFormModal')">&times;</span>
+<h2>📝 Оформление заказа</h2>
+<div style="background: rgba(112,0,255,0.1); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+<p style="color: var(--gold); margin: 5px 0;"><b>Услуга:</b> ${service}</p>
+<p style="color: var(--success); margin: 5px 0;"><b>Цена:</b> ${price}₽</p>
+</div>
+<form onsubmit="submitOrder(event, ${price})">
+<div class="form-group">
+<label>Ваше имя</label>
+<input type="text" id="orderName" placeholder="Иван" required>
+</div>
+<div class="form-group">
+<label>Email</label>
+<input type="email" id="orderEmail" placeholder="email@example.com" required>
+</div>
+<div class="form-group">
+<label>Telegram или телефон</label>
+<input type="text" id="orderContact" placeholder="@username или +7..." required>
+</div>
+<div class="form-group">
+<label>Дополнительные требования</label>
+<textarea id="orderNotes" rows="3" placeholder="Например: не использовать определённые карты..."></textarea>
+</div>
+<button type="submit" class="submit-btn">✅ Оформить заказ</button>
+</form>
+</div>`;
+document.body.appendChild(modal);
+openModal('orderFormModal');
+}
+
+async function submitOrder(event, price) {
+event.preventDefault();
+const orderData = {
+service: document.querySelector('.tab-btn.active').innerText,
+price: price,
+userName: document.getElementById('orderName').value,
+email: document.getElementById('orderEmail').value,
+phone: document.getElementById('orderContact').value,
+notes: document.getElementById('orderNotes').value
+};
+try {
+showNotification('⏳ Отправка заказа...', 'info');
+const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'http://localhost:3000' : '';
+const response = await fetch(`${apiUrl}/api/orders/create`, {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify(orderData)
+});
+const result = await response.json();
+if (result.success) {
+closeModal('orderFormModal');
+showNotification('✅ Заказ оформлен! Мы получили уведомление.', 'success');
+createConfetti();
+if (!currentUser.orders) currentUser.orders = [];
+currentUser.orders.unshift({
+id: result.order.id,
+service: result.order.service,
+price: result.order.price,
+status: result.order.status,
+tag: result.order.id
+});
+saveUser();
+updateProfileUI();
+} else {
+showNotification('❌ Ошибка оформления заказа', 'error');
+}
+} catch (error) {
+console.error(error);
+showNotification('❌ Ошибка соединения', 'error');
+}
+}
+
+// ===== ADMIN FUNCTIONS =====
+function checkAdminPassword() {
+const password = document.getElementById('adminPassword').value;
+if (password === 'destructivshop123CEO') {
+localStorage.setItem('admin_logged', 'true');
+closeModal('adminLoginModal');
+openAdminPanel();
+showNotification('✅ Добро пожаловать, админ!', 'success');
+} else {
+showNotification('❌ Неверный пароль', 'error');
+}
+document.getElementById('adminPassword').value = '';
+}
+
+function openAdminPanel() {
+const isAdmin = localStorage.getItem('admin_logged');
+if (!isAdmin) { openModal('adminLoginModal'); return; }
+document.getElementById('homeSection').style.display = 'none';
+document.getElementById('profileSection').classList.remove('active');
+const adminPanel = document.querySelector('.admin-panel');
+if (!adminPanel) { createAdminPanel(); }
+document.querySelector('.admin-panel').classList.add('active');
+updateAdminStats();
+}
+
+function createAdminPanel() {
+const adminHTML = `<section class="admin-panel"><h2 style="color: var(--gold); margin-bottom: 30px; text-align: center;">⚙️ Админ панель</h2><div class="admin-stats"><div class="admin-stat-card"><h3 style="color: var(--success);" id="adminOrders">0</h3><p>Активных заказов</p></div><div class="admin-stat-card"><h3 style="color: var(--gold);" id="adminRevenue">0₽</h3><p>Выручка за сегодня</p></div><div class="admin-stat-card"><h3 style="color: var(--accent);" id="adminUsers">0</h3><p>Зарегистрированных пользователей</p></div></div><div style="text-align: center;"><button class="btn btn-login" onclick="logoutAdmin()">🚪 Выйти из админки</button></div></section>`;
+document.body.insertAdjacentHTML('beforeend', adminHTML);
+}
+
+function updateAdminStats() {
+document.getElementById('adminOrders').innerText = '0';
+document.getElementById('adminRevenue').innerText = '0₽';
+document.getElementById('adminUsers').innerText = '0';
+}
+
+function logoutAdmin() {
+localStorage.removeItem('admin_logged');
+document.querySelector('.admin-panel')?.remove();
+showSection('home');
+showNotification('👋 Вы вышли из админки', 'info');
+}
+
+// ===== REVIEWS =====
+function generateLiveReviews() {
+const track = document.getElementById('reviewsTrack');
+const doubled = [...reviewData, ...reviewData];
+track.innerHTML = doubled.map(r => `
+<div class="review-item">
+<div class="review-header">
+<div style="display:flex; align-items:center; gap:10px;">
+<div class="review-avatar">${r.avatar}</div>
+<span class="review-user">@${r.user}</span>
+</div>
+<span class="review-stars">★★★★★</span>
+</div>
+<div class="review-text">${r.text}</div>
+<div class="review-time">${r.time}</div>
+</div>`).join('');
+}
+
+function updateReviewCount() {
+const countEl = document.getElementById('reviewCount');
+let count = 9780;
+setInterval(() => {
+count += Math.floor(Math.random()*3)+1;
+countEl.innerText = count.toLocaleString('ru-RU');
+}, 8000);
+}
+
+// ===== FAQ =====
+function toggleFaq(el) {
+el.parentElement.classList.toggle('active');
+}
+
+// ===== NEWSLETTER =====
+function subscribe(e) {
+e.preventDefault();
+showNotification('✅ Подписка оформлена! +500₽', 'success');
+if(currentUser) {
+currentUser.balance += 500;
+saveUser();
+updateProfileUI();
+}
+e.target.reset();
+}
+
+// ===== CONFETTI =====
+function createConfetti() {
+const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4'];
+for(let i=0; i<70; i++) {
+const c = document.createElement('div');
+c.className = 'confetti';
+c.style.left = Math.random()*100+'vw';
+c.style.background = colors[Math.floor(Math.random()*colors.length)];
+c.style.animationDelay = Math.random()*0.5+'s';
+c.style.width = (Math.random()*8+5)+'px';
+c.style.height = c.style.width;
+document.body.appendChild(c);
+setTimeout(() => c.remove(), 3200);
+}
+}
+
+// ===== NOTIFICATIONS =====
+function showNotification(text, type='info') {
+const container = document.getElementById('notifContainer');
+const notif = document.createElement('div');
+notif.className = `notification ${type}`;
+notif.innerHTML = `<span>${type==='success'?'✅':type==='error'?'❌':'ℹ️'}</span><span>${text}</span>`;
+container.appendChild(notif);
+setTimeout(() => notif.classList.add('show'), 10);
+setTimeout(() => { notif.classList.remove('show'); setTimeout(() => notif.remove(), 400); }, 3500);
+}
+
+// ===== WHEEL (75% EMPTY, IMPROVED DESIGN) =====
+const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d');
+const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10;
+
+function drawWheel() {
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+// Draw outer glow
+ctx.shadowBlur = 20;
+ctx.shadowColor = 'rgba(112,0,255,0.6)';
+
+prizes.forEach((prize, i) => {
+const totalWeight = prizes.reduce((sum, p) => sum + p.weight, 0);
+const segmentAngle = (2 * Math.PI * prize.weight) / totalWeight;
+const startAngle = prizes.slice(0, i).reduce((sum, p) => sum + (2 * Math.PI * p.weight) / totalWeight, 0);
+
+ctx.beginPath();
+ctx.moveTo(centerX, centerY);
+ctx.arc(centerX, centerY, radius, startAngle, startAngle + segmentAngle);
+ctx.fillStyle = prize.color;
+ctx.fill();
+ctx.stroke();
+
+// Draw text
+ctx.save();
+ctx.translate(centerX, centerY);
+ctx.rotate(startAngle + segmentAngle/2);
+ctx.textAlign = "right";
+ctx.fillStyle = "#fff";
+ctx.font = "bold 16px Rajdhani";
+ctx.shadowBlur = 5;
+ctx.shadowColor = 'rgba(0,0,0,0.8)';
+const text = currentLanguage === 'ru' ? prize.text : (prize.textEn || prize.text);
+ctx.fillText(text, radius - 25, 6);
+ctx.restore();
+});
+
+// Reset shadow
+ctx.shadowBlur = 0;
+}
+
+function spinWheel() {
+if(isSpinning || !currentUser) {
+if(!currentUser) {
+showNotification('⚠️ Войдите чтобы крутить!', 'error');
+openModal('loginModal');
+}
+return;
+}
+const now = Date.now();
+if(currentUser.lastSpin && now - currentUser.lastSpin < 86400000) {
+showNotification('⏳ Попробуйте через 24 часа!', 'error');
+return;
+}
+isSpinning = true;
+document.getElementById('spinBtn').disabled = true;
+document.getElementById('wheelResult').classList.remove('show');
+
+// 75% chance for "Пусто"
+const random = Math.random() * 100;
+let winningIndex;
+if (random < 75) {
+winningIndex = 0; // "Пусто"
+} else {
+// 25% for other prizes (distributed equally among remaining 5)
+winningIndex = Math.floor(Math.random() * 5) + 1;
+}
+
+const totalWeight = prizes.reduce((sum, p) => sum + p.weight, 0);
+const segmentAngles = prizes.map(p => (2 * Math.PI * p.weight) / totalWeight);
+const startAngles = prizes.map((_, i) => prizes.slice(0, i).reduce((sum, _, idx) => sum + segmentAngles[idx], 0));
+
+const extraSpins = 5 * 2 * Math.PI;
+const targetAngle = extraSpins + (2*Math.PI - (startAngles[winningIndex] + segmentAngles[winningIndex]/2));
+wheelRotation += targetAngle;
+canvas.style.transform = `rotate(${wheelRotation}rad)`;
+
+setTimeout(() => {
+isSpinning = false;
+const prize = prizes[winningIndex];
+const resultEl = document.getElementById('wheelResult');
+const prizeText = currentLanguage === 'ru' ? prize.text : (prize.textEn || prize.text);
+resultEl.innerText = `🎉 ${currentLanguage === 'ru' ? 'Выигрыш:' : 'You won:'} ${prizeText}!`;
+resultEl.classList.add('show');
+if(prize.text !== 'Пусто') {
+showNotification(`🎁 ${currentLanguage === 'ru' ? 'Вы выиграли:' : 'You won:'} ${prizeText}`, 'success');
+createConfetti();
+}
+currentUser.lastSpin = Date.now();
+saveUser();
+}, 5000);
+}
 </script>
 </body>
 </html>
