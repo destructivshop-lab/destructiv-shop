@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta name="google-site-verification" content="hlGFeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
+<!-- 4-Я СТРОКА: Google Search Console Verification -->
+<meta name="google-site-verification" content="hlGfeApZG74Dzv-G_kf7Q6pKxIcFV8tY9v1CasYJ5OA" />
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DESTRUCTIV | Clash Royale Boosting</title>
 <!-- SEO Meta Tags -->
@@ -591,7 +593,10 @@ captchaAnswer = n1 + n2;
 document.getElementById(`q${type === 'login' ? 'Login' : 'Reg'}`).innerText = `${n1} + ${n2} = ?`;
 }
 
-// --- ИСПРАВЛЕНО: ЗАМЕНА LOCALHOST НА /API ---
+// ==========================================
+// УНИВЕРСАЛЬНЫЕ ФУНКЦИИ С ПРОВЕРКОЙ URL
+// ==========================================
+
 async function startEmailVerification(e) {
     e.preventDefault();
     const email = document.getElementById('regEmail').value;
@@ -608,8 +613,11 @@ async function startEmailVerification(e) {
         return;
     }
     try {
-        // ИЗМЕНЕНО: вместо http://localhost:5500 теперь /api
-        const response = await fetch('/api/auth/send-verification', {
+        // УНИВЕРСАЛЬНЫЙ URL: localhost или production
+        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000' 
+            : '';
+        const response = await fetch(`${apiUrl}/api/auth/send-verification`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email })
@@ -643,6 +651,7 @@ function setupVerifyInputs() {
         });
     });
 }
+
 function getVerificationInput() {
     return Array.from(document.querySelectorAll('.verify-digit')).map(input => input.value).join('');
 }
@@ -655,8 +664,11 @@ async function verifyCode() {
     }
     if(!pendingRegistration) return;
     try {
-        // ИЗМЕНЕНО: вместо http://localhost:5500 теперь /api
-        const response = await fetch('/api/auth/verify-code', {
+        // УНИВЕРСАЛЬНЫЙ URL: localhost или production
+        const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+            ? 'http://localhost:3000' 
+            : '';
+        const response = await fetch(`${apiUrl}/api/auth/verify-code`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -709,8 +721,11 @@ async function handleAuth(e, type) {
             return;
         }
         try {
-            // ИЗМЕНЕНО: вместо http://localhost:5500 теперь /api
-            const response = await fetch('/api/auth/login', {
+            // УНИВЕРСАЛЬНЫЙ URL: localhost или production
+            const apiUrl = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'http://localhost:3000' 
+                : '';
+            const response = await fetch(`${apiUrl}/api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
@@ -736,7 +751,10 @@ async function handleAuth(e, type) {
         }
     }
 }
-// ----------------------------------------
+
+// ==========================================
+// ОСТАЛЬНЫЕ ФУНКЦИИ (без изменений)
+// ==========================================
 
 function logout() {
     currentUser = null;
@@ -746,21 +764,25 @@ function logout() {
     showSection('home');
     showNotification('👋 Вы вышли', 'info');
 }
+
 function updateAuthUI() {
     document.getElementById('authBtns').style.display = currentUser ? 'none' : 'flex';
     document.getElementById('userBtns').style.display = currentUser ? 'flex' : 'none';
 }
+
 function handleProfile() {
     if(!currentUser) { showNotification('⚠️ Сначала войдите!', 'error'); openModal('loginModal'); return; }
     updateProfileUI();
     showSection('profile');
 }
+
 function showSection(section) {
     document.getElementById('homeSection').style.display = section === 'home' ? 'flex' : 'none';
     document.getElementById('profileSection').classList.toggle('active', section === 'profile');
     if(section !== 'profile') document.getElementById('profileSection').classList.remove('active');
     window.scrollTo(0, 0);
 }
+
 function updateProfileUI() {
     if(!currentUser) return;
     document.getElementById('profileName').innerText = currentUser.name;
@@ -779,6 +801,7 @@ function updateProfileUI() {
         orderList.innerHTML = '<div style="color:#555; text-align:center; padding:50px; background:var(--card); border-radius:12px;">Нет активных заказов</div>';
     }
 }
+
 function changeAvatar() {
     if(!currentUser) return;
     const avatars = ['👤','👨','👩','🧙','🦸','🦹','👹','👺','💀','👻','🤖','👽'];
@@ -787,6 +810,7 @@ function changeAvatar() {
     updateProfileUI();
     showNotification('🎨 Аватарка изменена!', 'success');
 }
+
 function editProfile() {
     if(!currentUser) return;
     const newName = prompt('Новый никнейм:', currentUser.name);
@@ -797,13 +821,16 @@ function editProfile() {
         showNotification('✏️ Профиль обновлён!', 'success');
     }
 }
+
 function copyRef() {
     navigator.clipboard.writeText(document.getElementById('refLink').innerText);
     showNotification('📋 Ссылка скопирована!', 'success');
 }
+
 function saveUser() {
     localStorage.setItem('destructiv_user', JSON.stringify(currentUser));
 }
+
 function calculatePrice() {
     const current = parseInt(document.getElementById('currentSlider').value),
     target = parseInt(document.getElementById('targetSlider').value);
@@ -816,31 +843,37 @@ function calculatePrice() {
     basePrice = price;
     updatePriceDisplay();
 }
+
 function toggleAddon(el, name, multiplier) {
     el.classList.toggle('active');
     addons[name] = el.classList.contains('active');
     calculatePrice();
 }
+
 function selectBooster(el, name) {
     document.querySelectorAll('.booster-option').forEach(b => b.classList.remove('selected'));
     el.classList.add('selected');
     selectedBooster = name;
 }
+
 function updatePriceDisplay() {
     const convertedPrice = Math.round(basePrice * exchangeRates[currency]);
     document.getElementById('finalPrice').innerText = convertedPrice;
     document.getElementById('priceCurrency').innerText = currencySymbols[currency];
 }
+
 function updateCurrency() {
     currency = document.getElementById('currencySelect').value;
     updatePriceDisplay();
     if(currentUser) updateProfileUI();
 }
+
 function switchTab(tab) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     event.target.classList.add('active');
     showNotification(`📋 Категория: ${event.target.innerText}`, 'info');
 }
+
 function orderNow() {
     if(!currentUser) {
         showNotification('⚠️ Войдите для заказа!', 'error');
@@ -850,9 +883,11 @@ function orderNow() {
     const service = document.querySelector('.tab-btn.active').innerText;
     showNotification('📝 Заказ оформлен! (демо)', 'success');
 }
+
 const canvas = document.getElementById('wheelCanvas'), ctx = canvas.getContext('2d');
 const centerX = canvas.width/2, centerY = canvas.height/2, radius = canvas.width/2 - 10;
 const segmentAngle = (2 * Math.PI) / prizes.length;
+
 function drawWheel() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     prizes.forEach((prize, i) => {
@@ -865,6 +900,7 @@ function drawWheel() {
         ctx.fillText(prize.text, radius - 22, 5); ctx.restore();
     });
 }
+
 function spinWheel() {
     if(isSpinning || !currentUser) {
         if(!currentUser) {
@@ -897,6 +933,7 @@ function spinWheel() {
         currentUser.lastSpin = Date.now(); saveUser();
     }, 5000);
 }
+
 function generateLiveReviews() {
     const track = document.getElementById('reviewsTrack');
     const doubled = [...reviewData, ...reviewData];
@@ -914,6 +951,7 @@ function generateLiveReviews() {
     </div>
     `).join('');
 }
+
 function startFloatingReviews() {
     setInterval(() => {
         const r = reviewData[Math.floor(Math.random() * reviewData.length)];
@@ -932,6 +970,7 @@ function startFloatingReviews() {
         setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 500); }, 7000);
     }, 6000);
 }
+
 function updateReviewCount() {
     const countEl = document.getElementById('reviewCount');
     let count = 9780;
@@ -940,9 +979,11 @@ function updateReviewCount() {
         countEl.innerText = count.toLocaleString('ru-RU');
     }, 8000);
 }
+
 function toggleFaq(el) {
     el.parentElement.classList.toggle('active');
 }
+
 function subscribe(e) {
     e.preventDefault();
     showNotification('✅ Подписка оформлена! +500₽', 'success');
@@ -953,6 +994,7 @@ function subscribe(e) {
     }
     e.target.reset();
 }
+
 function createConfetti() {
     const colors = ['#ff003c','#7000ff','#ffd700','#00e676','#00bcd4'];
     for(let i=0; i<70; i++) {
@@ -967,6 +1009,7 @@ function createConfetti() {
         setTimeout(() => c.remove(), 3200);
     }
 }
+
 function showNotification(text, type='info') {
     const container = document.getElementById('notifContainer');
     const notif = document.createElement('div');
