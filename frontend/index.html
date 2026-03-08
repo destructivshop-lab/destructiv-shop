@@ -608,7 +608,7 @@ async function startEmailVerification(e) {
         return;
     }
     try {
-        // ИЗМЕНЕНО: вместо http://localhost:3000 теперь /api
+        // ИЗМЕНЕНО: вместо http://localhost:5500 теперь /api
         const response = await fetch('/api/auth/send-verification', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -655,7 +655,7 @@ async function verifyCode() {
     }
     if(!pendingRegistration) return;
     try {
-        // ИЗМЕНЕНО: вместо http://localhost:3000 теперь /api
+        // ИЗМЕНЕНО: вместо http://localhost:5500 теперь /api
         const response = await fetch('/api/auth/verify-code', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -709,7 +709,7 @@ async function handleAuth(e, type) {
             return;
         }
         try {
-            // ИЗМЕНЕНО: вместо http://localhost:3000 теперь /api
+            // ИЗМЕНЕНО: вместо http://localhost:5500 теперь /api
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
